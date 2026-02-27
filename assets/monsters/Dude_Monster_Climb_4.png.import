@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://baxfvci0kqcpg"
-path="res://.godot/imported/Dude_Monster_Climb_4.png-8ada716aa5bd4995ef16ad4fe6770591.ctex"
+path="res://.godot/imported/Dude_Monster_Climb_4.png-d4d3265393b33aa4813e9f9a8188bf30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Dude_Monster_Climb_4.png"
-dest_files=["res://.godot/imported/Dude_Monster_Climb_4.png-8ada716aa5bd4995ef16ad4fe6770591.ctex"]
+source_file="res://assets/monsters/Dude_Monster_Climb_4.png"
+dest_files=["res://.godot/imported/Dude_Monster_Climb_4.png-d4d3265393b33aa4813e9f9a8188bf30.ctex"]
 
 [params]
 

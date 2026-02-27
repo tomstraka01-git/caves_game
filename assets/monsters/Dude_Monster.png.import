@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://urplhpbs8vd"
-path="res://.godot/imported/Dude_Monster.png-f72c16d2eee49d9f10e7930a0d86c2e8.ctex"
+path="res://.godot/imported/Dude_Monster.png-5733b2bced2ee8a2532792d355e37a92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Dude_Monster.png"
-dest_files=["res://.godot/imported/Dude_Monster.png-f72c16d2eee49d9f10e7930a0d86c2e8.ctex"]
+source_file="res://assets/monsters/Dude_Monster.png"
+dest_files=["res://.godot/imported/Dude_Monster.png-5733b2bced2ee8a2532792d355e37a92.ctex"]
 
 [params]
 

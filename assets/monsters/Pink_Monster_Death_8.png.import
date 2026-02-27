@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bn2lvs3jjg1y4"
-path="res://.godot/imported/Pink_Monster_Death_8.png-75d20ff21416b00722084e335a5c25d7.ctex"
+path="res://.godot/imported/Pink_Monster_Death_8.png-45f6749419a4917c4d1fae250ecefe67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pink_Monster_Death_8.png"
-dest_files=["res://.godot/imported/Pink_Monster_Death_8.png-75d20ff21416b00722084e335a5c25d7.ctex"]
+source_file="res://assets/monsters/Pink_Monster_Death_8.png"
+dest_files=["res://.godot/imported/Pink_Monster_Death_8.png-45f6749419a4917c4d1fae250ecefe67.ctex"]
 
 [params]
 

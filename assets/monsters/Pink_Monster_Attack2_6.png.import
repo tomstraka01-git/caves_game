@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvy2p4icy43nf"
-path="res://.godot/imported/Pink_Monster_Attack2_6.png-f2cccf2bd54a9f4648cde168fa12da57.ctex"
+path="res://.godot/imported/Pink_Monster_Attack2_6.png-b031ffc71014e2427b7c87f00840a0ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pink_Monster_Attack2_6.png"
-dest_files=["res://.godot/imported/Pink_Monster_Attack2_6.png-f2cccf2bd54a9f4648cde168fa12da57.ctex"]
+source_file="res://assets/monsters/Pink_Monster_Attack2_6.png"
+dest_files=["res://.godot/imported/Pink_Monster_Attack2_6.png-b031ffc71014e2427b7c87f00840a0ab.ctex"]
 
 [params]
 

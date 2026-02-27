@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bg5fjeu8ab7l1"
-path="res://.godot/imported/Owlet_Monster_Attack2_6.png-e2bbe385d95747ba74485472e3c073bd.ctex"
+path="res://.godot/imported/Owlet_Monster_Attack2_6.png-9d25ac13a5db7269c120f2db967e6431.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Owlet_Monster_Attack2_6.png"
-dest_files=["res://.godot/imported/Owlet_Monster_Attack2_6.png-e2bbe385d95747ba74485472e3c073bd.ctex"]
+source_file="res://assets/monsters/Owlet_Monster_Attack2_6.png"
+dest_files=["res://.godot/imported/Owlet_Monster_Attack2_6.png-9d25ac13a5db7269c120f2db967e6431.ctex"]
 
 [params]
 

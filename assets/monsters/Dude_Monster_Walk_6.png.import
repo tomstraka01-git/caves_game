@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bt1j2g3p4qs0b"
-path="res://.godot/imported/Dude_Monster_Walk_6.png-0c070f2faf0a227dcc6d46b31eaebe7f.ctex"
+path="res://.godot/imported/Dude_Monster_Walk_6.png-0e1977957e0f5ea1c6e49ebbe49e5c00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Dude_Monster_Walk_6.png"
-dest_files=["res://.godot/imported/Dude_Monster_Walk_6.png-0c070f2faf0a227dcc6d46b31eaebe7f.ctex"]
+source_file="res://assets/monsters/Dude_Monster_Walk_6.png"
+dest_files=["res://.godot/imported/Dude_Monster_Walk_6.png-0e1977957e0f5ea1c6e49ebbe49e5c00.ctex"]
 
 [params]
 

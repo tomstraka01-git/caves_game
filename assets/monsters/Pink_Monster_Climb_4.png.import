@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgdkjbtvgg5sx"
-path="res://.godot/imported/Pink_Monster_Climb_4.png-b28856cc35d3d8b001de32388955cd47.ctex"
+path="res://.godot/imported/Pink_Monster_Climb_4.png-69ba0177aad8dfa4c99678aa2f92539d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pink_Monster_Climb_4.png"
-dest_files=["res://.godot/imported/Pink_Monster_Climb_4.png-b28856cc35d3d8b001de32388955cd47.ctex"]
+source_file="res://assets/monsters/Pink_Monster_Climb_4.png"
+dest_files=["res://.godot/imported/Pink_Monster_Climb_4.png-69ba0177aad8dfa4c99678aa2f92539d.ctex"]
 
 [params]
 

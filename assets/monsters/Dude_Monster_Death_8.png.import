@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6lqur2tqwua8"
-path="res://.godot/imported/Dude_Monster_Death_8.png-a962c198f370396aa27f50ae669f7a49.ctex"
+path="res://.godot/imported/Dude_Monster_Death_8.png-ecf985c9a1efc2580d7e77634bed972a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Dude_Monster_Death_8.png"
-dest_files=["res://.godot/imported/Dude_Monster_Death_8.png-a962c198f370396aa27f50ae669f7a49.ctex"]
+source_file="res://assets/monsters/Dude_Monster_Death_8.png"
+dest_files=["res://.godot/imported/Dude_Monster_Death_8.png-ecf985c9a1efc2580d7e77634bed972a.ctex"]
 
 [params]
 

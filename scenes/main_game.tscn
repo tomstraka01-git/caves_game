@@ -1,3 +1,24 @@
 [gd_scene format=3 uid="uid://d3pqxun5soswx"]
 
+[ext_resource type="PackedScene" uid="uid://bbgsrtc5wvpjj" path="res://scenes/character.tscn" id="1_s3esy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72e8q"]
+size = Vector2(616, 93)
+
 [node name="main_game" type="Node2D" unique_id=443284399]
+
+[node name="Character" parent="." unique_id=1207945146 instance=ExtResource("1_s3esy")]
+position = Vector2(11, -39)
+
+[node name="Camera2D" type="Camera2D" parent="Character" unique_id=1739797257]
+zoom = Vector2(2, 2)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1371598156]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=556907723]
+position = Vector2(-34, 89)
+shape = SubResource("RectangleShape2D_72e8q")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionShape2D" unique_id=1191468148]
+position = Vector2(9, -14)
+polygon = PackedVector2Array(-306, -44.5, 307, -46.5, 308, 52.5, -303, 50.5)

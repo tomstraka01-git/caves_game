@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ovoxtcdgkjcd"
-path="res://.godot/imported/Owlet_Monster_Climb_4.png-ba06201bb7f8dc1fb73e83159e184c4f.ctex"
+path="res://.godot/imported/Owlet_Monster_Climb_4.png-97b63436816f1f1ff19f5d0ccbe26887.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Owlet_Monster_Climb_4.png"
-dest_files=["res://.godot/imported/Owlet_Monster_Climb_4.png-ba06201bb7f8dc1fb73e83159e184c4f.ctex"]
+source_file="res://assets/monsters/Owlet_Monster_Climb_4.png"
+dest_files=["res://.godot/imported/Owlet_Monster_Climb_4.png-97b63436816f1f1ff19f5d0ccbe26887.ctex"]
 
 [params]
 
