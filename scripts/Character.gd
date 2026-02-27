@@ -10,13 +10,21 @@ var is_attacking = false
 var ATTACK_COOLDOWN = 1.0
 var attack_timer = 0.0
 
-@export var player_health = 100
 
-func damage_player(amount: int):
-    player_health -= amount
-    print(player_health)
+
+
+@export var max_health := 100
+
+var player_health := max_health
+@onready var progress_bar = $Camera2D/Player_Health
+
+func take_damage(amount: int):
+    player_health = clamp(player_health - amount, 0, max_health)
+    progress_bar.change_health(player_health)
     if player_health <= 0:
         die()
+func _ready() -> void:
+    take_damage(0)
 
 func _physics_process(delta: float) -> void:
    
@@ -97,4 +105,6 @@ func _on_animated_sprite_2d_animation_finished() -> void:
         is_attacking = false
 
 func die():
+    await get_tree().create_timer(0.2).timeout 
     get_tree().reload_current_scene()
+        

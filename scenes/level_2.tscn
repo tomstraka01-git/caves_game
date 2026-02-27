@@ -68,9 +68,7 @@ zoom = Vector2(3, 3)
 
 [node name="Enemy" parent="." unique_id=1883704225 instance=ExtResource("2_1y8me")]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=667789562]
-
-[node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayer" unique_id=1088113057]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1088113057]
 z_index = -1
 texture_filter = 1
 texture_repeat = 1

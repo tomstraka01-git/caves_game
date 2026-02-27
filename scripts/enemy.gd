@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var ATTACK_RANGE = 40.0 
 @export var ATTACK_COOLDOWN = 1.5 
 @export var DETECT_AREA = 100
+@export var damage_enemy = 10
 
 @onready var anim_sprite = $AnimatedSprite2D
 
@@ -61,3 +62,4 @@ func _play_animation(anim_name: String) -> void:
 func _attack_player() -> void:
     
     print("Enemy attacks player!")
+    $"../Character".take_damage(damage_enemy)
