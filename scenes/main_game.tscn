@@ -1,9 +1,54 @@
-[gd_scene format=3 uid="uid://d3pqxun5soswx"]
+[gd_scene format=4 uid="uid://d3pqxun5soswx"]
 
 [ext_resource type="PackedScene" uid="uid://bbgsrtc5wvpjj" path="res://scenes/character.tscn" id="1_s3esy"]
+[ext_resource type="Texture2D" uid="uid://mbp20lkfgp3u" path="res://assets/Tileset_Cave.png" id="2_72e8q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_72e8q"]
-size = Vector2(616, 93)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_72e8q"]
+texture = ExtResource("2_72e8q")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_d2op2"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_72e8q")
 
 [node name="main_game" type="Node2D" unique_id=443284399]
 
@@ -13,12 +58,7 @@ position = Vector2(11, -39)
 [node name="Camera2D" type="Camera2D" parent="Character" unique_id=1739797257]
 zoom = Vector2(2, 2)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1371598156]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=556907723]
-position = Vector2(-34, 89)
-shape = SubResource("RectangleShape2D_72e8q")
-
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionShape2D" unique_id=1191468148]
-position = Vector2(9, -14)
-polygon = PackedVector2Array(-306, -44.5, 307, -46.5, 308, 52.5, -303, 50.5)
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=567239020]
+z_index = -1
+tile_map_data = PackedByteArray("AAD2/wIAAAAAAAAAAAD3/wIAAAAAAAAAAAD4/wIAAAAAAAAAAAD5/wIAAAAAAAAAAAD6/wIAAAAAAAAAAAD7/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wIAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAAAAAAAAANAAEAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAKAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAD1/wIAAAAAAAAAAAD/////AAAFAAAAAAAAAP//AAAFAAAAAAABAP//AAAFAAAAAAACAP//AAAFAAAAAAADAP//AAAFAAAAAAAEAP//AAAFAAAAAAAFAP//AAAFAAAAAAAGAP//AAAFAAAAAAD+////AAAFAAAAAAD9////AAAFAAAAAAD8////AAAFAAAAAAD7//7/AAAFAAAAAAD6//7/AAAFAAAAAAD8//7/AAAFAAAAAAD9//7/AAAFAAAAAAD+//7/AAAFAAAAAAD///7/AAAFAAAAAAAAAP7/AAAFAAAAAAABAP7/AAAFAAAAAAACAP3/AAAFAAAAAAADAP3/AAAFAAAAAAAEAP3/AAAFAAAAAAAFAP3/AAAFAAAAAAAGAP3/AAAFAAAAAAAHAP3/AAAFAAAAAAAIAP3/AAAFAAAAAAAJAP3/AAAFAAAAAAAKAP3/AAAFAAAAAAADAPz/AAAFAAAAAAACAPz/AAAFAAAAAAABAPz/AAAFAAAAAAAAAPz/AAAFAAAAAAD///z/AAAFAAAAAAD+//z/AAAFAAAAAAD9//z/AAAFAAAAAAD8//z/AAAFAAAAAAD7//z/AAAFAAAAAAD6//v/AAAFAAAAAAD5//v/AAAFAAAAAAD4//v/AAAFAAAAAAD3//v/AAAFAAAAAAD2//v/AAAFAAAAAAD7//v/AAAFAAAAAAABAP3/AAAFAAAAAAAAAP3/AAAFAAAAAAD///3/AAAFAAAAAAD+//3/AAAFAAAAAAD9//3/AAAFAAAAAAD8//3/AAAFAAAAAAA=")
+tile_set = SubResource("TileSet_d2op2")
