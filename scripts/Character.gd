@@ -5,42 +5,96 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -300.0 
 
+var attack_index = 0
+var is_attacking = false
+var ATTACK_COOLDOWN = 1.0
+var attack_timer = 0.0
+
+@export var player_health = 100
+
+func damage_player(amount: int):
+    player_health -= amount
+    print(player_health)
+    if player_health <= 0:
+        die()
+
 func _physics_process(delta: float) -> void:
-	
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+   
+    if not is_on_floor():
+        velocity += get_gravity() * delta
+
+  
+    if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+        velocity.y = JUMP_VELOCITY
+        is_attacking = false
+   
+    attack_timer -= delta
+
+    var direction = 0
+    if Input.is_action_pressed("move_left"):
+        is_attacking = false
+    elif Input.is_action_pressed("move_right"):
+        is_attacking = false
+    if not is_attacking:
+        if Input.is_action_pressed("move_left"):
+            direction = -1
+            $Pivot.scale.x = -1
+            is_attacking = false
+        elif Input.is_action_pressed("move_right"):
+            direction = 1
+            $Pivot.scale.x = 1
+            is_attacking = false
+            
+    velocity.x = direction * SPEED
+    if Input.is_action_just_pressed("attack") and attack_timer <= 0:
+        attack_timer = ATTACK_COOLDOWN
+        player_attack()
 
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 
 
-	var direction = 0
-	if Input.is_action_pressed("move_left"):
-		direction = -1
-		$Pivot.scale.x = -1
-	elif Input.is_action_pressed("move_right"):
-		direction = 1
-		$Pivot.scale.x = 1
+    
 
-	velocity.x = direction * SPEED
+    
+    move_and_slide()
 
+    # Death tiles
+    for i in get_slide_collision_count():
+        var collision = get_slide_collision(i)
+        var collider = collision.get_collider()
+        if collider is TileMapLayer:
+            var tilemap_layer = collider
+            var local_pos = tilemap_layer.to_local(collision.get_position())
+            var cell_coords = tilemap_layer.local_to_map(local_pos)
+            var tile_data = tilemap_layer.get_cell_tile_data(cell_coords)
+            if tile_data and tile_data.get_custom_data("deadly") == true:
+                die()
 
-	move_and_slide()
+  
+    if not is_attacking:
+        var anim = ""
+        if not is_on_floor():
+            anim = "jump"
+        elif direction != 0:
+            anim = "run"
+        else:
+            anim = "idle"
 
-	
-	var new_anim = ""
+        if anim_sprite.animation != anim:
+            anim_sprite.play(anim)
 
-	if not is_on_floor():
-		if velocity.y < 0:
-			new_anim = "jump"  
-		else:
-			new_anim = "fall"  
-	elif direction != 0:
-		new_anim = "run"
-	else:
-		new_anim = "idle"
+func player_attack():
+    is_attacking = true
+    if attack_index == 0:
+        anim_sprite.play("attack_1")
+        attack_index = 1
+    else:
+        anim_sprite.play("attack_2")
+        attack_index = 0
 
-	
-	if anim_sprite.animation != new_anim:
-		anim_sprite.play(new_anim)
+func _on_animated_sprite_2d_animation_finished() -> void:
+    if anim_sprite.animation.begins_with("attack"):
+        is_attacking = false
+
+func die():
+    get_tree().reload_current_scene()
