@@ -12,6 +12,9 @@ var attack_timer = 0.0
 
 
 
+@export var min_damage = 15
+
+@export var crit_damage = 30
 
 @export var max_health := 100
 
@@ -39,18 +42,15 @@ func _physics_process(delta: float) -> void:
     attack_timer -= delta
 
     var direction = 0
+
+   
     if Input.is_action_pressed("move_left"):
-        is_attacking = false
-    elif Input.is_action_pressed("move_right"):
-        is_attacking = false
-    if not is_attacking:
-        if Input.is_action_pressed("move_left"):
-            direction = -1
-            $Pivot.scale.x = -1
+        direction = -1
+        $Pivot.scale.x = -1
           
-        elif Input.is_action_pressed("move_right"):
-            direction = 1
-            $Pivot.scale.x = 1
+    elif Input.is_action_pressed("move_right"):
+        direction = 1
+        $Pivot.scale.x = 1
           
             
     velocity.x = direction * SPEED
@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
     
 
     
-    move_and_slide()
+    
 
     # Death tiles
     for i in get_slide_collision_count():
@@ -77,9 +77,7 @@ func _physics_process(delta: float) -> void:
             var tile_data = tilemap_layer.get_cell_tile_data(cell_coords)
             if tile_data and tile_data.get_custom_data("deadly") == true:
                 die()
-        if collider.is_in_group("enemies") and is_attacking:
-            if collider.has_method("take_damage_enemy"):
-                collider.take_damage_enemy(20)
+    
 
   
     if not is_attacking:
@@ -93,17 +91,26 @@ func _physics_process(delta: float) -> void:
 
         if anim_sprite.animation != anim:
             anim_sprite.play(anim)
-
+    move_and_slide()
 func player_attack():
     is_attacking = true
-    
+    var damage_enemy = min_damage
     anim_sprite.play("attack_1")
-
+    var bodies = $Pivot/AnimatedSprite2D/Attack_Area.get_overlapping_bodies()
+    
+    for body in bodies:
+        if body.is_in_group("enemies"):
+            var number = randi() % 10 
+            if number == 0:
+                damage_enemy = crit_damage
+            else:
+                damage_enemy -= number /2
+            body.take_damage_enemy(damage_enemy)
     
     
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-    if anim_sprite.animation.begins_with("attack_1") or anim_sprite.animation.begins_with("attack_2"):
+    if anim_sprite.animation.begins_with("attack_1") or anim_sprite.animation.begins_with("attack"):
         is_attacking = false
 
 func die():

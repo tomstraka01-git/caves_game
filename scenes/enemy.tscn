@@ -228,7 +228,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ile5s")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 8.0
 }, {
@@ -272,7 +272,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0lg75")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 10.0
 }, {
@@ -286,7 +286,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j0dkt")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 6.0
 }, {
@@ -349,6 +349,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ra3w"]
+size = Vector2(28.5, 31.5)
+
 [node name="Enemy" type="CharacterBody2D" unique_id=1883704225 groups=["enemies"]]
 script = ExtResource("1_md0e3")
 
@@ -356,11 +359,19 @@ script = ExtResource("1_md0e3")
 position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_md0e3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1148265924]
+[node name="Pivot" type="Node2D" parent="." unique_id=756604641]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=1148265924]
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_8tegq")
-animation = &"death"
+animation = &"idle"
 autoplay = "idle"
-frame = 8
-frame_progress = 0.7561466
+
+[node name="Attack_Area" type="Area2D" parent="Pivot" unique_id=1918825138]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Attack_Area" unique_id=95900300]
+position = Vector2(23.000002, -1)
+shape = SubResource("RectangleShape2D_4ra3w")
+
+[connection signal="animation_finished" from="Pivot/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

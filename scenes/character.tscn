@@ -314,10 +314,13 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp8ca"]
+size = Vector2(21.75, 48.25)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dpix"]
 size = Vector2(85.07701, 104.603516)
 
-[node name="Character" type="CharacterBody2D" unique_id=1207945146]
+[node name="Character" type="CharacterBody2D" unique_id=1207945146 groups=["character"]]
 texture_filter = 1
 texture_repeat = 1
 script = ExtResource("1_0dpix")
@@ -326,8 +329,14 @@ script = ExtResource("1_0dpix")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=737272096]
 sprite_frames = SubResource("SpriteFrames_63irx")
-animation = &"attack_2"
+animation = &"attack_1"
 autoplay = "idle"
+
+[node name="Attack_Area" type="Area2D" parent="Pivot/AnimatedSprite2D" unique_id=1161175929 groups=["character"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/AnimatedSprite2D/Attack_Area" unique_id=192589475]
+position = Vector2(23.125, 9.125)
+shape = SubResource("RectangleShape2D_dp8ca")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1659529865]
 position = Vector2(-2.9802322e-07, 9)
