@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dqqx8fa8xu4dh" path="res://scenes/enemy.tscn" id="3_d2op2"]
 [ext_resource type="Texture2D" uid="uid://jwb0gkl16ff0" path="res://assets/hearts/health_bar.png" id="3_wi4c7"]
 [ext_resource type="Texture2D" uid="uid://qwtft451gn2w" path="res://assets/hearts/health_bar_decoration.png" id="4_70vka"]
+[ext_resource type="FontFile" uid="uid://bg3yiuqdy23pm" path="res://assets/fonts/DungeonFont.ttf" id="5_70vka"]
+[ext_resource type="PackedScene" uid="uid://ijx141nncv1f" path="res://scenes/coin.tscn" id="7_wi4c7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d2op2"]
 texture = ExtResource("2_72e8q")
@@ -121,6 +123,14 @@ position = Vector2(0.834425, -19.499996)
 scale = Vector2(0.40107578, 0.40107578)
 texture = ExtResource("4_70vka")
 
+[node name="Coin_Label" type="Label" parent="Character/Camera2D" unique_id=270894296]
+offset_left = -184.0
+offset_top = -79.0
+offset_right = -115.0
+offset_bottom = -56.0
+theme_override_fonts/font = ExtResource("5_70vka")
+text = "Coins = 0"
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=567239020]
 z_index = -1
 texture_filter = 1
@@ -137,3 +147,6 @@ texture_filter = 1
 texture_repeat = 1
 tile_map_data = PackedByteArray("AAAcAAYAAAAFAAAAAAAbAAYAAAAFAAAAAAAlAA4AAAAHAAAAAAAkAA4AAAAHAAAAAAAfABUAAAAHAAAAAAAgABUAAAAHAAAAAAAnABoAAAAHAAAAAAAmABoAAAAHAAAAAAANAAQAAAAGAAAAAAAOAAQAAAAGAAAAAAAPAAUAAAAGAAAAAAAQAAQAAAAGAAAAAAAnABwAAAAHAAAAAAAmAB0AAAAHAAAAAAAlAB8AAAAIAAEAAAAkACAAAAAIAAEAAAAjACAAAAAIAAEAAAAiACEAAAAIAAEAAAAhACEAAAAHAAEAAAAgACEAAAAHAAEAAAAfACEAAAAHAAEAAAAbACYAAAAHAAAAAAAcACgAAAAHAAAAAAAdACkAAAAHAAAAAADl/ycAAAAHAAAAAADm/ykAAAAHAAAAAADn/ykAAAAHAAAAAAD1/ysAAAAHAAEAAAD2/ysAAAAHAAEAAAD3/ysAAAAHAAEAAAD4/yoAAAAHAAAAAAD5/yoAAAAHAAAAAAD+/ycAAAAIAAAAAAD//ycAAAAIAAAAAADy/yAAAAAIAAEAAADz/yAAAAAIAAEAAADl/yIAAAAHAAAAAADm/yIAAAAHAAAAAAA=")
 tile_set = SubResource("TileSet_ipu61")
+
+[node name="Coin" parent="." unique_id=588464781 instance=ExtResource("7_wi4c7")]
+position = Vector2(168, -15)

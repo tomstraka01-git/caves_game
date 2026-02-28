@@ -9,24 +9,28 @@ extends CharacterBody2D
 @onready var attack_area: Area2D = $Pivot/Attack_Area
 var player: CharacterBody2D = null
 var attack_timer = 0.0
-
 enum State { IDLE, WALK, ATTACK, HIT, DEAD }
 var state = State.IDLE
 var attack_triggered = false
+var attack_id = 0
+var coin_scene = preload("res://scenes/coin.tscn")
 
 func _ready():
     player = get_tree().get_current_scene().get_node("Character")
     anim_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
+func spawn_coin():
+    var coin = coin_scene.instantiate()
+    coin.global_position = global_position
+    get_parent().add_child(coin)
 
 func _physics_process(delta: float) -> void:
     if player == null or state == State.DEAD:
         return
-    
-    # Don't interrupt hit or attack animations
+
     if state == State.HIT or (state == State.ATTACK and attack_triggered):
+        velocity.x = 0
         if not is_on_floor():
             velocity.y += ProjectSettings.get_setting("physics/2d/default_gravity") * delta
-        velocity.x = 0
         move_and_slide()
         return
 
@@ -36,6 +40,7 @@ func _physics_process(delta: float) -> void:
     var direction = (player.global_position - global_position).x
     var distance_to_player = abs(direction)
 
+    # Determine next state
     if distance_to_player < DETECT_AREA:
         if distance_to_player > ATTACK_RANGE:
             state = State.WALK
@@ -49,8 +54,12 @@ func _physics_process(delta: float) -> void:
 
     match state:
         State.WALK:
-            velocity.x = SPEED * sign(direction)
-            $Pivot.scale.x = sign(direction)
+            # Guard against zero direction causing stuck walk animation
+            if distance_to_player > 2.0:
+                velocity.x = SPEED * sign(direction)
+                $Pivot.scale.x = sign(direction)
+            else:
+                velocity.x = 0
             _play_animation("walk")
 
         State.IDLE:
@@ -59,7 +68,8 @@ func _physics_process(delta: float) -> void:
 
         State.ATTACK:
             velocity.x = 0
-            $Pivot.scale.x = sign(direction)
+            if direction != 0:
+                $Pivot.scale.x = sign(direction)
             if not attack_triggered:
                 attack_triggered = true
                 _attack_player()
@@ -79,15 +89,17 @@ func take_damage_enemy(amount: int) -> void:
     if HEALTH <= 0:
         die_enemy()
         return
-    # Switch to HIT state — physics_process will leave it alone until anim finishes
+    attack_id += 1
+    attack_triggered = false
     state = State.HIT
     _play_animation("hit")
 
 func _attack_player() -> void:
+    var my_id = attack_id
     _play_animation("attack")
     attack_timer = ATTACK_COOLDOWN
     await get_tree().create_timer(0.3).timeout
-    if state == State.DEAD:
+    if my_id != attack_id or state == State.DEAD or state == State.HIT:
         return
     for body in attack_area.get_overlapping_bodies():
         if body.is_in_group("character") and body.has_method("take_damage"):
@@ -95,9 +107,12 @@ func _attack_player() -> void:
             print("Enemy attacks player!")
 
 func die_enemy() -> void:
+    attack_id += 1
+    attack_triggered = false
     state = State.DEAD
     _play_animation("death")
     await get_tree().create_timer(1.2).timeout
+    spawn_coin()
     queue_free()
 
 func _play_animation(anim_name: String) -> void:
@@ -108,8 +123,8 @@ func _on_animated_sprite_2d_animation_finished():
     var anim_name = anim_sprite.animation
     if anim_name == "hit":
         print("hit finished")
-        state = State.IDLE  # return to normal logic
-    if anim_name == "attack":
+        state = State.IDLE
+    elif anim_name == "attack":
         print("attack anim finished")
         attack_triggered = false
-        state = State.IDLE  # return to normal logic
+        state = State.IDLE

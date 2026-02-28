@@ -9,7 +9,7 @@ var attack_index = 0
 var is_attacking = false
 var ATTACK_COOLDOWN = 1.0
 var attack_timer = 0.0
-
+var coins = 0
 
 
 @export var min_damage = 15
@@ -20,6 +20,7 @@ var attack_timer = 0.0
 
 var player_health := max_health
 @onready var progress_bar = $Camera2D/Player_Health
+@onready var coin_label = $Camera2D/Coin_Label
 
 func take_damage(amount: int):
     player_health = clamp(player_health - amount, 0, max_health)
@@ -28,6 +29,7 @@ func take_damage(amount: int):
         die()
 func _ready() -> void:
     take_damage(0)
+    coin_label.text = "Coins: 0"
 
 func _physics_process(delta: float) -> void:
    
@@ -77,7 +79,7 @@ func _physics_process(delta: float) -> void:
             var tile_data = tilemap_layer.get_cell_tile_data(cell_coords)
             if tile_data and tile_data.get_custom_data("deadly") == true:
                 die()
-    
+       
 
   
     if not is_attacking:
@@ -117,3 +119,8 @@ func die():
     await get_tree().create_timer(0.2).timeout 
     get_tree().reload_current_scene()
         
+        
+func add_score(amount: int):
+    coins += amount
+    coin_label.text = "Coins: " + str(coins)
+    

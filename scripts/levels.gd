@@ -18,3 +18,7 @@ func _on_left_pressed() -> void:
 
 func _on_right_pressed() -> void:
     pass # Replace with function body.
+
+
+func _on_level_0_pressed() -> void:
+    get_tree().change_scene_to_file("res://scenes/main_game.tscn")
