@@ -5,14 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://mbp20lkfgp3u" path="res://assets/Tileset_Cave.png" id="3_5nv5w"]
 [ext_resource type="FontFile" uid="uid://bt1c2ncsb2mq0" path="res://assets/fonts/QuinqueFive_Font_1_20/QuinqueFive.ttf" id="7_sk60w"]
 [ext_resource type="Texture2D" uid="uid://d2hasf7xh7sb2" path="res://assets/Screenshot_2026-02-28_103944-removebg-preview.png" id="8_ll25s"]
+[ext_resource type="PackedScene" uid="uid://cvxejs2dkxp65" path="res://scenes/portal.tscn" id="8_qjcqe"]
 [ext_resource type="Texture2D" uid="uid://xlkqefn7v623" path="res://assets/Screenshot_2026-02-28_105226-removebg-preview.png" id="9_sk60w"]
 [ext_resource type="Texture2D" uid="uid://cjk63kfbrbdvv" path="res://assets/Screenshot_2026-02-28_110053-removebg-preview.png" id="10_om4r1"]
 
-[sub_resource type="Gradient" id="Gradient_o2tjn"]
+[sub_resource type="Gradient" id="Gradient_jv3i5"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sk60w"]
-gradient = SubResource("Gradient_o2tjn")
+gradient = SubResource("Gradient_jv3i5")
 fill = 1
 fill_from = Vector2(0.49447513, 0.4723757)
 fill_to = Vector2(0.49447513, 0)
@@ -220,3 +221,23 @@ position = Vector2(969, 7)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1991492943]
 color = Color(0.11764706, 0.11764706, 0.11764706, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=965899058]
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=1873517258]
+visible = false
+offset_left = -620.0
+offset_top = -577.0
+offset_right = 2136.0
+offset_bottom = 664.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Area2D" parent="." unique_id=903844828 instance=ExtResource("8_qjcqe")]
+position = Vector2(1452, -25)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=934194175]
+position = Vector2(1449, -8)
+scale = Vector2(3.1562471, 3.1562471)
+color = Color(0.17627355, 0.108008675, 0.3316529, 1)
+texture = SubResource("GradientTexture2D_sk60w")

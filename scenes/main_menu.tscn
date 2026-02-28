@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://6lrobwlrb6w3" path="res://assets/Lava/Screenshot_2026-02-28_121821-removebg-preview.png" id="9_hstxw"]
 [ext_resource type="Texture2D" uid="uid://byal6kuiibec7" path="res://assets/Lava/Screenshot_2026-02-28_121843-removebg-preview.png" id="10_8egab"]
 [ext_resource type="PackedScene" uid="uid://bbo3v0y7bja6p" path="res://scenes/torch.tscn" id="16_5pajh"]
+[ext_resource type="AudioStream" uid="uid://cyq6pghdcqmi6" path="res://assets/sounds/UI Soundpack/UI Soundpack/WAV/Minimalist2.wav" id="17_j7ex8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ekxnf"]
 atlas = ExtResource("1_l6cm7")
@@ -1204,11 +1205,11 @@ texture = ExtResource("5_tbmy8")
 sources/0 = SubResource("TileSetAtlasSource_jk1qb")
 sources/1 = SubResource("TileSetAtlasSource_5dd4i")
 
-[sub_resource type="Gradient" id="Gradient_j7ex8"]
+[sub_resource type="Gradient" id="Gradient_a8gd2"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_a8gd2"]
-gradient = SubResource("Gradient_j7ex8")
+gradient = SubResource("Gradient_a8gd2")
 fill = 1
 fill_from = Vector2(0.49447513, 0.4723757)
 fill_to = Vector2(0.49447513, 0)
@@ -1373,5 +1374,22 @@ scale = Vector2(8.211499, -4.996322)
 color = Color(0.4331429, 0.21845156, 9.62615e-08, 1)
 texture = SubResource("GradientTexture2D_a8gd2")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1816574563]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer" unique_id=469446328]
+stream = ExtResource("17_j7ex8")
+volume_db = 12.0
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=113568723]
+visible = false
+offset_left = -620.0
+offset_top = -577.0
+offset_right = 2136.0
+offset_bottom = 664.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
