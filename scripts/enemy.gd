@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var ATTACK_COOLDOWN = 1.5
 @export var DETECT_AREA = 200.0
 @export var DAMAGE = 10
-@export var HEALTH = 40
+@export var HEALTH = 30
 @onready var anim_sprite: AnimatedSprite2D = $Pivot/AnimatedSprite2D
 @onready var attack_area: Area2D = $Pivot/Attack_Area
 var player: CharacterBody2D = null
@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
         attack_timer -= delta
 
     var direction = (player.global_position - global_position).x
-    var distance_to_player = abs(direction)
+    var distance_to_player = global_position.distance_to(player.global_position)
 
     # Determine next state
     if distance_to_player < DETECT_AREA:
@@ -80,6 +80,16 @@ func _physics_process(delta: float) -> void:
     if not is_on_floor():
         velocity.y += ProjectSettings.get_setting("physics/2d/default_gravity") * delta
     move_and_slide()
+    for i in get_slide_collision_count():
+        var collision = get_slide_collision(i)
+        var collider = collision.get_collider()
+        if collider is TileMapLayer:
+            var local_pos = collider.to_local(collision.get_position())
+            var cell_coords = collider.local_to_map(local_pos)
+            var tile_data = collider.get_cell_tile_data(cell_coords)
+            if tile_data and tile_data.get_custom_data("deadly") == true:
+                die_enemy()
+                return
 
 func take_damage_enemy(amount: int) -> void:
     if state == State.DEAD:

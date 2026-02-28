@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Caves"
-run/main_scene="uid://gbjlcasdtuef"
+run/main_scene="uid://d3pqxun5soswx"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

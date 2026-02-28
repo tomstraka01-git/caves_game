@@ -369,9 +369,10 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Attack_Area" type="Area2D" parent="Pivot" unique_id=1918825138]
+position = Vector2(67, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Attack_Area" unique_id=95900300]
-position = Vector2(23.000002, -1)
+position = Vector2(-68, -8)
 shape = SubResource("RectangleShape2D_4ra3w")
 
 [connection signal="animation_finished" from="Pivot/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
