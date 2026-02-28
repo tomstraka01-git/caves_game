@@ -1321,13 +1321,13 @@ position = Vector2(361, 583)
 scale = Vector2(0.09809615, 0.051999997)
 sprite_frames = SubResource("SpriteFrames_xf5mn")
 autoplay = "default"
-frame_progress = 0.23655258
+frame_progress = 0.6543787
 
 [node name="Lava" type="AnimatedSprite2D" parent="Lava" unique_id=1738315185]
 position = Vector2(490, 0.00030517578)
 sprite_frames = SubResource("SpriteFrames_xf5mn")
 autoplay = "default"
-frame_progress = 0.3219723
+frame_progress = 0.7397987
 
 [node name="Left_Node" type="Node2D" parent="." unique_id=1566481810]
 position = Vector2(692, 339)
