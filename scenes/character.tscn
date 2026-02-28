@@ -199,7 +199,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rbud2")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_1",
 "speed": 10.0
 }, {
@@ -222,9 +222,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7qyni")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_2",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -280,7 +280,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8cblr")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 8.0
 }, {
@@ -326,8 +326,8 @@ script = ExtResource("1_0dpix")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=737272096]
 sprite_frames = SubResource("SpriteFrames_63irx")
-animation = &"attack_1"
-frame_progress = 0.5280942
+animation = &"attack_2"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1659529865]
 position = Vector2(-2.9802322e-07, 9)

@@ -5,12 +5,18 @@ extends CharacterBody2D
 @export var ATTACK_COOLDOWN = 1.5 
 @export var DETECT_AREA = 100
 @export var damage_enemy = 10
+@export var enemy_health = 40
 
 @onready var anim_sprite = $AnimatedSprite2D
 
 var player: CharacterBody2D = null
 var attack_timer = 0.0
 
+func take_damage_enemy(amount):
+    enemy_health -= amount
+    print(enemy_health)
+    if enemy_health <= 0:
+        die_enemy()
 
 func _ready():
   
@@ -63,3 +69,10 @@ func _attack_player() -> void:
     
     print("Enemy attacks player!")
     $"../Character".take_damage(damage_enemy)
+
+
+func die_enemy():
+    anim_sprite.play("death")
+    await get_tree().create_timer(1.2).timeout 
+    
+    

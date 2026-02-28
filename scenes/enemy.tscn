@@ -110,6 +110,18 @@ region = Rect2(704, 64, 64, 64)
 atlas = ExtResource("2_4ra3w")
 region = Rect2(768, 64, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya47j"]
+atlas = ExtResource("2_4ra3w")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyejq"]
+atlas = ExtResource("2_4ra3w")
+region = Rect2(64, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0dkt"]
+atlas = ExtResource("2_4ra3w")
+region = Rect2(128, 256, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5uy6h"]
 atlas = ExtResource("2_4ra3w")
 region = Rect2(0, 192, 64, 64)
@@ -262,7 +274,21 @@ animations = [{
 }],
 "loop": true,
 "name": &"death",
-"speed": 8.0
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya47j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyejq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0dkt")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -323,7 +349,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1883704225]
+[node name="Enemy" type="CharacterBody2D" unique_id=1883704225 groups=["enemies"]]
 script = ExtResource("1_md0e3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=442623286]
@@ -334,5 +360,7 @@ shape = SubResource("RectangleShape2D_md0e3")
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_8tegq")
-animation = &"idle"
+animation = &"death"
 autoplay = "idle"
+frame = 8
+frame_progress = 0.7561466

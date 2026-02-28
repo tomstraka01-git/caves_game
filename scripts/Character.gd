@@ -47,11 +47,11 @@ func _physics_process(delta: float) -> void:
         if Input.is_action_pressed("move_left"):
             direction = -1
             $Pivot.scale.x = -1
-            is_attacking = false
+          
         elif Input.is_action_pressed("move_right"):
             direction = 1
             $Pivot.scale.x = 1
-            is_attacking = false
+          
             
     velocity.x = direction * SPEED
     if Input.is_action_just_pressed("attack") and attack_timer <= 0:
@@ -77,6 +77,9 @@ func _physics_process(delta: float) -> void:
             var tile_data = tilemap_layer.get_cell_tile_data(cell_coords)
             if tile_data and tile_data.get_custom_data("deadly") == true:
                 die()
+        if collider.is_in_group("enemies") and is_attacking:
+            if collider.has_method("take_damage_enemy"):
+                collider.take_damage_enemy(20)
 
   
     if not is_attacking:
@@ -93,15 +96,14 @@ func _physics_process(delta: float) -> void:
 
 func player_attack():
     is_attacking = true
-    if attack_index == 0:
-        anim_sprite.play("attack_1")
-        attack_index = 1
-    else:
-        anim_sprite.play("attack_2")
-        attack_index = 0
+    
+    anim_sprite.play("attack_1")
+
+    
+    
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-    if anim_sprite.animation.begins_with("attack"):
+    if anim_sprite.animation.begins_with("attack_1") or anim_sprite.animation.begins_with("attack_2"):
         is_attacking = false
 
 func die():
