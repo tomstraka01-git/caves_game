@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @export var SPEED = 100.0
 @export var ATTACK_RANGE = 40.0
-@export var ATTACK_COOLDOWN = 1.5
+@export var ATTACK_COOLDOWN = 0.5
 @export var DETECT_AREA = 200.0
 @export var DAMAGE = 10
 @export var HEALTH = 30
@@ -109,13 +109,12 @@ func _attack_player() -> void:
     _play_animation("attack")
     attack_timer = ATTACK_COOLDOWN
     await get_tree().create_timer(0.3).timeout
-    if my_id != attack_id or state == State.DEAD or state == State.HIT:
+    if my_id != attack_id or state == State.DEAD:  # removed "or state == State.HIT"
         return
     for body in attack_area.get_overlapping_bodies():
         if body.is_in_group("character") and body.has_method("take_damage"):
             body.take_damage(DAMAGE)
             print("Enemy attacks player!")
-
 func die_enemy() -> void:
     attack_id += 1
     attack_triggered = false

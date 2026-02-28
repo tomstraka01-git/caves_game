@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bbo3v0y7bja6p"]
+
+[sub_resource type="Gradient" id="Gradient_pn638"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d4v33"]
+gradient = SubResource("Gradient_pn638")
+fill = 1
+fill_from = Vector2(1, 1)
+
+[node name="Torch" type="Node2D" unique_id=1000423067]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=197029070]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=403635349]
+texture = SubResource("GradientTexture2D_d4v33")

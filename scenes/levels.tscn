@@ -10,7 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://xlkqefn7v623" path="res://assets/Screenshot_2026-02-28_105226-removebg-preview.png" id="7_8i0b8"]
 [ext_resource type="Texture2D" uid="uid://cjk63kfbrbdvv" path="res://assets/Screenshot_2026-02-28_110053-removebg-preview.png" id="8_3vv5q"]
 [ext_resource type="Texture2D" uid="uid://bebllabchtvub" path="res://assets/Lava/Screenshot_2026-02-28_121525-removebg-preview.png" id="10_3vv5q"]
+[ext_resource type="Texture2D" uid="uid://cv81eu0jttk5k" path="res://assets/mushrooms-and-left-right-icon/Screenshot_2026-02-28_132441-removebg-preview.png" id="10_mnfw1"]
 [ext_resource type="Texture2D" uid="uid://brsc5yu6xvo8k" path="res://assets/Lava/Screenshot_2026-02-28_121700-removebg-preview.png" id="11_n10dd"]
+[ext_resource type="Texture2D" uid="uid://ds6wl2dcxd5iw" path="res://assets/mushrooms-and-left-right-icon/Screenshot_2026-02-28_132834-removebg-preview.png" id="11_ty6mb"]
+[ext_resource type="Texture2D" uid="uid://cc58rsi161bfe" path="res://assets/mushrooms-and-left-right-icon/Screenshot_2026-02-28_133141-removebg-preview.png" id="12_0rm5t"]
 [ext_resource type="Texture2D" uid="uid://0vg6ruo7nlfu" path="res://assets/Lava/Screenshot_2026-02-28_121723-removebg-preview.png" id="12_4knel"]
 [ext_resource type="Texture2D" uid="uid://rfibuf4sg0uh" path="res://assets/Lava/Screenshot_2026-02-28_121803-removebg-preview.png" id="13_mnfw1"]
 [ext_resource type="Texture2D" uid="uid://6lrobwlrb6w3" path="res://assets/Lava/Screenshot_2026-02-28_121821-removebg-preview.png" id="14_ty6mb"]
@@ -1290,9 +1293,66 @@ position = Vector2(160.00002, 524)
 scale = Vector2(0.039203413, 0.03920341)
 texture = ExtResource("8_3vv5q")
 
-[node name="Level0" type="Button" parent="." unique_id=1034678566]
+[node name="Cave_Label" type="Label" parent="." unique_id=2054918609]
 z_index = 1
-layout_mode = 1
+layout_mode = 0
+offset_left = 490.0
+offset_top = 232.0
+offset_right = 667.0
+offset_bottom = 303.0
+theme_override_fonts/font = ExtResource("1_1jewu")
+theme_override_font_sizes/font_size = 70
+text = "Levels"
+
+[node name="Lava" type="AnimatedSprite2D" parent="." unique_id=600172163]
+position = Vector2(361, 583)
+scale = Vector2(0.09809615, 0.051999997)
+sprite_frames = SubResource("SpriteFrames_xf5mn")
+autoplay = "default"
+frame_progress = 0.9378526
+
+[node name="Lava" type="AnimatedSprite2D" parent="Lava" unique_id=1738315185]
+position = Vector2(490, 0.00030517578)
+sprite_frames = SubResource("SpriteFrames_xf5mn")
+autoplay = "default"
+frame_progress = 0.023273114
+
+[node name="Left_Node" type="Node2D" parent="." unique_id=1566481810]
+position = Vector2(692, 339)
+scale = Vector2(0.1, 0.1)
+
+[node name="Left" type="TextureButton" parent="Left_Node" unique_id=1753791685]
+texture_filter = 1
+texture_repeat = 1
+offset_left = -4158.999
+offset_top = 66.0
+offset_right = -3658.999
+offset_bottom = 566.0
+texture_normal = ExtResource("10_mnfw1")
+texture_pressed = ExtResource("11_ty6mb")
+texture_hover = ExtResource("12_0rm5t")
+flip_h = true
+
+[node name="Right_Node" type="Node2D" parent="." unique_id=1242949885]
+z_index = 2
+position = Vector2(350, 336.5)
+scale = Vector2(0.1, 0.1)
+
+[node name="Right" type="TextureButton" parent="Right_Node" unique_id=779784569]
+texture_filter = 1
+texture_repeat = 1
+offset_left = 4739.999
+offset_top = 90.0
+offset_right = 5239.999
+offset_bottom = 590.0
+texture_normal = ExtResource("10_mnfw1")
+texture_pressed = ExtResource("11_ty6mb")
+texture_hover = ExtResource("12_0rm5t")
+
+[node name="Levels" type="Node2D" parent="." unique_id=132433553]
+
+[node name="Level0" type="Button" parent="Levels" unique_id=1034678566]
+z_index = 1
 offset_left = 490.0
 offset_top = 339.0
 offset_right = 671.0
@@ -1301,62 +1361,39 @@ theme_override_fonts/font = ExtResource("1_1jewu")
 theme_override_font_sizes/font_size = 60
 text = "Level 0"
 
-[node name="Cave_Label" type="Label" parent="." unique_id=2054918609]
+[node name="Level1" type="Button" parent="Levels" unique_id=1591252417]
 z_index = 1
-layout_mode = 0
-offset_left = 490.0
-offset_top = 243.0
-offset_right = 667.0
-offset_bottom = 314.0
-theme_override_fonts/font = ExtResource("1_1jewu")
-theme_override_font_sizes/font_size = 70
-text = "Levels"
-
-[node name="Level1" type="Button" parent="." unique_id=1591252417]
-z_index = 1
-layout_mode = 1
 offset_left = 1070.0
 offset_top = 339.0
 offset_right = 1251.0
 offset_bottom = 408.0
 theme_override_fonts/font = ExtResource("1_1jewu")
 theme_override_font_sizes/font_size = 60
-text = "Level 0"
+text = "Level 1"
 
-[node name="Left" type="TextureButton" parent="." unique_id=779784569]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Right" type="TextureButton" parent="." unique_id=1753791685]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Lava" type="AnimatedSprite2D" parent="." unique_id=600172163]
-position = Vector2(361, 583)
-scale = Vector2(0.09809615, 0.051999997)
-sprite_frames = SubResource("SpriteFrames_xf5mn")
-autoplay = "default"
-frame_progress = 0.17675975
-
-[node name="Lava" type="AnimatedSprite2D" parent="Lava" unique_id=1738315185]
-position = Vector2(490, 0.00030517578)
-sprite_frames = SubResource("SpriteFrames_xf5mn")
-autoplay = "default"
-frame_progress = 0.26217672
-
-[node name="Level2" type="Button" parent="." unique_id=1772492918]
+[node name="Level2" type="Button" parent="Levels" unique_id=1772492918]
 z_index = 1
-layout_mode = 0
-offset_left = -72.0
+offset_left = 1590.0
 offset_top = 339.0
-offset_right = 109.0
+offset_right = 1771.0
 offset_bottom = 408.0
 theme_override_fonts/font = ExtResource("1_1jewu")
 theme_override_font_sizes/font_size = 60
-text = "Level 0"
+text = "Level 2"
 
-[connection signal="pressed" from="Level0" to="." method="_on_level_0_pressed"]
-[connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
-[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
+[node name="Quit" type="Button" parent="." unique_id=1440252157]
+z_index = 1
+layout_mode = 0
+offset_left = 490.0
+offset_top = 428.0
+offset_right = 671.0
+offset_bottom = 497.0
+theme_override_fonts/font = ExtResource("1_1jewu")
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+
+[connection signal="pressed" from="Left_Node/Left" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="Right_Node/Right" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Levels/Level0" to="." method="_on_level_0_pressed"]
+[connection signal="pressed" from="Levels/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Levels/Level2" to="." method="_on_level_2_pressed"]

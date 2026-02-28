@@ -234,3 +234,6 @@ texture = ExtResource("10_om4r1")
 
 [node name="Enemy" parent="." unique_id=1883704225 instance=ExtResource("2_uijja")]
 position = Vector2(969, 7)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1991492943]
+color = Color(0.11764706, 0.11764706, 0.11764706, 1)

@@ -10,7 +10,7 @@ var is_attacking = false
 var ATTACK_COOLDOWN = 1.0
 var attack_timer = 0.0
 var coins = 0
-
+var is_hit = false
 
 @export var min_damage = 15
 
@@ -23,12 +23,14 @@ var player_health := max_health
 @onready var coin_label = $Camera2D/Coin_Label
 
 func take_damage(amount: int):
+    is_hit = true
     player_health = clamp(player_health - amount, 0, max_health)
     progress_bar.change_health(player_health)
+    anim_sprite.play("hit")
     if player_health <= 0:
         die()
 func _ready() -> void:
-    take_damage(0)
+    
     coin_label.text = "Coins: 0"
 
 func _physics_process(delta: float) -> void:
@@ -82,7 +84,7 @@ func _physics_process(delta: float) -> void:
        
 
   
-    if not is_attacking:
+    if not is_attacking and is_hit == false:
         var anim = ""
         if not is_on_floor():
             anim = "jump"
@@ -99,7 +101,7 @@ func player_attack():
     var damage_enemy = min_damage
     anim_sprite.play("attack_1")
     var bodies = $Pivot/AnimatedSprite2D/Attack_Area.get_overlapping_bodies()
-    print(bodies)
+    
     for body in bodies:
         if body.is_in_group("enemies"):
             var number = randi() % 10 
@@ -112,9 +114,12 @@ func player_attack():
     
 
 func _on_animated_sprite_2d_animation_finished() -> void:
+   
     if anim_sprite.animation.begins_with("attack_1") or anim_sprite.animation.begins_with("attack"):
         is_attacking = false
-
+    if anim_sprite.animation.begins_with("hit"):
+        is_hit = false
+        print("finished hit")
 func die():
     await get_tree().create_timer(0.3).timeout 
     get_tree().reload_current_scene()
