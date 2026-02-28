@@ -1,15 +1,46 @@
 [gd_scene format=3 uid="uid://bbo3v0y7bja6p"]
 
-[sub_resource type="Gradient" id="Gradient_pn638"]
+[ext_resource type="Texture2D" uid="uid://gmr7r6m2h3us" path="res://assets/torch/Screenshot_2026-02-28_165015-removebg-preview.png" id="1_o2tjn"]
+[ext_resource type="Texture2D" uid="uid://b76gblrelrmqm" path="res://assets/torch/Screenshot_2026-02-28_165403-removebg-preview.png" id="2_r3k50"]
+[ext_resource type="Texture2D" uid="uid://dswaptvsshxhi" path="res://assets/torch/Screenshot_2026-02-28_165543-removebg-preview.png" id="3_ndh0a"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_d4v33"]
-gradient = SubResource("Gradient_pn638")
+[sub_resource type="SpriteFrames" id="SpriteFrames_o2tjn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o2tjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_r3k50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ndh0a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_r3k50"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ndh0a"]
+gradient = SubResource("Gradient_r3k50")
 fill = 1
-fill_from = Vector2(1, 1)
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
 
-[node name="Torch" type="Node2D" unique_id=1000423067]
+[node name="Torch" type="Node2D" unique_id=1487677405]
+scale = Vector2(0.1, 0.1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=197029070]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=47935802]
+sprite_frames = SubResource("SpriteFrames_o2tjn")
+autoplay = "default"
+frame = 1
+frame_progress = 0.16305894
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=403635349]
-texture = SubResource("GradientTexture2D_d4v33")
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1396749622]
+position = Vector2(-20.000061, -149.99997)
+scale = Vector2(63.976837, -38.926987)
+color = Color(0.78619725, 0.41383493, 0.18582362, 1)
+texture = SubResource("GradientTexture2D_ndh0a")

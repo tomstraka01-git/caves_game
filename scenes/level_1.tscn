@@ -9,6 +9,15 @@
 [ext_resource type="FontFile" uid="uid://bg3yiuqdy23pm" path="res://assets/fonts/DungeonFont.ttf" id="5_70vka"]
 [ext_resource type="PackedScene" uid="uid://ijx141nncv1f" path="res://scenes/coin.tscn" id="7_wi4c7"]
 
+[sub_resource type="Gradient" id="Gradient_o2tjn"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_15mv3"]
+gradient = SubResource("Gradient_o2tjn")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d2op2"]
 texture = ExtResource("2_72e8q")
 0:0/0 = 0
@@ -131,6 +140,11 @@ offset_bottom = -56.0
 theme_override_fonts/font = ExtResource("5_70vka")
 text = "Coins = 0"
 
+[node name="PointLight2D" type="PointLight2D" parent="Character" unique_id=1324748727]
+position = Vector2(2.9550343, -9.955009)
+scale = Vector2(5, 5)
+texture = SubResource("GradientTexture2D_15mv3")
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=567239020]
 z_index = -1
 texture_filter = 1
@@ -174,3 +188,6 @@ position = Vector2(442, 138)
 
 [node name="Enemy3" parent="." unique_id=82032016 instance=ExtResource("3_d2op2")]
 position = Vector2(273, -21)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2002688824]
+color = Color(0.11764706, 0.11764706, 0.11764706, 1)

@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://hiddyxrg77af" path="res://scripts/Character.gd" id="1_0dpix"]
 [ext_resource type="Texture2D" uid="uid://dx535kir15ugq" path="res://assets/2D_SL_Knight_v1.0/Attacks.png" id="2_dp8ca"]
 [ext_resource type="Texture2D" uid="uid://ck4ub2q5lowiq" path="res://assets/2D_SL_Knight_v1.0/Hurt.png" id="3_0lw5n"]
+[ext_resource type="Script" uid="uid://ci6ctx8mb0kkj" path="res://scripts/player_health.gd" id="7_2hyy3"]
+[ext_resource type="Texture2D" uid="uid://jwb0gkl16ff0" path="res://assets/hearts/health_bar.png" id="8_irmqu"]
+[ext_resource type="Texture2D" uid="uid://qwtft451gn2w" path="res://assets/hearts/health_bar_decoration.png" id="9_7eonc"]
 [ext_resource type="Texture2D" uid="uid://d1b4fmwcwq6q0" path="res://assets/2D_SL_Knight_v1.0/Idle.png" id="10_7eonc"]
+[ext_resource type="FontFile" uid="uid://bg3yiuqdy23pm" path="res://assets/fonts/DungeonFont.ttf" id="10_50cep"]
 [ext_resource type="Texture2D" uid="uid://1k43mn01al8y" path="res://assets/2D_SL_Knight_v1.0/Jump.png" id="11_50cep"]
 [ext_resource type="Texture2D" uid="uid://dggqckc5da237" path="res://assets/2D_SL_Knight_v1.0/Run.png" id="12_8yvht"]
 
@@ -347,6 +351,18 @@ size = Vector2(21.75, 48.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dpix"]
 size = Vector2(85.07701, 104.603516)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_irmqu"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7eonc"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2hyy3"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_50cep"]
+light_mode = 1
+
 [node name="Character" type="CharacterBody2D" unique_id=1207945146 groups=["character"]]
 texture_filter = 1
 texture_repeat = 1
@@ -370,4 +386,57 @@ position = Vector2(-2.9802322e-07, 9)
 scale = Vector2(0.28209734, 0.45887557)
 shape = SubResource("RectangleShape2D_0dpix")
 
+[node name="UI" type="Control" parent="." unique_id=904904655]
+visibility_layer = 2
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = -28.0
+offset_top = 41.0
+offset_right = 12.0
+offset_bottom = 81.0
+
+[node name="Player_Health" type="Node2D" parent="UI" unique_id=775189734]
+visibility_layer = 2
+position = Vector2(-115.5, -80)
+scale = Vector2(2.5136788, 2.5136788)
+script = ExtResource("7_2hyy3")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/Player_Health" unique_id=636566988]
+z_index = 1
+material = SubResource("CanvasItemMaterial_irmqu")
+offset_left = -6.3651743
+offset_top = -23.073753
+offset_right = 42.634827
+offset_bottom = 16.926247
+scale = Vector2(0.3901247, 0.39690903)
+texture_progress = ExtResource("8_irmqu")
+
+[node name="HealthBarDecoration" type="Sprite2D" parent="UI/Player_Health" unique_id=347549990]
+material = SubResource("CanvasItemMaterial_7eonc")
+position = Vector2(0.834425, -19.499996)
+scale = Vector2(0.40107578, 0.40107578)
+texture = ExtResource("9_7eonc")
+
+[node name="Coin_Label" type="Label" parent="UI" unique_id=377723566]
+material = SubResource("CanvasItemMaterial_2hyy3")
+layout_mode = 0
+offset_left = -133.0
+offset_top = -120.0
+offset_right = -84.0
+offset_bottom = -103.0
+theme_override_fonts/font = ExtResource("10_50cep")
+text = "Coins = 0"
+
+[node name="Back" type="TextureButton" parent="UI" unique_id=1264685787]
+modulate = Color(0.49158353, 0.49158317, 0.49158323, 1)
+material = SubResource("CanvasItemMaterial_50cep")
+layout_mode = 0
+offset_left = 172.0
+offset_top = -141.0
+offset_right = 220.0
+offset_bottom = -93.0
+scale = Vector2(0.56, 0.56)
+
 [connection signal="animation_finished" from="Pivot/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="pressed" from="UI/Back" to="." method="_on_back_pressed"]

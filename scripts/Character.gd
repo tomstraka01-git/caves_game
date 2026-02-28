@@ -19,8 +19,8 @@ var is_hit = false
 @export var max_health := 100
 
 var player_health := max_health
-@onready var progress_bar = $Camera2D/Player_Health
-@onready var coin_label = $Camera2D/Coin_Label
+@onready var progress_bar =$UI/Player_Health
+@onready var coin_label = $UI/Coin_Label
 
 func take_damage(amount: int):
     is_hit = true
@@ -129,3 +129,19 @@ func add_score(amount: int):
     coins += amount
     coin_label.text = "Coins: " + str(coins)
     
+
+
+func _on_back_pressed() -> void:
+    var current_scene = get_tree().current_scene
+    
+   
+    if current_scene == null:
+        return
+        
+    var scene_path = current_scene.scene_file_path
+
+    if "level_" in scene_path:
+        get_tree().change_scene_to_file("res://scenes/levels.tscn")
+
+    elif scene_path == "res://scenes/levels.tscn":
+        get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

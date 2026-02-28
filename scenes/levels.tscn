@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://rfibuf4sg0uh" path="res://assets/Lava/Screenshot_2026-02-28_121803-removebg-preview.png" id="13_mnfw1"]
 [ext_resource type="Texture2D" uid="uid://6lrobwlrb6w3" path="res://assets/Lava/Screenshot_2026-02-28_121821-removebg-preview.png" id="14_ty6mb"]
 [ext_resource type="Texture2D" uid="uid://byal6kuiibec7" path="res://assets/Lava/Screenshot_2026-02-28_121843-removebg-preview.png" id="15_0rm5t"]
+[ext_resource type="PackedScene" uid="uid://bbo3v0y7bja6p" path="res://scenes/torch.tscn" id="19_ty6mb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ekxnf"]
 atlas = ExtResource("2_ibiju")
@@ -1206,11 +1207,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_j7ex8"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0rm5t"]
+gradient = SubResource("Gradient_j7ex8")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
+
 [node name="Levels" type="Control" unique_id=907312882]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -23.0
+offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ibiju")
@@ -1309,13 +1321,13 @@ position = Vector2(361, 583)
 scale = Vector2(0.09809615, 0.051999997)
 sprite_frames = SubResource("SpriteFrames_xf5mn")
 autoplay = "default"
-frame_progress = 0.9378526
+frame_progress = 0.23655258
 
 [node name="Lava" type="AnimatedSprite2D" parent="Lava" unique_id=1738315185]
 position = Vector2(490, 0.00030517578)
 sprite_frames = SubResource("SpriteFrames_xf5mn")
 autoplay = "default"
-frame_progress = 0.023273114
+frame_progress = 0.3219723
 
 [node name="Left_Node" type="Node2D" parent="." unique_id=1566481810]
 position = Vector2(692, 339)
@@ -1381,16 +1393,58 @@ theme_override_fonts/font = ExtResource("1_1jewu")
 theme_override_font_sizes/font_size = 60
 text = "Level 2"
 
-[node name="Quit" type="Button" parent="." unique_id=1440252157]
-z_index = 1
+[node name="Right" type="TextureButton" parent="." unique_id=1147082864]
+texture_filter = 1
+texture_repeat = 1
 layout_mode = 0
-offset_left = 490.0
-offset_top = 428.0
-offset_right = 671.0
-offset_bottom = 497.0
-theme_override_fonts/font = ExtResource("1_1jewu")
-theme_override_font_sizes/font_size = 60
-text = "Quit"
+offset_left = 4739.999
+offset_top = 90.0
+offset_right = 5239.999
+offset_bottom = 590.0
+texture_normal = ExtResource("10_mnfw1")
+texture_pressed = ExtResource("11_ty6mb")
+texture_hover = ExtResource("12_0rm5t")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=986145253]
+position = Vector2(572, 345)
+scale = Vector2(13.454248, -8.1862955)
+texture = SubResource("GradientTexture2D_0rm5t")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=960732881]
+color = Color(0.11764706, 0.11764706, 0.11764706, 1)
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=197666095]
+visible = false
+position = Vector2(1029.0001, 483)
+scale = Vector2(5.85035, -5.3480196)
+color = Color(0.93199867, 0.84104884, 0.5654008, 1)
+texture = SubResource("GradientTexture2D_0rm5t")
+
+[node name="Torch" parent="." unique_id=1487677405 instance=ExtResource("19_ty6mb")]
+position = Vector2(190.00003, 544)
+rotation = 0.6463107
+
+[node name="Torch2" parent="." unique_id=664741046 instance=ExtResource("19_ty6mb")]
+position = Vector2(384, 601)
+rotation = -0.006285906
+
+[node name="Torch3" parent="." unique_id=2137420589 instance=ExtResource("19_ty6mb")]
+position = Vector2(633.00006, 573.00006)
+rotation = -0.006285906
+
+[node name="Torch4" parent="." unique_id=30958520 instance=ExtResource("19_ty6mb")]
+position = Vector2(908, 341.00006)
+rotation = -0.46074167
+
+[node name="Torch5" parent="." unique_id=2132429818 instance=ExtResource("19_ty6mb")]
+position = Vector2(190.99998, 308)
+rotation = 0.45940283
+
+[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=739373092]
+position = Vector2(577, 377.00003)
+scale = Vector2(6.0901246, -3.7055628)
+color = Color(0.4331429, 0.21845156, 9.62615e-08, 1)
+texture = SubResource("GradientTexture2D_0rm5t")
 
 [connection signal="pressed" from="Left_Node/Left" to="." method="_on_right_pressed"]
 [connection signal="pressed" from="Right_Node/Right" to="." method="_on_left_pressed"]
