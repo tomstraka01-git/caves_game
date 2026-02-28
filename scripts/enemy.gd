@@ -17,7 +17,7 @@ var coin_scene = preload("res://scenes/coin.tscn")
 
 func _ready():
     player = get_tree().get_current_scene().get_node("Character")
-    anim_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
+   
 func spawn_coin():
     var coin = coin_scene.instantiate()
     coin.global_position = global_position

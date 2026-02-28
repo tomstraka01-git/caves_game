@@ -99,7 +99,7 @@ func player_attack():
     var damage_enemy = min_damage
     anim_sprite.play("attack_1")
     var bodies = $Pivot/AnimatedSprite2D/Attack_Area.get_overlapping_bodies()
-    
+    print(bodies)
     for body in bodies:
         if body.is_in_group("enemies"):
             var number = randi() % 10 
@@ -107,7 +107,7 @@ func player_attack():
                 damage_enemy = crit_damage
             else:
                 damage_enemy -= number /2
-            body.take_damage_enemy(damage_enemy)
+                body.take_damage_enemy(damage_enemy)
     
     
 
@@ -116,7 +116,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
         is_attacking = false
 
 func die():
-    await get_tree().create_timer(0.2).timeout 
+    await get_tree().create_timer(0.3).timeout 
     get_tree().reload_current_scene()
         
         

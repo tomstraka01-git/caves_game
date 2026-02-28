@@ -1338,13 +1338,24 @@ position = Vector2(361, 583)
 scale = Vector2(0.09809615, 0.051999997)
 sprite_frames = SubResource("SpriteFrames_xf5mn")
 autoplay = "default"
-frame_progress = 0.5777218
+frame_progress = 0.17675975
 
 [node name="Lava" type="AnimatedSprite2D" parent="Lava" unique_id=1738315185]
 position = Vector2(490, 0.00030517578)
 sprite_frames = SubResource("SpriteFrames_xf5mn")
 autoplay = "default"
-frame_progress = 0.6631391
+frame_progress = 0.26217672
+
+[node name="Level2" type="Button" parent="." unique_id=1772492918]
+z_index = 1
+layout_mode = 0
+offset_left = -72.0
+offset_top = 339.0
+offset_right = 109.0
+offset_bottom = 408.0
+theme_override_fonts/font = ExtResource("1_1jewu")
+theme_override_font_sizes/font_size = 60
+text = "Level 0"
 
 [connection signal="pressed" from="Level0" to="." method="_on_level_0_pressed"]
 [connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
