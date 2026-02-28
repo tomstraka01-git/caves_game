@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://skfs3xdvtc5s"
+path="res://.godot/imported/explosion_small.wav-04c24ebba33e9e542ca2c432750df201.sample"
+
+[deps]
+
+source_file="res://assets/sounds/400 Sounds Pack/Retro/explosion_small.wav"
+dest_files=["res://.godot/imported/explosion_small.wav-04c24ebba33e9e542ca2c432750df201.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

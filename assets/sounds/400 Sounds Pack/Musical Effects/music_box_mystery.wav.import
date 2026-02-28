@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b8alnogsmpdtr"
+path="res://.godot/imported/music_box_mystery.wav-f6a384db2ff079b84a3ee1faaa78dea0.sample"
+
+[deps]
+
+source_file="res://assets/sounds/400 Sounds Pack/Musical Effects/music_box_mystery.wav"
+dest_files=["res://.godot/imported/music_box_mystery.wav-f6a384db2ff079b84a3ee1faaa78dea0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cfd8t1tgn6lkp"
+path="res://.godot/imported/throw.wav-90a5cf7ff6156e9d164782fe3ad008f7.sample"
+
+[deps]
+
+source_file="res://assets/sounds/400 Sounds Pack/Retro/throw.wav"
+dest_files=["res://.godot/imported/throw.wav-90a5cf7ff6156e9d164782fe3ad008f7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

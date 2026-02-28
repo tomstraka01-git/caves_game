@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dxjx071x1wajr"
+path="res://.godot/imported/cardboard_drop.wav-a1b10780e9028b56a7449982b8be4a52.sample"
+
+[deps]
+
+source_file="res://assets/sounds/400 Sounds Pack/Materials/cardboard_drop.wav"
+dest_files=["res://.godot/imported/cardboard_drop.wav-a1b10780e9028b56a7449982b8be4a52.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

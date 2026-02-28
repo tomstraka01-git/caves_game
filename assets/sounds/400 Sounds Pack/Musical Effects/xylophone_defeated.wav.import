@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://prbnvbs6d23w"
+path="res://.godot/imported/xylophone_defeated.wav-faffd6bee0da3d49ec0532db4d0b09df.sample"
+
+[deps]
+
+source_file="res://assets/sounds/400 Sounds Pack/Musical Effects/xylophone_defeated.wav"
+dest_files=["res://.godot/imported/xylophone_defeated.wav-faffd6bee0da3d49ec0532db4d0b09df.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

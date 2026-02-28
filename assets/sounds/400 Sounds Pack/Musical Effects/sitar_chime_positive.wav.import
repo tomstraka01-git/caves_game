@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dc0lvhke5jwee"
+path="res://.godot/imported/sitar_chime_positive.wav-caa591b44b30d83f7aa6957aff1a6360.sample"
+
+[deps]
+
+source_file="res://assets/sounds/400 Sounds Pack/Musical Effects/sitar_chime_positive.wav"
+dest_files=["res://.godot/imported/sitar_chime_positive.wav-caa591b44b30d83f7aa6957aff1a6360.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c0u3b41erjvxl"
+path="res://.godot/imported/stone_push_long.wav-57c2341642e58ebc9e3da24dcc6ebc32.sample"
+
+[deps]
+
+source_file="res://assets/sounds/400 Sounds Pack/Materials/stone_push_long.wav"
+dest_files=["res://.godot/imported/stone_push_long.wav-57c2341642e58ebc9e3da24dcc6ebc32.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

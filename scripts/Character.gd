@@ -89,9 +89,11 @@ func _physics_process(delta: float) -> void:
     move_and_slide()
 
 func _play_sound(sound: String):
+    
     if sound == "walk":
         
         walk_sound.play()
+    
 
 func player_attack():
     is_attacking = true

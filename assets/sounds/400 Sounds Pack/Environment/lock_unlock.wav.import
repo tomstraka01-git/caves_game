@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://h565gk0ea2bd"
+path="res://.godot/imported/lock_unlock.wav-e34b686311b3c5853be3be313c3b20cd.sample"
+
+[deps]
+
+source_file="res://assets/sounds/400 Sounds Pack/Environment/lock_unlock.wav"
+dest_files=["res://.godot/imported/lock_unlock.wav-e34b686311b3c5853be3be313c3b20cd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

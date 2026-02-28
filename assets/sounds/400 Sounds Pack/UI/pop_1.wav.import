@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cm6ru2oi5273i"
+path="res://.godot/imported/pop_1.wav-cb7de16b9b8d4150cde66e749d4dc31e.sample"
+
+[deps]
+
+source_file="res://assets/sounds/400 Sounds Pack/UI/pop_1.wav"
+dest_files=["res://.godot/imported/pop_1.wav-cb7de16b9b8d4150cde66e749d4dc31e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
