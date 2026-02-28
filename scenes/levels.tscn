@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://6lrobwlrb6w3" path="res://assets/Lava/Screenshot_2026-02-28_121821-removebg-preview.png" id="14_ty6mb"]
 [ext_resource type="Texture2D" uid="uid://byal6kuiibec7" path="res://assets/Lava/Screenshot_2026-02-28_121843-removebg-preview.png" id="15_0rm5t"]
 [ext_resource type="PackedScene" uid="uid://bbo3v0y7bja6p" path="res://scenes/torch.tscn" id="19_ty6mb"]
+[ext_resource type="AudioStream" uid="uid://cyq6pghdcqmi6" path="res://assets/sounds/UI Soundpack/UI Soundpack/WAV/Minimalist2.wav" id="20_0rm5t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ekxnf"]
 atlas = ExtResource("2_ibiju")
@@ -1321,13 +1322,13 @@ position = Vector2(361, 583)
 scale = Vector2(0.09809615, 0.051999997)
 sprite_frames = SubResource("SpriteFrames_xf5mn")
 autoplay = "default"
-frame_progress = 0.6543787
+frame_progress = 0.6084843
 
 [node name="Lava" type="AnimatedSprite2D" parent="Lava" unique_id=1738315185]
 position = Vector2(490, 0.00030517578)
 sprite_frames = SubResource("SpriteFrames_xf5mn")
 autoplay = "default"
-frame_progress = 0.7397987
+frame_progress = 0.69390893
 
 [node name="Left_Node" type="Node2D" parent="." unique_id=1566481810]
 position = Vector2(692, 339)
@@ -1446,8 +1447,28 @@ scale = Vector2(6.0901246, -3.7055628)
 color = Color(0.4331429, 0.21845156, 9.62615e-08, 1)
 texture = SubResource("GradientTexture2D_0rm5t")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=497959084]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer" unique_id=257137699]
+stream = ExtResource("20_0rm5t")
+volume_db = 12.0
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=1830520903]
+offset_left = -86.99999
+offset_top = -100.99999
+offset_right = -46.999992
+offset_bottom = -88.64909
+scale = Vector2(34.11475, 66.55386)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="mouse_entered" from="Left_Node/Left" to="." method="_on_left_mouse_entered"]
 [connection signal="pressed" from="Left_Node/Left" to="." method="_on_right_pressed"]
+[connection signal="mouse_entered" from="Right_Node/Right" to="." method="_on_right_mouse_entered"]
 [connection signal="pressed" from="Right_Node/Right" to="." method="_on_left_pressed"]
+[connection signal="mouse_entered" from="Levels/Level0" to="." method="_on_level_0_mouse_entered"]
 [connection signal="pressed" from="Levels/Level0" to="." method="_on_level_0_pressed"]
+[connection signal="mouse_entered" from="Levels/Level1" to="." method="_on_level_1_mouse_entered"]
 [connection signal="pressed" from="Levels/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="mouse_entered" from="Levels/Level2" to="." method="_on_level_2_mouse_entered"]
 [connection signal="pressed" from="Levels/Level2" to="." method="_on_level_2_pressed"]
