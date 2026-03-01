@@ -2,12 +2,25 @@
 
 [ext_resource type="Script" uid="uid://bkgrsnx6t4g1l" path="res://scripts/portal.gd" id="1_1ffj6"]
 [ext_resource type="Texture2D" uid="uid://bn7tsmynqtueb" path="res://assets/Screenshot_2026-02-28_171149-removebg-preview.png" id="1_v0xau"]
+[ext_resource type="AudioStream" uid="uid://b3w613ikbkgue" path="res://assets/sounds/freesound_community-portal-phase-jump-6355.mp3" id="3_jr6l0"]
+[ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="4_dyed0"]
+[ext_resource type="AudioStream" uid="uid://ca7son6v8ha6s" path="res://assets/sounds/699949__8bitmyketison__multimedia-sfx-error-02-aggressive-distorted.wav" id="5_dyed0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ffj6"]
-radius = 35.35534
+radius = 70.5762
+
+[sub_resource type="Gradient" id="Gradient_jv3i5"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jr6l0"]
+gradient = SubResource("Gradient_jv3i5")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
 
 [node name="Area2D" type="Area2D" unique_id=903844828]
 script = ExtResource("1_1ffj6")
+required_coins = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1864545457]
 position = Vector2(1, 2)
@@ -17,3 +30,31 @@ shape = SubResource("CircleShape2D_1ffj6")
 position = Vector2(0, -1.9073486e-06)
 scale = Vector2(0.14604211, 0.14604212)
 texture = ExtResource("1_v0xau")
+
+[node name="PortalSoundSpin" type="AudioStreamPlayer2D" parent="." unique_id=219506439]
+stream = ExtResource("3_jr6l0")
+volume_db = 10.0
+pitch_scale = 0.3
+autoplay = true
+max_distance = 700.0
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1176100971]
+position = Vector2(-2.999998, -3.8146973e-06)
+scale = Vector2(2.9300387, 2.9300387)
+color = Color(0.3558644, 0.03364318, 0.3351259, 1)
+texture = SubResource("GradientTexture2D_jr6l0")
+
+[node name="Label" type="Label" parent="." unique_id=1903725900]
+offset_left = -203.0
+offset_top = -76.0
+offset_right = 205.0
+offset_bottom = -39.0
+theme_override_colors/font_color = Color(0.84365374, 0, 0.2313919, 1)
+theme_override_fonts/font = ExtResource("4_dyed0")
+theme_override_font_sizes/font_size = 12
+text = "Not Enough Coins!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NotEnoughCoinsSound" type="AudioStreamPlayer2D" parent="." unique_id=1249910609]
+stream = ExtResource("5_dyed0")

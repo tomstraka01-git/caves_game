@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://hiddyxrg77af" path="res://scripts/Character.gd" id="1_0dpix"]
 [ext_resource type="Texture2D" uid="uid://dx535kir15ugq" path="res://assets/2D_SL_Knight_v1.0/Attacks.png" id="2_dp8ca"]
 [ext_resource type="Texture2D" uid="uid://ck4ub2q5lowiq" path="res://assets/2D_SL_Knight_v1.0/Hurt.png" id="3_0lw5n"]
+[ext_resource type="Texture2D" uid="uid://daoufohlvmyqw" path="res://assets/2D_SL_Knight_v1.0/Death.png" id="3_rbud2"]
 [ext_resource type="Script" uid="uid://ci6ctx8mb0kkj" path="res://scripts/player_health.gd" id="7_2hyy3"]
 [ext_resource type="Texture2D" uid="uid://jwb0gkl16ff0" path="res://assets/hearts/health_bar.png" id="8_irmqu"]
 [ext_resource type="Texture2D" uid="uid://qwtft451gn2w" path="res://assets/hearts/health_bar_decoration.png" id="9_7eonc"]
@@ -15,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://chtmr32prm60q" path="res://assets/ui/back_button/Screenshot_2026-02-28_194408-removebg-preview.png" id="13_x8k1v"]
 [ext_resource type="AudioStream" uid="uid://cyq6pghdcqmi6" path="res://assets/sounds/UI Soundpack/UI Soundpack/WAV/Minimalist2.wav" id="14_8yvht"]
 [ext_resource type="AudioStream" uid="uid://cmirqrsbhle1n" path="res://assets/sounds/zvuky/54779_671617-lq.mp3" id="14_lagn4"]
+[ext_resource type="AudioStream" uid="uid://kph0u5jbcmll" path="res://assets/sounds/solarmusic-dripping-water-in-cave-114694.mp3" id="15_x8k1v"]
+[ext_resource type="AudioStream" uid="uid://behfoqt2da7s8" path="res://assets/sounds/369004__flying_deer_fx__death-02-mouth-fx-man-voice.wav" id="16_ih8y6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lw5n"]
 atlas = ExtResource("2_dp8ca")
@@ -79,6 +82,22 @@ region = Rect2(512, 192, 128, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7qyni"]
 atlas = ExtResource("2_dp8ca")
 region = Rect2(640, 192, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41u22"]
+atlas = ExtResource("3_rbud2")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vsun"]
+atlas = ExtResource("3_rbud2")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rpqn"]
+atlas = ExtResource("3_rbud2")
+region = Rect2(0, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0gp7"]
+atlas = ExtResource("3_rbud2")
+region = Rect2(128, 64, 128, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sougf"]
 atlas = ExtResource("3_0lw5n")
@@ -250,6 +269,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_41u22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vsun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rpqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0gp7")
+}],
+"loop": false,
+"name": &"death",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_sougf")
 }, {
 "duration": 1.0,
@@ -287,7 +323,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w3be2")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 8.0
 }, {
@@ -345,7 +381,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hje23")
 }],
-"loop": true,
+"loop": false,
 "name": &"run",
 "speed": 10.0
 }]
@@ -377,7 +413,7 @@ script = ExtResource("1_0dpix")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=737272096]
 sprite_frames = SubResource("SpriteFrames_63irx")
-animation = &"idle"
+animation = &"death"
 autoplay = "idle"
 
 [node name="Attack_Area" type="Area2D" parent="Pivot/AnimatedSprite2D" unique_id=1161175929 groups=["character"]]
@@ -452,20 +488,58 @@ texture_hover = ExtResource("13_x8k1v")
 stream = ExtResource("14_lagn4")
 volume_db = 8.0
 
+[node name="bgAudio" type="AudioStreamPlayer2D" parent="Audio" unique_id=705083502]
+stream = ExtResource("15_x8k1v")
+volume_db = 6.0
+autoplay = true
+
+[node name="Die" type="AudioStreamPlayer2D" parent="Audio" unique_id=1919451119]
+stream = ExtResource("16_ih8y6")
+volume_db = 6.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=477214623]
+visible = false
 
 [node name="Click" type="AudioStreamPlayer2D" parent="CanvasLayer" unique_id=1642844344]
 stream = ExtResource("14_8yvht")
 volume_db = 12.0
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=1822848280]
-visible = false
 offset_left = -887.0
 offset_top = -286.0
 offset_right = 1511.0
 offset_bottom = 815.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="DeathScreen" type="ColorRect" parent="CanvasLayer" unique_id=266717509]
+z_index = 1
+offset_left = -896.0
+offset_top = -527.0
+offset_right = 1743.0
+offset_bottom = 1162.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="DeathLabel" type="Label" parent="CanvasLayer" unique_id=852302778]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -22.5
+offset_right = 69.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "You Died"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="animation_finished" from="Pivot/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="mouse_entered" from="UI/Back" to="." method="_on_back_mouse_entered"]

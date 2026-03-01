@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bgpckv0ipusgg" path="res://assets/coin1_16x16.png" id="1_rwqht"]
 [ext_resource type="Script" uid="uid://7tpij4imwsfs" path="res://scripts/collision_area.gd" id="2_i64fm"]
+[ext_resource type="AudioStream" uid="uid://bl1jtjcnr6uch" path="res://assets/sounds/423123__killersmurf96__gold_pick.wav" id="3_11l1o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i64fm"]
 atlas = ExtResource("1_rwqht")
@@ -126,10 +127,15 @@ texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_rsyy1")
 autoplay = "default"
-frame_progress = 0.94423896
+frame = 4
+frame_progress = 0.20911877
 
 [node name="CollisionArea" type="Area2D" parent="." unique_id=325621510]
 script = ExtResource("2_i64fm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea" unique_id=71745229]
 shape = SubResource("CircleShape2D_y8m1o")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CollisionArea" unique_id=953745170]
+stream = ExtResource("3_11l1o")
+volume_db = 8.0

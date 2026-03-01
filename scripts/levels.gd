@@ -8,6 +8,7 @@ extends Control
 @onready var levels = $Levels
 @onready var label = $Cave_Label
 
+
 @onready var click_sound = $CanvasLayer/AudioStreamPlayer2D
 @onready var fade: ColorRect = $CanvasLayer/Fade
 
@@ -118,4 +119,14 @@ func _on_level_1_mouse_entered() -> void:
 
 
 func _on_level_2_mouse_entered() -> void:
+    _play_click()
+
+
+func _on_back_pressed() -> void:
+    
+    _play_click_and_fade("res://scenes/main_menu.tscn")
+    
+
+
+func _on_back_mouse_entered() -> void:
     _play_click()

@@ -1,19 +1,32 @@
 [gd_scene format=4 uid="uid://bgyrsvq64vedf"]
 
 [ext_resource type="PackedScene" uid="uid://bbgsrtc5wvpjj" path="res://scenes/character.tscn" id="1_rerym"]
+[ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="2_lbrgs"]
 [ext_resource type="PackedScene" uid="uid://dqqx8fa8xu4dh" path="res://scenes/enemy.tscn" id="2_uijja"]
 [ext_resource type="Texture2D" uid="uid://mbp20lkfgp3u" path="res://assets/Tileset_Cave.png" id="3_5nv5w"]
-[ext_resource type="FontFile" uid="uid://bt1c2ncsb2mq0" path="res://assets/fonts/QuinqueFive_Font_1_20/QuinqueFive.ttf" id="7_sk60w"]
+[ext_resource type="Script" uid="uid://cfw0qaiqsjk3v" path="res://scripts/dialogue_box.gd" id="8_44yx7"]
 [ext_resource type="Texture2D" uid="uid://d2hasf7xh7sb2" path="res://assets/Screenshot_2026-02-28_103944-removebg-preview.png" id="8_ll25s"]
 [ext_resource type="PackedScene" uid="uid://cvxejs2dkxp65" path="res://scenes/portal.tscn" id="8_qjcqe"]
 [ext_resource type="Texture2D" uid="uid://xlkqefn7v623" path="res://assets/Screenshot_2026-02-28_105226-removebg-preview.png" id="9_sk60w"]
+[ext_resource type="PackedScene" uid="uid://ijx141nncv1f" path="res://scenes/coin.tscn" id="10_ll25s"]
 [ext_resource type="Texture2D" uid="uid://cjk63kfbrbdvv" path="res://assets/Screenshot_2026-02-28_110053-removebg-preview.png" id="10_om4r1"]
+[ext_resource type="Texture2D" uid="uid://bebllabchtvub" path="res://assets/Lava/Screenshot_2026-02-28_121525-removebg-preview.png" id="11_vc1y7"]
+[ext_resource type="Texture2D" uid="uid://brsc5yu6xvo8k" path="res://assets/Lava/Screenshot_2026-02-28_121700-removebg-preview.png" id="12_44yx7"]
+[ext_resource type="PackedScene" uid="uid://bbo3v0y7bja6p" path="res://scenes/torch.tscn" id="12_om4r1"]
+[ext_resource type="Texture2D" uid="uid://0vg6ruo7nlfu" path="res://assets/Lava/Screenshot_2026-02-28_121723-removebg-preview.png" id="13_lbrgs"]
+[ext_resource type="Texture2D" uid="uid://rfibuf4sg0uh" path="res://assets/Lava/Screenshot_2026-02-28_121803-removebg-preview.png" id="14_kkuia"]
+[ext_resource type="Texture2D" uid="uid://6lrobwlrb6w3" path="res://assets/Lava/Screenshot_2026-02-28_121821-removebg-preview.png" id="15_36cfx"]
+[ext_resource type="Texture2D" uid="uid://byal6kuiibec7" path="res://assets/Lava/Screenshot_2026-02-28_121843-removebg-preview.png" id="16_eh5lm"]
+[ext_resource type="Script" uid="uid://vbq40u2nd2nf" path="res://scripts/map.gd" id="18_lbrgs"]
 
-[sub_resource type="Gradient" id="Gradient_jv3i5"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lbrgs"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_qjcqe"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sk60w"]
-gradient = SubResource("Gradient_jv3i5")
+gradient = SubResource("Gradient_qjcqe")
 fill = 1
 fill_from = Vector2(0.49447513, 0.4723757)
 fill_to = Vector2(0.49447513, 0)
@@ -105,6 +118,47 @@ texture = ExtResource("3_5nv5w")
 [sub_resource type="TileSet" id="TileSet_qjcqe"]
 sources/0 = SubResource("TileSetAtlasSource_rhhhf")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_4pfwt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_vc1y7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_44yx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_lbrgs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_kkuia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_36cfx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_eh5lm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkuia"]
+size = Vector2(358.625, 335.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36cfx"]
+size = Vector2(121.84375, 335.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eh5lm"]
+size = Vector2(137, 264)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbrgs"]
+size = Vector2(179.375, 133.21875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pfwt"]
+size = Vector2(48.5, 148.25)
+
 [node name="Level0" type="Node2D" unique_id=1448817746]
 
 [node name="Character" parent="." unique_id=1207945146 instance=ExtResource("1_rerym")]
@@ -112,6 +166,38 @@ position = Vector2(28, -20)
 
 [node name="Camera2D" type="Camera2D" parent="Character" unique_id=1308392222]
 zoom = Vector2(3, 3)
+
+[node name="Dialogue" type="Control" parent="Character/Camera2D" unique_id=1655317579]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = 20.0
+offset_right = -28.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_44yx7")
+
+[node name="Label" type="Label" parent="Character/Camera2D/Dialogue" unique_id=869394727]
+z_index = 2
+layout_mode = 0
+offset_left = -152.0
+offset_top = 19.0
+offset_right = 195.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("2_lbrgs")
+theme_override_font_sizes/font_size = 8
+
+[node name="ColorRect" type="ColorRect" parent="Character/Camera2D/Dialogue" unique_id=1523990224]
+material = SubResource("CanvasItemMaterial_lbrgs")
+layout_mode = 0
+offset_left = -155.0
+offset_top = 8.0
+offset_right = 193.0
+offset_bottom = 67.0
+color = Color(0, 0, 0, 0.3882353)
 
 [node name="PointLight2D" type="PointLight2D" parent="Character" unique_id=623920133]
 position = Vector2(2.9550343, -9.955009)
@@ -128,12 +214,12 @@ tile_set = SubResource("TileSet_7j8ne")
 
 [node name="Label" type="Label" parent="TileMapLayer" unique_id=1299889888]
 texture_repeat = 1
-offset_left = -36.0
-offset_top = -69.0
-offset_right = 250.0
-offset_bottom = -44.0
+offset_left = 38.0
+offset_top = -73.0
+offset_right = 324.0
+offset_bottom = -48.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_sk60w")
+theme_override_fonts/font = ExtResource("2_lbrgs")
 theme_override_font_sizes/font_size = 7
 text = "Move with A, D
 Jump with space"
@@ -146,7 +232,7 @@ offset_top = -45.0
 offset_right = 1140.0
 offset_bottom = -20.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_sk60w")
+theme_override_fonts/font = ExtResource("2_lbrgs")
 theme_override_font_sizes/font_size = 7
 text = "Attack with F"
 horizontal_alignment = 1
@@ -158,10 +244,32 @@ offset_top = -78.0
 offset_right = 891.0
 offset_bottom = -53.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_sk60w")
+theme_override_fonts/font = ExtResource("2_lbrgs")
 theme_override_font_sizes/font_size = 7
 text = "Jump!"
 horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="TileMapLayer" unique_id=1165605798]
+texture_repeat = 1
+offset_left = 344.0
+offset_top = -136.0
+offset_right = 630.0
+offset_bottom = -111.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_lbrgs")
+theme_override_font_sizes/font_size = 7
+text = "Pick coins to survive"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="TileMapLayer" unique_id=42895367]
+z_index = 2
+offset_left = -66.0
+offset_top = -73.0
+offset_right = 281.0
+offset_bottom = -14.0
+theme_override_fonts/font = ExtResource("2_lbrgs")
+theme_override_font_sizes/font_size = 8
+text = "Press e to interact"
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1850348176]
 z_index = -3
@@ -220,12 +328,13 @@ texture = ExtResource("10_om4r1")
 position = Vector2(969, 7)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1991492943]
+visible = false
 color = Color(0.11764706, 0.11764706, 0.11764706, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=965899058]
+visible = false
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=1873517258]
-visible = false
 offset_left = -620.0
 offset_top = -577.0
 offset_right = 2136.0
@@ -237,7 +346,111 @@ color = Color(0, 0, 0, 1)
 position = Vector2(1452, -25)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=934194175]
-position = Vector2(1449, -8)
-scale = Vector2(3.1562471, 3.1562471)
-color = Color(0.17627355, 0.108008675, 0.3316529, 1)
+position = Vector2(714, -20)
+scale = Vector2(1.9687489, 1.9687489)
+color = Color(0.1808463, 0.38639885, 0.53776956, 1)
 texture = SubResource("GradientTexture2D_sk60w")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1407694576]
+position = Vector2(-24, 12)
+scale = Vector2(2.3205554, 2.3205554)
+color = Color(0.1808463, 0.38639885, 0.53776956, 1)
+texture = SubResource("GradientTexture2D_sk60w")
+
+[node name="Torch" parent="." unique_id=1487677405 instance=ExtResource("12_om4r1")]
+position = Vector2(-35, -79)
+rotation = 0.6855395
+scale = Vector2(0.05, 0.05)
+
+[node name="Torch2" parent="." unique_id=112937236 instance=ExtResource("12_om4r1")]
+position = Vector2(751, -159)
+rotation = 0.0016605258
+scale = Vector2(0.05, 0.05)
+
+[node name="Torch3" parent="." unique_id=1281068863 instance=ExtResource("12_om4r1")]
+position = Vector2(965.00006, -112)
+rotation = 0.042053625
+scale = Vector2(0.05, 0.05)
+
+[node name="Torch4" parent="." unique_id=522559138 instance=ExtResource("12_om4r1")]
+position = Vector2(1572, -77.999985)
+rotation = 0.0370775
+scale = Vector2(0.05, 0.05)
+
+[node name="Screenshot20260228110053RemovebgPreview5" type="Sprite2D" parent="." unique_id=255599638]
+position = Vector2(1346, 16.999962)
+scale = Vector2(0.057249907, 0.049724426)
+texture = ExtResource("10_om4r1")
+
+[node name="Screenshot20260228110053RemovebgPreview6" type="Sprite2D" parent="." unique_id=2011451410]
+position = Vector2(1332.9999, 22.999962)
+scale = Vector2(0.028500011, 0.021292586)
+texture = ExtResource("10_om4r1")
+
+[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=2060311265]
+position = Vector2(1348, 25.999966)
+scale = Vector2(1.9687489, 1.9687489)
+color = Color(0.1808463, 0.38639885, 0.53776956, 1)
+texture = SubResource("GradientTexture2D_sk60w")
+
+[node name="Coin" parent="." unique_id=588464781 instance=ExtResource("10_ll25s")]
+position = Vector2(517, -98)
+
+[node name="Coin2" parent="." unique_id=415873004 instance=ExtResource("10_ll25s")]
+position = Vector2(913, -22)
+
+[node name="Coin3" parent="." unique_id=605296959 instance=ExtResource("10_ll25s")]
+position = Vector2(1541, -17)
+
+[node name="Lava" type="AnimatedSprite2D" parent="." unique_id=42252299]
+position = Vector2(814.3781, 52.589035)
+scale = Vector2(0.09868485, 0.09868485)
+sprite_frames = SubResource("SpriteFrames_4pfwt")
+autoplay = "default"
+
+[node name="Lava2" type="AnimatedSprite2D" parent="Lava" unique_id=427471581]
+position = Vector2(482.56543, -5.968811)
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_4pfwt")
+autoplay = "default"
+frame = 5
+frame_progress = 0.5265792
+
+[node name="Lava2" type="AnimatedSprite2D" parent="." unique_id=1384261110]
+position = Vector2(1253.8446, 92.16173)
+scale = Vector2(0.068759345, 0.06875935)
+sprite_frames = SubResource("SpriteFrames_4pfwt")
+autoplay = "default"
+
+[node name="Map" type="Node2D" parent="." unique_id=1731136175]
+script = ExtResource("18_lbrgs")
+
+[node name="First" type="Area2D" parent="Map" unique_id=696940081]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/First" unique_id=84981859]
+position = Vector2(-41, -57)
+shape = SubResource("RectangleShape2D_kkuia")
+
+[node name="Second" type="Area2D" parent="Map" unique_id=1613069729]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Second" unique_id=1021045072]
+position = Vector2(539.0781, -96)
+shape = SubResource("RectangleShape2D_36cfx")
+
+[node name="Third" type="Area2D" parent="Map" unique_id=1072098500]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Third" unique_id=1581111330]
+position = Vector2(818.5, -38)
+shape = SubResource("RectangleShape2D_eh5lm")
+
+[node name="Fourth" type="Area2D" parent="Map" unique_id=538142572]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Fourth" unique_id=940889726]
+position = Vector2(1455.6875, -29.390625)
+shape = SubResource("RectangleShape2D_lbrgs")
+
+[node name="Fifth" type="Area2D" parent="Map" unique_id=811706754]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Fifth" unique_id=884388183]
+position = Vector2(1173.75, -75.875)
+shape = SubResource("RectangleShape2D_4pfwt")

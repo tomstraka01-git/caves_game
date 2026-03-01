@@ -20,6 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://byal6kuiibec7" path="res://assets/Lava/Screenshot_2026-02-28_121843-removebg-preview.png" id="15_0rm5t"]
 [ext_resource type="PackedScene" uid="uid://bbo3v0y7bja6p" path="res://scenes/torch.tscn" id="19_ty6mb"]
 [ext_resource type="AudioStream" uid="uid://cyq6pghdcqmi6" path="res://assets/sounds/UI Soundpack/UI Soundpack/WAV/Minimalist2.wav" id="20_0rm5t"]
+[ext_resource type="Texture2D" uid="uid://ch5ahsspq3es3" path="res://assets/ui/back_button/Screenshot_2026-02-28_194453-removebg-preview.png" id="21_6uglv"]
+[ext_resource type="Texture2D" uid="uid://gv0rpe327trq" path="res://assets/ui/back_button/Screenshot_2026-02-28_195836-removebg-preview.png" id="22_73vgx"]
+[ext_resource type="Texture2D" uid="uid://chtmr32prm60q" path="res://assets/ui/back_button/Screenshot_2026-02-28_194408-removebg-preview.png" id="23_1cmd0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ekxnf"]
 atlas = ExtResource("2_ibiju")
@@ -1217,6 +1220,9 @@ fill = 1
 fill_from = Vector2(0.49447513, 0.4723757)
 fill_to = Vector2(0.49447513, 0)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y860o"]
+light_mode = 1
+
 [node name="Levels" type="Control" unique_id=907312882]
 layout_mode = 3
 anchors_preset = 15
@@ -1322,13 +1328,13 @@ position = Vector2(361, 583)
 scale = Vector2(0.09809615, 0.051999997)
 sprite_frames = SubResource("SpriteFrames_xf5mn")
 autoplay = "default"
-frame_progress = 0.6084843
+frame_progress = 0.32608655
 
 [node name="Lava" type="AnimatedSprite2D" parent="Lava" unique_id=1738315185]
 position = Vector2(490, 0.00030517578)
 sprite_frames = SubResource("SpriteFrames_xf5mn")
 autoplay = "default"
-frame_progress = 0.69390893
+frame_progress = 0.41151276
 
 [node name="Left_Node" type="Node2D" parent="." unique_id=1566481810]
 position = Vector2(692, 339)
@@ -1462,6 +1468,20 @@ scale = Vector2(34.11475, 66.55386)
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
+[node name="Back" type="TextureButton" parent="." unique_id=894442128]
+modulate = Color(0.49158353, 0.49158317, 0.49158323, 1)
+z_index = 1
+material = SubResource("CanvasItemMaterial_y860o")
+layout_mode = 0
+offset_left = 1003.0
+offset_top = 48.0
+offset_right = 1677.0
+offset_bottom = 418.0
+scale = Vector2(0.18461844, 0.18461844)
+texture_normal = ExtResource("21_6uglv")
+texture_pressed = ExtResource("22_73vgx")
+texture_hover = ExtResource("23_1cmd0")
+
 [connection signal="mouse_entered" from="Left_Node/Left" to="." method="_on_left_mouse_entered"]
 [connection signal="pressed" from="Left_Node/Left" to="." method="_on_right_pressed"]
 [connection signal="mouse_entered" from="Right_Node/Right" to="." method="_on_right_mouse_entered"]
@@ -1472,3 +1492,5 @@ color = Color(0, 0, 0, 1)
 [connection signal="pressed" from="Levels/Level1" to="." method="_on_level_1_pressed"]
 [connection signal="mouse_entered" from="Levels/Level2" to="." method="_on_level_2_mouse_entered"]
 [connection signal="pressed" from="Levels/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="mouse_entered" from="Back" to="." method="_on_back_mouse_entered"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

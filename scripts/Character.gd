@@ -8,6 +8,9 @@ var ATTACK_COOLDOWN = 1.0
 var attack_timer = 0.0
 var coins = 0
 var is_hit = false
+var is_dead := false
+
+@onready var dialogue = $Camera2D/Dialogue
 @export var min_damage = 15
 @export var crit_damage = 30
 @export var max_health := 100
@@ -19,10 +22,23 @@ var transitioning := false
 @onready var fade: ColorRect = $CanvasLayer/Fade
 @onready var click_sound = $CanvasLayer/Click
 @onready var walk_sound = $Audio/Walk
+@onready var death_screen: ColorRect = $CanvasLayer/DeathScreen
+@onready var death_label: Label = $CanvasLayer/DeathLabel
+
 
 func _ready() -> void:
     coin_label.text = "Coins: 0"
     fade.modulate.a = 0.0
+    death_screen.modulate.a = 0.0
+    death_label.modulate.a = 0.0
+    print("death_label visible: ", death_label.visible)
+    print("death_label modulate: ", death_label.modulate)
+    print("death_label position: ", death_label.global_position)
+    print("death_label size: ", death_label.size)
+    print("death_label text: ", death_label.text)
+    $Audio/bgAudio.stream.loop = true
+    $Audio/bgAudio.play()
+
 
 func play_click_and_fade(scene_path):
     click_sound.pitch_scale = 0.8
@@ -37,6 +53,8 @@ func play_click_and_fade(scene_path):
         get_tree().quit()
 
 func take_damage(amount: int):
+    if is_dead:
+        return
     is_hit = true
     player_health = clamp(player_health - amount, 0, max_health)
     progress_bar.change_health(player_health)
@@ -47,6 +65,10 @@ func take_damage(amount: int):
 func _physics_process(delta: float) -> void:
     if not is_on_floor():
         velocity += get_gravity() * delta
+    if is_dead:
+        velocity.x = 0
+        move_and_slide()
+        return
     if Input.is_action_just_pressed("ui_accept") and is_on_floor():
         velocity.y = JUMP_VELOCITY
         is_attacking = false
@@ -71,9 +93,10 @@ func _physics_process(delta: float) -> void:
             var tile_data = collider.get_cell_tile_data(cell_coords)
             if tile_data and tile_data.get_custom_data("deadly") == true:
                 die()
-    if anim_sprite.animation == "":
-        anim_sprite.play("idle")
-    if not is_attacking and is_hit == false:
+                break
+    if is_dead:
+        return
+    if not is_attacking and not is_hit:
         var anim = ""
         if not is_on_floor():
             anim = "jump"
@@ -82,18 +105,15 @@ func _physics_process(delta: float) -> void:
             _play_sound("walk")
         else:
             anim = "idle"
-            
-            
+            walk_sound.stop()
         if anim_sprite.animation != anim:
             anim_sprite.play(anim)
     move_and_slide()
 
 func _play_sound(sound: String):
-    
     if sound == "walk":
-        
-        walk_sound.play()
-    
+        if not walk_sound.playing:
+            walk_sound.play()
 
 func player_attack():
     is_attacking = true
@@ -110,17 +130,40 @@ func player_attack():
                 body.take_damage_enemy(damage_enemy)
 
 func _on_animated_sprite_2d_animation_finished() -> void:
+    if is_dead:
+        return
     if anim_sprite.animation.begins_with("attack_1") or anim_sprite.animation.begins_with("attack"):
         is_attacking = false
+        anim_sprite.play("idle")
     if anim_sprite.animation.begins_with("hit"):
         is_hit = false
+        anim_sprite.play("idle")
 
 func die():
-    if transitioning:
+    if is_dead or transitioning:
         return
     transitioning = true
+    is_dead = true
+    is_attacking = false
+    is_hit = false
+    velocity = Vector2.ZERO
+    walk_sound.stop()
+    $Audio/bgAudio.stop()
+    $Audio/Die.play()
+    anim_sprite.play("death")
+    await anim_sprite.animation_finished
+    
+    var tween = create_tween()
+    tween.set_parallel(true)
+    tween.tween_property(death_screen, "modulate:a", 1.0, 0.8)
+    tween.tween_property(death_label, "modulate:a", 1.0, 0.6)
+    await tween.finished
+    print("tween done - death_label modulate: ", death_label.modulate)
+    print("tween done - death_label visible: ", death_label.visible)
+    print("tween done - death_screen modulate: ", death_screen.modulate)
+    
+    await get_tree().create_timer(1.2).timeout
     await play_click_and_fade(get_tree().current_scene.scene_file_path)
-
 func add_score(amount: int):
     coins += amount
     coin_label.text = "Coins: " + str(coins)
@@ -134,7 +177,6 @@ func _on_back_pressed() -> void:
         await play_click_and_fade("res://scenes/levels.tscn")
     elif scene_path == "res://scenes/levels.tscn":
         await play_click_and_fade("res://scenes/main_menu.tscn")
-
 
 func _on_back_mouse_entered() -> void:
     click_sound.pitch_scale = 0.8
