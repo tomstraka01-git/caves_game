@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 
     match state:
         State.WALK:
-            # Guard against zero direction causing stuck walk animation
+            
             if distance_to_player > 2.0:
                 velocity.x = SPEED * sign(direction)
                 $Pivot.scale.x = sign(direction)
@@ -109,7 +109,7 @@ func _attack_player() -> void:
     _play_animation("attack")
     attack_timer = ATTACK_COOLDOWN
     await get_tree().create_timer(0.3).timeout
-    if my_id != attack_id or state == State.DEAD:  # removed "or state == State.HIT"
+    if my_id != attack_id or state == State.DEAD:  
         return
     for body in attack_area.get_overlapping_bodies():
         if body.is_in_group("character") and body.has_method("take_damage"):

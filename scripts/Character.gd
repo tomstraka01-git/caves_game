@@ -157,7 +157,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
     if anim_sprite.animation.begins_with("hit"):
         is_hit = false
         anim_sprite.play("idle")
-    # Safety net: if somehow both flags are still set, clear them
+   
     if not anim_sprite.is_playing():
         is_attacking = false
         is_hit = false

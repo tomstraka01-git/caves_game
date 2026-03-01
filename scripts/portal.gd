@@ -26,7 +26,7 @@ func _ready():
     fade = current_scene.get_node("CanvasLayer/Fade")
     fade.modulate.a = 0.0
     fade.visible = true
-
+    $PortalSoundSpin.play()
 func _on_body_entered(body):
     if body.is_in_group("character"):
         player_inside = true

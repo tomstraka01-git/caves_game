@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GameState="*uid://b4nnsvpoki078"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [global_group]
 
 enemies=""
