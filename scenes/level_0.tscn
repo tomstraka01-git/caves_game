@@ -19,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://byal6kuiibec7" path="res://assets/Lava/Screenshot_2026-02-28_121843-removebg-preview.png" id="16_eh5lm"]
 [ext_resource type="Script" uid="uid://vbq40u2nd2nf" path="res://scripts/map.gd" id="18_lbrgs"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kkuia"]
+light_mode = 1
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lbrgs"]
 light_mode = 1
 
@@ -154,10 +157,10 @@ size = Vector2(121.84375, 335.25)
 size = Vector2(137, 264)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbrgs"]
-size = Vector2(179.375, 133.21875)
+size = Vector2(45.6875, 133.21875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pfwt"]
-size = Vector2(48.5, 148.25)
+size = Vector2(235.25, 148.25)
 
 [node name="Level0" type="Node2D" unique_id=1448817746]
 
@@ -182,10 +185,11 @@ script = ExtResource("8_44yx7")
 
 [node name="Label" type="Label" parent="Character/Camera2D/Dialogue" unique_id=869394727]
 z_index = 2
+material = SubResource("CanvasItemMaterial_kkuia")
 layout_mode = 0
-offset_left = -152.0
+offset_left = -146.0
 offset_top = 19.0
-offset_right = 195.0
+offset_right = 201.0
 offset_bottom = 78.0
 theme_override_fonts/font = ExtResource("2_lbrgs")
 theme_override_font_sizes/font_size = 8
@@ -328,11 +332,9 @@ texture = ExtResource("10_om4r1")
 position = Vector2(969, 7)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1991492943]
-visible = false
 color = Color(0.11764706, 0.11764706, 0.11764706, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=965899058]
-visible = false
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=1873517258]
 offset_left = -620.0
@@ -424,6 +426,15 @@ autoplay = "default"
 
 [node name="Map" type="Node2D" parent="." unique_id=1731136175]
 script = ExtResource("18_lbrgs")
+first_line_1 = "Where am I?"
+first_line_2 = "I need to get out"
+second_line_1 = "I should pick it up"
+second_line_2 = "Maybe its going to be needed"
+third_line_1 = "Carefull"
+third_line_2 = "What is that?"
+fourth_line_1 = "I should go explore it"
+fifth_line_1 = "... a portal"
+fifth_line_2 = "Where does it lead?"
 
 [node name="First" type="Area2D" parent="Map" unique_id=696940081]
 
@@ -446,11 +457,11 @@ shape = SubResource("RectangleShape2D_eh5lm")
 [node name="Fourth" type="Area2D" parent="Map" unique_id=538142572]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Fourth" unique_id=940889726]
-position = Vector2(1455.6875, -29.390625)
+position = Vector2(1158.1563, -58)
 shape = SubResource("RectangleShape2D_lbrgs")
 
 [node name="Fifth" type="Area2D" parent="Map" unique_id=811706754]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Fifth" unique_id=884388183]
-position = Vector2(1173.75, -75.875)
+position = Vector2(1447, -45)
 shape = SubResource("RectangleShape2D_4pfwt")

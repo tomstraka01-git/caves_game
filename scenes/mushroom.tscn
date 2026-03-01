@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dyiomq67ctqo3"]
+
+[ext_resource type="Texture2D" uid="uid://c1fb7jl5571bu" path="res://assets/mushrooms-and-left-right-icon/Screenshot_2026-02-28_130906-removebg-preview.png" id="1_b0s10"]
+[ext_resource type="Script" uid="uid://fqc62hi2opo6" path="res://scripts/mushroom.gd" id="2_0bdi0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bdi0"]
+
+[sub_resource type="Gradient" id="Gradient_0bdi0"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qxrkd"]
+gradient = SubResource("Gradient_0bdi0")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
+
+[node name="Mushroom" type="Node2D" unique_id=1025239873]
+
+[node name="Screenshot20260228130906RemovebgPreview3" type="Sprite2D" parent="." unique_id=1497339686]
+z_index = 1
+position = Vector2(369, 549)
+scale = Vector2(0.037973158, 0.045265798)
+texture = ExtResource("1_b0s10")
+
+[node name="Screenshot20260228130906RemovebgPreview5" type="Sprite2D" parent="." unique_id=806134807]
+z_index = -1
+position = Vector2(360, 555)
+scale = Vector2(0.021986587, 0.019626876)
+texture = ExtResource("1_b0s10")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1759671220]
+script = ExtResource("2_0bdi0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1329663535]
+position = Vector2(365, 550)
+shape = SubResource("RectangleShape2D_0bdi0")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=2141798365]
+position = Vector2(367, 548.99994)
+scale = Vector2(2.3205554, 2.3205554)
+color = Color(0.30588236, 0.30588236, 0.30588236, 0.7137255)
+texture = SubResource("GradientTexture2D_qxrkd")

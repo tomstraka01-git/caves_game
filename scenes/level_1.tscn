@@ -2,27 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://bbgsrtc5wvpjj" path="res://scenes/character.tscn" id="1_s3esy"]
 [ext_resource type="Texture2D" uid="uid://mbp20lkfgp3u" path="res://assets/Tileset_Cave.png" id="2_72e8q"]
-[ext_resource type="Script" uid="uid://ci6ctx8mb0kkj" path="res://scripts/player_health.gd" id="2_ygxny"]
 [ext_resource type="PackedScene" uid="uid://dqqx8fa8xu4dh" path="res://scenes/enemy.tscn" id="3_d2op2"]
-[ext_resource type="Texture2D" uid="uid://jwb0gkl16ff0" path="res://assets/hearts/health_bar.png" id="3_wi4c7"]
-[ext_resource type="Texture2D" uid="uid://qwtft451gn2w" path="res://assets/hearts/health_bar_decoration.png" id="4_70vka"]
-[ext_resource type="FontFile" uid="uid://bg3yiuqdy23pm" path="res://assets/fonts/DungeonFont.ttf" id="5_70vka"]
 [ext_resource type="PackedScene" uid="uid://ijx141nncv1f" path="res://scenes/coin.tscn" id="7_wi4c7"]
+[ext_resource type="Script" uid="uid://vbq40u2nd2nf" path="res://scripts/map.gd" id="10_1s4pk"]
 [ext_resource type="Texture2D" uid="uid://xlkqefn7v623" path="res://assets/Screenshot_2026-02-28_105226-removebg-preview.png" id="10_2aecg"]
 [ext_resource type="Texture2D" uid="uid://d2hasf7xh7sb2" path="res://assets/Screenshot_2026-02-28_103944-removebg-preview.png" id="11_6dial"]
 [ext_resource type="Texture2D" uid="uid://cjk63kfbrbdvv" path="res://assets/Screenshot_2026-02-28_110053-removebg-preview.png" id="12_7nomh"]
 [ext_resource type="Texture2D" uid="uid://bdrnjh56hc52a" path="res://assets/mushrooms-and-left-right-icon/Screenshot_2026-02-28_130231-removebg-preview.png" id="13_1s4pk"]
-[ext_resource type="Texture2D" uid="uid://c1fb7jl5571bu" path="res://assets/mushrooms-and-left-right-icon/Screenshot_2026-02-28_130906-removebg-preview.png" id="14_2aecg"]
 [ext_resource type="PackedScene" uid="uid://cvxejs2dkxp65" path="res://scenes/portal.tscn" id="14_6dial"]
-
-[sub_resource type="Gradient" id="Gradient_o2tjn"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_15mv3"]
-gradient = SubResource("Gradient_o2tjn")
-fill = 1
-fill_from = Vector2(0.49447513, 0.4723757)
-fill_to = Vector2(0.49447513, 0)
+[ext_resource type="PackedScene" uid="uid://dyiomq67ctqo3" path="res://scenes/mushroom.tscn" id="14_7nomh"]
+[ext_resource type="Texture2D" uid="uid://bebllabchtvub" path="res://assets/Lava/Screenshot_2026-02-28_121525-removebg-preview.png" id="15_isj1j"]
+[ext_resource type="Texture2D" uid="uid://brsc5yu6xvo8k" path="res://assets/Lava/Screenshot_2026-02-28_121700-removebg-preview.png" id="16_so66j"]
+[ext_resource type="Script" uid="uid://cfw0qaiqsjk3v" path="res://scripts/dialogue_box.gd" id="16_x2xxo"]
+[ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="17_2cbcq"]
+[ext_resource type="Texture2D" uid="uid://0vg6ruo7nlfu" path="res://assets/Lava/Screenshot_2026-02-28_121723-removebg-preview.png" id="17_tr1x6"]
+[ext_resource type="Texture2D" uid="uid://rfibuf4sg0uh" path="res://assets/Lava/Screenshot_2026-02-28_121803-removebg-preview.png" id="18_d5akn"]
+[ext_resource type="Texture2D" uid="uid://6lrobwlrb6w3" path="res://assets/Lava/Screenshot_2026-02-28_121821-removebg-preview.png" id="19_wbtxt"]
+[ext_resource type="Texture2D" uid="uid://byal6kuiibec7" path="res://assets/Lava/Screenshot_2026-02-28_121843-removebg-preview.png" id="20_x2fux"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d2op2"]
 texture = ExtResource("2_72e8q")
@@ -111,45 +107,72 @@ texture = ExtResource("2_72e8q")
 [sub_resource type="TileSet" id="TileSet_ipu61"]
 sources/0 = SubResource("TileSetAtlasSource_0rdsr")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gny6"]
+size = Vector2(304.5, 329)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_so66j"]
+size = Vector2(121.84375, 335.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tr1x6"]
+size = Vector2(137, 264)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5akn"]
+size = Vector2(45.6875, 133.21875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbtxt"]
+size = Vector2(141.625, 148.25)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x2fux"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s7g0b"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_o2tjn"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_15mv3"]
+gradient = SubResource("Gradient_o2tjn")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7g0b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_isj1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_so66j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tr1x6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_d5akn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_wbtxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_x2fux")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_qjcqe"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2cbcq"]
+gradient = SubResource("Gradient_qjcqe")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
+
 [node name="main_game" type="Node2D" unique_id=443284399]
-
-[node name="Character" parent="." unique_id=1207945146 instance=ExtResource("1_s3esy")]
-position = Vector2(-308, 598)
-
-[node name="Camera2D" type="Camera2D" parent="Character" unique_id=1739797257]
-zoom = Vector2(3, 3)
-
-[node name="Player_Health" type="Node2D" parent="Character/Camera2D" unique_id=1974994431]
-position = Vector2(-154, -40)
-scale = Vector2(2.5136788, 2.5136788)
-script = ExtResource("2_ygxny")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Character/Camera2D/Player_Health" unique_id=847967200]
-z_index = 1
-offset_left = -6.3651743
-offset_top = -23.073753
-offset_right = 42.634827
-offset_bottom = 16.926247
-scale = Vector2(0.3901247, 0.39690903)
-texture_progress = ExtResource("3_wi4c7")
-
-[node name="HealthBarDecoration" type="Sprite2D" parent="Character/Camera2D/Player_Health" unique_id=233266893]
-position = Vector2(0.834425, -19.499996)
-scale = Vector2(0.40107578, 0.40107578)
-texture = ExtResource("4_70vka")
-
-[node name="Coin_Label" type="Label" parent="Character/Camera2D" unique_id=270894296]
-offset_left = -184.0
-offset_top = -79.0
-offset_right = -115.0
-offset_bottom = -56.0
-theme_override_fonts/font = ExtResource("5_70vka")
-text = "Coins = 0"
-
-[node name="PointLight2D" type="PointLight2D" parent="Character" unique_id=1324748727]
-position = Vector2(2.9550343, -9.955009)
-scale = Vector2(5, 5)
-texture = SubResource("GradientTexture2D_15mv3")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=567239020]
 z_index = -1
@@ -228,48 +251,19 @@ texture = ExtResource("12_7nomh")
 
 [node name="Screenshot20260228130231RemovebgPreview" type="Sprite2D" parent="." unique_id=873555779]
 z_index = -1
-position = Vector2(12.999996, 618.00006)
-scale = Vector2(0.06699997, 0.09644293)
+position = Vector2(-24.999996, 631)
+scale = Vector2(0.03, 0.043)
 texture = ExtResource("13_1s4pk")
 
 [node name="Screenshot20260228130231RemovebgPreview" type="Sprite2D" parent="Screenshot20260228130231RemovebgPreview" unique_id=2051488444]
-position = Vector2(104.477745, 165.90071)
-scale = Vector2(0.206556, 0.19870842)
-texture = ExtResource("13_1s4pk")
-
-[node name="Screenshot20260228130231RemovebgPreview2" type="Sprite2D" parent="Screenshot20260228130231RemovebgPreview" unique_id=1578361616]
-position = Vector2(-104.47758, 145.1629)
-scale = Vector2(0.44296286, 0.35585678)
+position = Vector2(199.99985, 139.53494)
+scale = Vector2(0.209, 0.3)
 texture = ExtResource("13_1s4pk")
 
 [node name="Screenshot20260228105226RemovebgPreview2" type="Sprite2D" parent="." unique_id=1524192402]
 position = Vector2(176, 468.5625)
 scale = Vector2(0.13126652, 0.26153484)
 texture = ExtResource("10_2aecg")
-
-[node name="Screenshot20260228130906RemovebgPreview" type="Sprite2D" parent="." unique_id=1951193788]
-z_index = -1
-position = Vector2(357.4375, 542.4062)
-scale = Vector2(0.061750032, 0.06976445)
-texture = ExtResource("14_2aecg")
-
-[node name="Screenshot20260228130906RemovebgPreview" type="Sprite2D" parent="Screenshot20260228130906RemovebgPreview" unique_id=1331487008]
-z_index = 1
-position = Vector2(1725.7078, -134.82767)
-scale = Vector2(0.6149496, 0.64883757)
-texture = ExtResource("14_2aecg")
-
-[node name="Screenshot20260228130906RemovebgPreview2" type="Sprite2D" parent="Screenshot20260228130906RemovebgPreview" unique_id=913973217]
-z_index = 1
-position = Vector2(187.24687, 137.51721)
-scale = Vector2(0.45300648, 0.4764861)
-texture = ExtResource("14_2aecg")
-
-[node name="Screenshot20260228130906RemovebgPreview3" type="Sprite2D" parent="Screenshot20260228130906RemovebgPreview" unique_id=1947970306]
-z_index = -1
-position = Vector2(41.497955, 180.51917)
-scale = Vector2(0.3560579, 0.28133062)
-texture = ExtResource("14_2aecg")
 
 [node name="Screenshot20260228103944RemovebgPreview2" type="Sprite2D" parent="." unique_id=638309164]
 position = Vector2(536, 447)
@@ -315,52 +309,172 @@ position = Vector2(1892.0618, -129.663)
 scale = Vector2(1.2717894, 1.2219378)
 texture = ExtResource("10_2aecg")
 
-[node name="Screenshot20260228105226RemovebgPreview5" type="Sprite2D" parent="Screenshot20260228105226RemovebgPreview4" unique_id=410062210]
-position = Vector2(1481.7496, 841.23975)
-rotation = 3.137652
-scale = Vector2(0.983869, 1.1671611)
-texture = ExtResource("10_2aecg")
-
-[node name="Screenshot20260228130906RemovebgPreview2" type="Sprite2D" parent="." unique_id=1716994568]
-z_index = -1
-position = Vector2(778.00006, 537)
-scale = Vector2(0.020000022, 0.027555084)
-texture = ExtResource("14_2aecg")
-
-[node name="Screenshot20260228130906RemovebgPreview2" type="Sprite2D" parent="Screenshot20260228130906RemovebgPreview2" unique_id=37124444]
-z_index = -1
-position = Vector2(10849.984, 3447.6401)
-scale = Vector2(1.534002, 1.2742449)
-texture = ExtResource("14_2aecg")
-
-[node name="Screenshot20260228130906RemovebgPreview3" type="Sprite2D" parent="Screenshot20260228130906RemovebgPreview2" unique_id=270179660]
-z_index = -1
-position = Vector2(249.9953, 145.16412)
-scale = Vector2(0.5680032, 0.51211774)
-texture = ExtResource("14_2aecg")
-
-[node name="Screenshot20260228130906RemovebgPreview4" type="Sprite2D" parent="Screenshot20260228130906RemovebgPreview2" unique_id=793717350]
-z_index = -1
-position = Vector2(-100.002045, 145.16373)
-scale = Vector2(0.6680057, 0.51211935)
-texture = ExtResource("14_2aecg")
-
-[node name="Screenshot20260228130906RemovebgPreview5" type="Sprite2D" parent="Screenshot20260228130906RemovebgPreview2" unique_id=1816727564]
-z_index = -1
-position = Vector2(149.99637, 108.87368)
-scale = Vector2(0.56799906, 0.6575705)
-texture = ExtResource("14_2aecg")
-
 [node name="Area2D" parent="." unique_id=903844828 instance=ExtResource("14_6dial")]
 position = Vector2(1399, 602)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=908788470]
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=1958151755]
-visible = false
 offset_left = -720.0
 offset_top = 74.0
 offset_right = 1691.0
 offset_bottom = 940.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Map" type="Node2D" parent="." unique_id=895833099]
+script = ExtResource("10_1s4pk")
+first_line_1 = "Another cave?"
+second_line_1 = "Enemy!"
+second_line_2 = "Theres more of them?"
+third_line_1 = "Is this eatable?"
+fourth_line_1 = "I got to pick these coins"
+fourth_line_2 = "carefull, there are spikes!"
+fifth_line_1 = "Another portal!?"
+fifth_line_2 = "I guess ill have to follow it"
+
+[node name="First" type="Area2D" parent="Map" unique_id=483648210]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/First" unique_id=699570115]
+position = Vector2(-257, 554)
+shape = SubResource("RectangleShape2D_7gny6")
+
+[node name="Second" type="Area2D" parent="Map" unique_id=525422687]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Second" unique_id=274502149]
+position = Vector2(49, 512)
+shape = SubResource("RectangleShape2D_so66j")
+
+[node name="Third" type="Area2D" parent="Map" unique_id=474418194]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Third" unique_id=1378335595]
+position = Vector2(364, 441)
+shape = SubResource("RectangleShape2D_tr1x6")
+
+[node name="Fourth" type="Area2D" parent="Map" unique_id=172116617]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Fourth" unique_id=1512303402]
+position = Vector2(801, 493)
+shape = SubResource("RectangleShape2D_d5akn")
+
+[node name="Fifth" type="Area2D" parent="Map" unique_id=1104136829]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Fifth" unique_id=172273219]
+position = Vector2(1061.1875, 594)
+shape = SubResource("RectangleShape2D_wbtxt")
+
+[node name="Character" parent="." unique_id=1207945146 instance=ExtResource("1_s3esy")]
+position = Vector2(-308, 598)
+
+[node name="Camera2D" type="Camera2D" parent="Character" unique_id=1004156361]
+zoom = Vector2(3, 3)
+
+[node name="Dialogue" type="Control" parent="Character/Camera2D" unique_id=102244028]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = 20.0
+offset_right = -28.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_x2xxo")
+
+[node name="Label" type="Label" parent="Character/Camera2D/Dialogue" unique_id=1735132045]
+z_index = 2
+material = SubResource("CanvasItemMaterial_x2fux")
+layout_mode = 0
+offset_left = -146.0
+offset_top = 19.0
+offset_right = 201.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("17_2cbcq")
+theme_override_font_sizes/font_size = 8
+
+[node name="ColorRect" type="ColorRect" parent="Character/Camera2D/Dialogue" unique_id=675981384]
+material = SubResource("CanvasItemMaterial_s7g0b")
+layout_mode = 0
+offset_left = -155.0
+offset_top = 8.0
+offset_right = 193.0
+offset_bottom = 67.0
+color = Color(0, 0, 0, 0.3882353)
+
+[node name="PointLight2D" type="PointLight2D" parent="Character" unique_id=1384664893]
+position = Vector2(2.9550343, -9.955009)
+scale = Vector2(5, 5)
+texture = SubResource("GradientTexture2D_15mv3")
+
+[node name="Mushroom" parent="." unique_id=1025239873 instance=ExtResource("14_7nomh")]
+
+[node name="Mushroom2" parent="." unique_id=1762395914 instance=ExtResource("14_7nomh")]
+position = Vector2(731, 63)
+
+[node name="Lava" type="AnimatedSprite2D" parent="." unique_id=1825744888]
+position = Vector2(1101, 674)
+scale = Vector2(0.058684845, 0.058684845)
+sprite_frames = SubResource("SpriteFrames_s7g0b")
+autoplay = "default"
+
+[node name="Lava2" type="AnimatedSprite2D" parent="Lava" unique_id=1748132019]
+position = Vector2(482.56543, -5.968811)
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_s7g0b")
+autoplay = "default"
+
+[node name="Lava2" type="AnimatedSprite2D" parent="." unique_id=246032684]
+position = Vector2(1158, 674)
+scale = Vector2(0.058684845, 0.058684845)
+sprite_frames = SubResource("SpriteFrames_s7g0b")
+autoplay = "default"
+
+[node name="Lava2" type="AnimatedSprite2D" parent="Lava2" unique_id=1313308260]
+position = Vector2(482.56543, -5.968811)
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_s7g0b")
+autoplay = "default"
+
+[node name="Lava3" type="AnimatedSprite2D" parent="." unique_id=1086447756]
+position = Vector2(1214, 674)
+scale = Vector2(0.058684845, 0.058684845)
+sprite_frames = SubResource("SpriteFrames_s7g0b")
+autoplay = "default"
+
+[node name="Lava2" type="AnimatedSprite2D" parent="Lava3" unique_id=1649412052]
+position = Vector2(482.56543, -5.968811)
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_s7g0b")
+autoplay = "default"
+
+[node name="Lava4" type="AnimatedSprite2D" parent="." unique_id=360606547]
+position = Vector2(1271, 674)
+scale = Vector2(0.058684845, 0.058684845)
+sprite_frames = SubResource("SpriteFrames_s7g0b")
+autoplay = "default"
+
+[node name="Lava2" type="AnimatedSprite2D" parent="Lava4" unique_id=1316969614]
+position = Vector2(482.56543, -5.968811)
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_s7g0b")
+autoplay = "default"
+
+[node name="Lava5" type="AnimatedSprite2D" parent="." unique_id=1167973901]
+position = Vector2(1286, 674)
+scale = Vector2(0.058684845, 0.058684845)
+sprite_frames = SubResource("SpriteFrames_s7g0b")
+autoplay = "default"
+
+[node name="Lava2" type="AnimatedSprite2D" parent="Lava5" unique_id=1224091400]
+position = Vector2(482.56543, -5.968811)
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_s7g0b")
+autoplay = "default"
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1903882681]
+position = Vector2(-171, 688)
+scale = Vector2(2.3205554, 2.3205554)
+color = Color(0.1808463, 0.38639885, 0.53776956, 1)
+texture = SubResource("GradientTexture2D_2cbcq")
