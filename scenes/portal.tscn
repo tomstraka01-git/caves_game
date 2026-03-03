@@ -45,6 +45,7 @@ color = Color(0.3558644, 0.03364318, 0.3351259, 1)
 texture = SubResource("GradientTexture2D_jr6l0")
 
 [node name="Label" type="Label" parent="." unique_id=1903725900]
+visible = false
 offset_left = -203.0
 offset_top = -76.0
 offset_right = 205.0
