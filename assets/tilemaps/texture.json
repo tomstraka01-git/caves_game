@@ -1,0 +1,1479 @@
+{
+  "frames": {
+    "Cartoon_Medieval_Armory_Level_Set_Building - Roof A 04.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 352,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 352,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 352,
+        "h": 160
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Roof A 05.png": {
+      "frame": {
+        "x": 352,
+        "y": 0,
+        "w": 352,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 352,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 352,
+        "h": 160
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Ladder 01.png": {
+      "frame": {
+        "x": 704,
+        "y": 0,
+        "w": 348,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 32,
+        "w": 348,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 352,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Ladder 02.png": {
+      "frame": {
+        "x": 1052,
+        "y": 0,
+        "w": 348,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 32,
+        "w": 348,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 352,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Roof B 04.png": {
+      "frame": {
+        "x": 1400,
+        "y": 0,
+        "w": 343,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 343,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 352,
+        "h": 160
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Canopy 02.png": {
+      "frame": {
+        "x": 1743,
+        "y": 0,
+        "w": 256,
+        "h": 127
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 1,
+        "w": 256,
+        "h": 127
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Pillar 06.png": {
+      "frame": {
+        "x": 1999,
+        "y": 0,
+        "w": 42,
+        "h": 42
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 11,
+        "y": 11,
+        "w": 42,
+        "h": 42
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Pillar 05.png": {
+      "frame": {
+        "x": 1999,
+        "y": 42,
+        "w": 41,
+        "h": 40
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 11,
+        "y": 12,
+        "w": 41,
+        "h": 40
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Pillar 02.png": {
+      "frame": {
+        "x": 1999,
+        "y": 82,
+        "w": 40,
+        "h": 320
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 0,
+        "w": 40,
+        "h": 320
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 320
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Canopy 01.png": {
+      "frame": {
+        "x": 1743,
+        "y": 127,
+        "w": 256,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 2,
+        "w": 256,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Roof B 05.png": {
+      "frame": {
+        "x": 704,
+        "y": 32,
+        "w": 343,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 9,
+        "y": 0,
+        "w": 343,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 352,
+        "h": 160
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Wall C 02.png": {
+      "frame": {
+        "x": 1047,
+        "y": 32,
+        "w": 320,
+        "h": 302
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 18,
+        "w": 320,
+        "h": 302
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 320
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Wall A 02.png": {
+      "frame": {
+        "x": 1367,
+        "y": 160,
+        "w": 320,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 20,
+        "w": 320,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 320
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Pillar 07.png": {
+      "frame": {
+        "x": 1687,
+        "y": 160,
+        "w": 51,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 7,
+        "w": 51,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Wall B 02.png": {
+      "frame": {
+        "x": 1687,
+        "y": 402,
+        "w": 320,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 20,
+        "w": 320,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 320
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Stone Window 01.png": {
+      "frame": {
+        "x": 1687,
+        "y": 253,
+        "w": 140,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 10,
+        "w": 140,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 160
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Chimney 01.png": {
+      "frame": {
+        "x": 1827,
+        "y": 253,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Roof A 02.png": {
+      "frame": {
+        "x": 0,
+        "y": 160,
+        "w": 320,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 160
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Roof B 02.png": {
+      "frame": {
+        "x": 320,
+        "y": 160,
+        "w": 320,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 160
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Wall C 01.png": {
+      "frame": {
+        "x": 640,
+        "y": 160,
+        "w": 63,
+        "h": 302
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 65,
+        "y": 18,
+        "w": 63,
+        "h": 302
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 320
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Pillar 01.png": {
+      "frame": {
+        "x": 703,
+        "y": 192,
+        "w": 320,
+        "h": 38
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 13,
+        "w": 320,
+        "h": 38
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Wide Door 02.png": {
+      "frame": {
+        "x": 703,
+        "y": 230,
+        "w": 228,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 14,
+        "y": 0,
+        "w": 228,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Decor Weapon 04.png": {
+      "frame": {
+        "x": 931,
+        "y": 230,
+        "w": 116,
+        "h": 98
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 15,
+        "w": 116,
+        "h": 98
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Window 02.png": {
+      "frame": {
+        "x": 931,
+        "y": 328,
+        "w": 100,
+        "h": 100
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 14,
+        "y": 14,
+        "w": 100,
+        "h": 100
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Wide Door 04.png": {
+      "frame": {
+        "x": 1031,
+        "y": 334,
+        "w": 226,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 15,
+        "y": 0,
+        "w": 226,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Roof A 01.png": {
+      "frame": {
+        "x": 931,
+        "y": 460,
+        "w": 92,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 36,
+        "y": 0,
+        "w": 92,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 160
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Roof A 03.png": {
+      "frame": {
+        "x": 1257,
+        "y": 334,
+        "w": 92,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 92,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 160
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Wide Door 01.png": {
+      "frame": {
+        "x": 1349,
+        "y": 460,
+        "w": 224,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 16,
+        "y": 0,
+        "w": 224,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Roof B 01.png": {
+      "frame": {
+        "x": 1257,
+        "y": 494,
+        "w": 92,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 36,
+        "y": 0,
+        "w": 92,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 160
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Roof B 03.png": {
+      "frame": {
+        "x": 1573,
+        "y": 460,
+        "w": 92,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 92,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 160
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Decor Window 01.png": {
+      "frame": {
+        "x": 1573,
+        "y": 620,
+        "w": 92,
+        "h": 52
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 18,
+        "y": 38,
+        "w": 92,
+        "h": 52
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Wide Door 03.png": {
+      "frame": {
+        "x": 1023,
+        "y": 590,
+        "w": 211,
+        "h": 250
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 22,
+        "y": 6,
+        "w": 211,
+        "h": 250
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Decor Weapon 03.png": {
+      "frame": {
+        "x": 1573,
+        "y": 672,
+        "w": 90,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 19,
+        "y": 17,
+        "w": 90,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Chimney 03.png": {
+      "frame": {
+        "x": 1234,
+        "y": 654,
+        "w": 87,
+        "h": 110
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 21,
+        "y": 18,
+        "w": 87,
+        "h": 110
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Chimney 02.png": {
+      "frame": {
+        "x": 1234,
+        "y": 764,
+        "w": 86,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 21,
+        "y": 0,
+        "w": 86,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Decor Roof 01.png": {
+      "frame": {
+        "x": 1321,
+        "y": 716,
+        "w": 160,
+        "h": 155
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 5,
+        "w": 160,
+        "h": 155
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 160
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Decor Weapon 01.png": {
+      "frame": {
+        "x": 1481,
+        "y": 716,
+        "w": 75,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 27,
+        "y": 1,
+        "w": 75,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Decor Roof 02.png": {
+      "frame": {
+        "x": 1663,
+        "y": 702,
+        "w": 160,
+        "h": 155
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 5,
+        "w": 160,
+        "h": 155
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 160
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Decor Window 03.png": {
+      "frame": {
+        "x": 1556,
+        "y": 766,
+        "w": 70,
+        "h": 70
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 29,
+        "y": 29,
+        "w": 70,
+        "h": 70
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Wall B 01.png": {
+      "frame": {
+        "x": 1556,
+        "y": 836,
+        "w": 68,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 60,
+        "y": 20,
+        "w": 68,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 320
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Wall B 03.png": {
+      "frame": {
+        "x": 1481,
+        "y": 857,
+        "w": 68,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 20,
+        "w": 68,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 320
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Stone Window 02.png": {
+      "frame": {
+        "x": 1320,
+        "y": 871,
+        "w": 140,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 0,
+        "w": 140,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 160
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Stone Window 03.png": {
+      "frame": {
+        "x": 1320,
+        "y": 1031,
+        "w": 140,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 0,
+        "w": 140,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 160
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Door 02.png": {
+      "frame": {
+        "x": 1320,
+        "y": 1191,
+        "w": 128,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 17,
+        "w": 128,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Door 01.png": {
+      "frame": {
+        "x": 1823,
+        "y": 702,
+        "w": 128,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 18,
+        "w": 128,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Decor Weapon 02.png": {
+      "frame": {
+        "x": 1951,
+        "y": 857,
+        "w": 68,
+        "h": 84
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 30,
+        "y": 22,
+        "w": 68,
+        "h": 84
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Decor Window 02.png": {
+      "frame": {
+        "x": 1951,
+        "y": 702,
+        "w": 68,
+        "h": 68
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 30,
+        "y": 30,
+        "w": 68,
+        "h": 68
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Door 03.png": {
+      "frame": {
+        "x": 1624,
+        "y": 857,
+        "w": 128,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 18,
+        "w": 128,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Decor Window 04.png": {
+      "frame": {
+        "x": 1752,
+        "y": 857,
+        "w": 66,
+        "h": 98
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 31,
+        "y": 15,
+        "w": 66,
+        "h": 98
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Door 04.png": {
+      "frame": {
+        "x": 1818,
+        "y": 940,
+        "w": 128,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 18,
+        "w": 128,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Wall A 01.png": {
+      "frame": {
+        "x": 1752,
+        "y": 955,
+        "w": 65,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 63,
+        "y": 20,
+        "w": 65,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 320
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Canopy 03.png": {
+      "frame": {
+        "x": 1624,
+        "y": 1095,
+        "w": 128,
+        "h": 127
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 1,
+        "w": 128,
+        "h": 127
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Wall A 03.png": {
+      "frame": {
+        "x": 1549,
+        "y": 1136,
+        "w": 65,
+        "h": 300
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 20,
+        "w": 65,
+        "h": 300
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 320
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Canopy 04.png": {
+      "frame": {
+        "x": 1614,
+        "y": 1222,
+        "w": 128,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 1,
+        "w": 128,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Wall C 03.png": {
+      "frame": {
+        "x": 1460,
+        "y": 1157,
+        "w": 63,
+        "h": 302
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 18,
+        "w": 63,
+        "h": 302
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 320
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Window 01.png": {
+      "frame": {
+        "x": 1523,
+        "y": 1436,
+        "w": 128,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Window 03.png": {
+      "frame": {
+        "x": 1817,
+        "y": 1178,
+        "w": 128,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Window 04.png": {
+      "frame": {
+        "x": 1817,
+        "y": 1304,
+        "w": 128,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Pillar 03.png": {
+      "frame": {
+        "x": 1651,
+        "y": 1348,
+        "w": 124,
+        "h": 124
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2,
+        "w": 124,
+        "h": 124
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Pillar 04.png": {
+      "frame": {
+        "x": 1651,
+        "y": 1472,
+        "w": 124,
+        "h": 124
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2,
+        "w": 124,
+        "h": 124
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Cartoon_Medieval_Armory_Level_Set_Building - Chimney 04.png": {
+      "frame": {
+        "x": 1651,
+        "y": 1596,
+        "w": 122,
+        "h": 126
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 2,
+        "w": 122,
+        "h": 126
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "texture.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 2041,
+      "h": 1722
+    },
+    "scale": 1
+  }
+}

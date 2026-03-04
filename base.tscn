@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://6lrobwlrb6w3" path="res://assets/Lava/Screenshot_2026-02-28_121821-removebg-preview.png" id="16_18b1w"]
 [ext_resource type="Texture2D" uid="uid://byal6kuiibec7" path="res://assets/Lava/Screenshot_2026-02-28_121843-removebg-preview.png" id="17_aggb6"]
 [ext_resource type="Script" uid="uid://vbq40u2nd2nf" path="res://scripts/map.gd" id="18_f7hpq"]
+[ext_resource type="Texture2D" uid="uid://be405b7oxsbs3" path="res://assets/tilemaps/tileset_platformer.png" id="19_jym3p"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0xwag"]
 light_mode = 1
@@ -162,6 +163,27 @@ size = Vector2(45.6875, 133.21875)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6erj"]
 size = Vector2(235.25, 148.25)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_50rgw"]
+texture = ExtResource("19_jym3p")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_v7taj"]
+tile_size = Vector2i(128, 128)
+sources/88 = SubResource("TileSetAtlasSource_50rgw")
+
 [node name="Base" type="Node2D" unique_id=1663062512]
 
 [node name="Character" parent="." unique_id=1207945146 instance=ExtResource("1_v7taj")]
@@ -212,6 +234,7 @@ scale = Vector2(5, 5)
 texture = SubResource("GradientTexture2D_kaldw")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=520536292]
+visible = false
 z_index = -1
 texture_filter = 1
 texture_repeat = 1
@@ -506,3 +529,8 @@ shape = SubResource("RectangleShape2D_h3qio")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Fifth" unique_id=851432448]
 position = Vector2(1447, -45)
 shape = SubResource("RectangleShape2D_e6erj")
+
+[node name="TileMapLayerBase" type="TileMapLayer" parent="." unique_id=1459055798]
+tile_set = SubResource("TileSet_v7taj")
+
+[node name="TileMapLayerBase_Enviroment" type="TileMapLayer" parent="." unique_id=264555237]
