@@ -32,6 +32,9 @@ const KNOCKBACK_DECAY = 12.0
 var coins = 0
 var is_hit = false
 var is_dead := false
+
+
+
 @export var min_damage = 15
 @export var crit_damage = 30
 @export var crit_chance = 10
@@ -48,6 +51,8 @@ var transitioning := false
 @onready var walk_sound = $Audio/Walk
 @onready var death_screen: ColorRect = $CanvasLayer/DeathScreen
 @onready var death_label: Label = $CanvasLayer/DeathLabel
+@onready var ui = $UI
+
 func _ready() -> void:
     coin_label.text = "Coins: 0"
     fade.modulate.a = 0.0
@@ -158,6 +163,7 @@ func _physics_process(delta: float) -> void:
             $Pivot.scale.x = 1
         if Input.is_action_just_pressed("dash") and slide_cooldown_timer <= 0.0 and is_on_floor():
             _start_slide(direction if direction != 0 else $Pivot.scale.x)
+            ui.take_stamina(20)
         if Input.is_action_just_pressed("attack") and attack_timer <= 0 and not is_attacking:
             attack_timer = ATTACK_COOLDOWN
             
