@@ -173,22 +173,6 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_b085t"]
 sources/8 = SubResource("TileSetAtlasSource_uo6h6")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b085t"]
-texture = ExtResource("20_uo6h6")
-texture_region_size = Vector2i(32, 32)
-17:63/size_in_atlas = Vector2i(11, 10)
-17:63/0 = 0
-7:63/size_in_atlas = Vector2i(3, 10)
-7:63/0 = 0
-5:50/size_in_atlas = Vector2i(4, 5)
-5:50/0 = 0
-17:50/size_in_atlas = Vector2i(11, 5)
-17:50/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_33mrd"]
-tile_size = Vector2i(32, 32)
-sources/1 = SubResource("TileSetAtlasSource_b085t")
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aomoi"]
 texture = ExtResource("20_uo6h6")
 texture_region_size = Vector2i(64, 64)
@@ -208,9 +192,37 @@ texture_region_size = Vector2i(64, 64)
 2:31/0 = 0
 17:31/size_in_atlas = Vector2i(2, 5)
 17:31/0 = 0
+32:2/size_in_atlas = Vector2i(3, 3)
+32:2/0 = 0
+40:2/size_in_atlas = Vector2i(2, 3)
+40:2/0 = 0
+47:2/size_in_atlas = Vector2i(3, 3)
+47:2/0 = 0
+55:2/size_in_atlas = Vector2i(3, 3)
+55:2/0 = 0
+62:2/size_in_atlas = Vector2i(3, 3)
+62:2/0 = 0
+70:2/size_in_atlas = Vector2i(3, 3)
+70:2/0 = 0
+78:2/size_in_atlas = Vector2i(2, 3)
+78:2/0 = 0
+1:39/size_in_atlas = Vector2i(5, 5)
+1:39/0 = 0
+9:39/size_in_atlas = Vector2i(4, 5)
+9:39/0 = 0
+17:40/size_in_atlas = Vector2i(3, 3)
+17:40/0 = 0
+25:40/size_in_atlas = Vector2i(2, 2)
+25:40/0 = 0
+32:40/size_in_atlas = Vector2i(3, 3)
+32:40/0 = 0
+40:40/size_in_atlas = Vector2i(3, 3)
+40:40/0 = 0
+32:70/size_in_atlas = Vector2i(3, 3)
+32:70/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ktrk3"]
-tile_size = Vector2i(64, 64)
+tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_aomoi")
 
 [node name="Base" type="Node2D" unique_id=1663062512]
@@ -455,11 +467,9 @@ tile_map_data = PackedByteArray("AAABAAEAWAAEAAEAAAACAAEAWAAEAAEAAAADAAEAWAAEAAE
 tile_set = SubResource("TileSet_v7taj")
 
 [node name="TileMapLayerBase_Enviroment" type="TileMapLayer" parent="." unique_id=264555237]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.2, 0.2)
 tile_set = SubResource("TileSet_b085t")
 
-[node name="TileMapLayerBuilding" type="TileMapLayer" parent="." unique_id=1188906196]
-tile_set = SubResource("TileSet_33mrd")
-
-[node name="TileMapLayerBuilding2" type="TileMapLayer" parent="." unique_id=1627255602]
+[node name="TileMapLayerBuilding" type="TileMapLayer" parent="." unique_id=1627255602]
+scale = Vector2(0.2, 0.2)
 tile_set = SubResource("TileSet_ktrk3")

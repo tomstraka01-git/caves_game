@@ -1,30 +1,40 @@
 extends Control
-
 @onready var stamina_bar = $TextureProgressBarStamina
 @onready var regen_delay = $RegenDelayTimer
-
-var regen_speed = 20.0
+var regen_speed = 5.0
+var regen_speed_empty = 20.0  # faster regen when fully drained
 var current_stamina = 100.0
-
+var max_stamina = 100.0
 var stamina_tween : Tween
+var is_empty := false  
 
 func _ready():
-    stamina_bar.value = current_stamina
+	stamina_bar.max_value = max_stamina
+	stamina_bar.value = current_stamina
 
 func _physics_process(delta):
-    if regen_delay.is_stopped() and current_stamina < 100:
-        current_stamina += regen_speed * delta
-        current_stamina = clamp(current_stamina, 0, 100)
-        stamina_bar.value = current_stamina
+	if regen_delay.is_stopped() and current_stamina < max_stamina:
+	
+		var speed = regen_speed_empty if is_empty else regen_speed
+		current_stamina += speed * delta
+		current_stamina = clamp(current_stamina, 0, max_stamina)
+		stamina_bar.value = current_stamina
 
-func take_stamina(amount_stamina):
-    current_stamina -= amount_stamina
-    current_stamina = clamp(current_stamina, 0, 100)
+		if current_stamina >= max_stamina:
+			is_empty = false
 
-    if stamina_tween:
-        stamina_tween.kill()
+func take_stamina(amount_stamina) -> bool:
 
-    stamina_tween = create_tween()
-    stamina_tween.tween_property(stamina_bar, "value", current_stamina, 1.0)
-
-    regen_delay.start()
+	if is_empty:
+		return false
+	current_stamina -= amount_stamina
+	current_stamina = clamp(current_stamina, 0, max_stamina)
+	if stamina_tween:
+		stamina_tween.kill()
+	stamina_tween = create_tween()
+	stamina_tween.tween_property(stamina_bar, "value", current_stamina, 0.2)
+	regen_delay.start()
+	if current_stamina <= 3:
+		is_empty = true
+		return false
+	return true

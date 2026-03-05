@@ -27,7 +27,8 @@
 [ext_resource type="Script" uid="uid://b4pufq56n7rlv" path="res://scripts/ui_player.gd" id="16_8vsun"]
 [ext_resource type="AudioStream" uid="uid://behfoqt2da7s8" path="res://assets/sounds/Player/369004__flying_deer_fx__death-02-mouth-fx-man-voice.wav" id="16_ih8y6"]
 [ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="17_i0gp7"]
-[ext_resource type="AudioStream" uid="uid://biopsccta4qhq" path="res://assets/sounds/327445__freelibras__birds-chirping-on-a-tree-2.wav" id="18_vovfy"]
+[ext_resource type="AudioStream" uid="uid://bmwthjl6nl23v" path="res://assets/sounds/327445__freelibras__birds-chirping-on-a-tree-2.wav" id="18_vovfy"]
+[ext_resource type="Script" uid="uid://dir26hl3qejar" path="res://scripts/inventory_ui.gd" id="24_8rpqn"]
 [ext_resource type="AudioStream" uid="uid://cdofbnk1dlq17" path="res://assets/sounds/Player/326808__johnbuhr__sword_clash-34.wav" id="27_41u22"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lw5n"]
@@ -908,10 +909,10 @@ light_mode = 1
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7eonc"]
 light_mode = 1
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2hyy3"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_50cep"]
 light_mode = 1
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_50cep"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8vsun"]
 light_mode = 1
 
 [node name="Character" type="CharacterBody2D" unique_id=1207945146 groups=["character"]]
@@ -924,9 +925,9 @@ script = ExtResource("1_0dpix")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=737272096]
 sprite_frames = SubResource("SpriteFrames_63irx")
-animation = &"attack_air_falling"
+animation = &"attack_2"
 autoplay = "idle"
-frame = 2
+frame = 7
 frame_progress = 1.0
 
 [node name="Attack_Area" type="Area2D" parent="Pivot/AnimatedSprite2D" unique_id=1161175929 groups=["character"]]
@@ -983,17 +984,6 @@ position = Vector2(0.834425, -19.499996)
 scale = Vector2(0.40107578, 0.40107578)
 texture = ExtResource("9_7eonc")
 
-[node name="Coin_Label" type="Label" parent="UI" unique_id=377723566]
-material = SubResource("CanvasItemMaterial_2hyy3")
-layout_mode = 0
-offset_left = -146.0
-offset_top = -114.0
-offset_right = -38.0
-offset_bottom = -97.0
-theme_override_fonts/font = ExtResource("17_i0gp7")
-theme_override_font_sizes/font_size = 8
-text = "Coins = 0"
-
 [node name="Back" type="TextureButton" parent="UI" unique_id=1264685787]
 modulate = Color(0.49158353, 0.49158317, 0.49158323, 1)
 material = SubResource("CanvasItemMaterial_50cep")
@@ -1009,16 +999,17 @@ texture_hover = ExtResource("13_x8k1v")
 
 [node name="TextureProgressBarStamina" type="TextureProgressBar" parent="UI" unique_id=14144317]
 z_index = 1
-material = SubResource("CanvasItemMaterial_irmqu")
+material = SubResource("CanvasItemMaterial_8vsun")
 layout_mode = 0
-offset_left = -146.0
-offset_top = -96.99999
-offset_right = -97.0
-offset_bottom = -56.999992
+offset_left = -140.0
+offset_top = -98.0
+offset_right = -91.0
+offset_bottom = -58.0
 scale = Vector2(0.95012224, 0.966645)
 texture_progress = ExtResource("8_irmqu")
 
 [node name="RegenDelayTimer" type="Timer" parent="UI" unique_id=1434157134]
+one_shot = true
 
 [node name="Audio" type="Node2D" parent="." unique_id=1428837258]
 
@@ -1042,18 +1033,17 @@ volume_db = 6.0
 attenuation = 0.0026680487
 
 [node name="Sword_Attack" type="AudioStreamPlayer2D" parent="Audio" unique_id=1649892660]
-visible = false
 stream = ExtResource("27_41u22")
 volume_db = 6.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=477214623]
-visible = false
 
 [node name="Click" type="AudioStreamPlayer2D" parent="CanvasLayer" unique_id=1642844344]
 stream = ExtResource("14_8yvht")
 volume_db = 12.0
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=1822848280]
+visible = false
 offset_left = -887.0
 offset_top = -286.0
 offset_right = 1511.0
@@ -1089,6 +1079,39 @@ theme_override_font_sizes/font_size = 32
 text = "You Died"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=177569585]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 214.0
+offset_top = 81.0
+offset_right = -177.11108
+offset_bottom = -234.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("24_8rpqn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=1569171422]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 90.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1584669139]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_i0gp7")
+theme_override_font_sizes/font_size = 32
+text = "
+Inventory"
+
+[node name="ItemGrid" type="GridContainer" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1566352594]
+texture_filter = 1
+layout_mode = 2
+columns = 5
 
 [connection signal="animation_finished" from="Pivot/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="mouse_entered" from="UI/Back" to="." method="_on_back_mouse_entered"]
