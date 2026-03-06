@@ -5,6 +5,10 @@ extends Panel
 const SLOT_SIZE = 96
 const COLUMNS = 5
 const ROWS = 4
+var coin_scene = preload("res://scenes/coin.tscn")
+@onready var player = get_parent().get_parent()
+
+
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -94,6 +98,9 @@ func _on_slot_clicked(event: InputEvent, index: int) -> void:
 	if not event is InputEventMouseButton or not event.pressed:
 		return
 
+	if index >= GameState.inventory.items.size():
+		return
+
 	if event.button_index == MOUSE_BUTTON_LEFT:
 		_use_item(index)
 	elif event.button_index == MOUSE_BUTTON_RIGHT:
@@ -109,7 +116,16 @@ func _use_item(index: int) -> void:
 		get_parent().get_parent().heal(10)  
 		GameState.inventory.remove_item(index, 1)
 		_refresh()
+	
 
 func _delete_item(index: int) -> void:
+	var item = GameState.inventory.items[index]
+
 	GameState.inventory.remove_item(index, 1)
 	_refresh()
+
+	if item.name == "Coin":
+		var coin = coin_scene.instantiate()
+		coin.get_node("CollisionArea").is_kicked = true
+		coin.global_position = player.global_position
+		get_tree().current_scene.add_child(coin)

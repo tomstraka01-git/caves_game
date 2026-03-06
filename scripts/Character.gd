@@ -50,7 +50,7 @@ var player_health := max_health
 @export var fade_time: float = 0.5
 var transitioning := false
 @onready var progress_bar = $UI/Player_Health
-@onready var coin_label = $UI/Coin_Label
+
 @onready var fade: ColorRect = $CanvasLayer/Fade
 @onready var click_sound = $CanvasLayer/Click
 @onready var walk_sound = $Audio/Walk

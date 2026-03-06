@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ckany226s333k"]
+
+[ext_resource type="Texture2D" uid="uid://bx0bxknqrmpb4" path="res://assets/Key/key_3.png" id="1_yk2u2"]
+[ext_resource type="Script" uid="uid://ckih2qqpfh8b6" path="res://scripts/Key_Area.gd" id="2_fttkb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fttkb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yk2u2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wy8tx"]
+radius = 12.0
+
+[node name="Key" type="Node2D" unique_id=559872965]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2092441699]
+texture_filter = 1
+texture_repeat = 1
+sprite_frames = SubResource("SpriteFrames_fttkb")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2007528127]
+script = ExtResource("2_fttkb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1380216611]
+position = Vector2(-8, -5)
+shape = SubResource("CircleShape2D_wy8tx")
