@@ -24,9 +24,9 @@ texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_fttkb")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=2007528127]
+[node name="CollisionArea" type="Area2D" parent="." unique_id=2007528127]
 script = ExtResource("2_fttkb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1380216611]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea" unique_id=1380216611]
 position = Vector2(-8, -5)
 shape = SubResource("CircleShape2D_wy8tx")

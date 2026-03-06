@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://6lrobwlrb6w3" path="res://assets/Lava/Screenshot_2026-02-28_121821-removebg-preview.png" id="15_36cfx"]
 [ext_resource type="Texture2D" uid="uid://byal6kuiibec7" path="res://assets/Lava/Screenshot_2026-02-28_121843-removebg-preview.png" id="16_eh5lm"]
 [ext_resource type="Script" uid="uid://vbq40u2nd2nf" path="res://scripts/map.gd" id="18_lbrgs"]
+[ext_resource type="PackedScene" uid="uid://ckany226s333k" path="res://scenes/key.tscn" id="19_kkuia"]
+[ext_resource type="PackedScene" uid="uid://daeyvl0yw7x3b" path="res://scenes/shop_boot.tscn" id="20_36cfx"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kkuia"]
 light_mode = 1
@@ -467,3 +469,9 @@ shape = SubResource("RectangleShape2D_lbrgs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Fifth" unique_id=884388183]
 position = Vector2(1447, -45)
 shape = SubResource("RectangleShape2D_4pfwt")
+
+[node name="Key" parent="." unique_id=559872965 instance=ExtResource("19_kkuia")]
+position = Vector2(144, -6)
+
+[node name="ShopBoothNode" parent="." unique_id=11212054 instance=ExtResource("20_36cfx")]
+position = Vector2(166, -92)
