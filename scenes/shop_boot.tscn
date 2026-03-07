@@ -1,29 +1,35 @@
 [gd_scene format=3 uid="uid://daeyvl0yw7x3b"]
 
-[ext_resource type="Script" uid="uid://bapd50uildvn8" path="res://scripts/shop_booth.gd" id="1_fskfm"]
-[ext_resource type="Script" uid="uid://dy6s3t4k2fovf" path="res://scripts/shop_ui.gd" id="1_teiqq"]
-[ext_resource type="Script" uid="uid://dqk4narvp2ipr" path="res://scripts/shop_item.gd" id="2_u6ya2"]
-[ext_resource type="Script" uid="uid://bw06ayfaixdtu" path="res://inventory/key_item.gd" id="3_pucg4"]
-[ext_resource type="Script" uid="uid://cfatgejv7mnu8" path="res://scripts/shop_data.gd" id="4_2ak83"]
-[ext_resource type="Texture2D" uid="uid://bx0bxknqrmpb4" path="res://assets/Key/key_3.png" id="4_pucg4"]
+[ext_resource type="Script" uid="uid://bapd50uildvn8" path="res://scripts/items/shop_booth.gd" id="1_fskfm"]
+[ext_resource type="Script" uid="uid://dy6s3t4k2fovf" path="res://scripts/items/shop_ui.gd" id="1_teiqq"]
+[ext_resource type="Script" uid="uid://dqk4narvp2ipr" path="res://scripts/items/shop_item.gd" id="2_u6ya2"]
+[ext_resource type="Resource" uid="uid://d1lhgjvfulmxb" path="res://inventory/items/key_item.tres" id="3_2ak83"]
+[ext_resource type="Script" uid="uid://cfatgejv7mnu8" path="res://scripts/items/shop_data.gd" id="4_2ak83"]
+[ext_resource type="Resource" uid="uid://d1mbuouhjcif6" path="res://inventory/items/potion_health_item.tres" id="4_6rw5o"]
+[ext_resource type="Resource" uid="uid://b8jjff0ybffdt" path="res://inventory/items/amulet_health_item.tres" id="5_6rw5o"]
 [ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="7_2ak83"]
-
-[sub_resource type="Resource" id="Resource_6rw5o"]
-script = ExtResource("3_pucg4")
-name = "Key"
-texture = ExtResource("4_pucg4")
-description = "unlocks doors"
-metadata/_custom_type_script = "uid://bw06ayfaixdtu"
 
 [sub_resource type="Resource" id="Resource_wdd3k"]
 script = ExtResource("2_u6ya2")
-item = SubResource("Resource_6rw5o")
+item = ExtResource("3_2ak83")
 price = 2
+metadata/_custom_type_script = "uid://dqk4narvp2ipr"
+
+[sub_resource type="Resource" id="Resource_x413e"]
+script = ExtResource("2_u6ya2")
+item = ExtResource("4_6rw5o")
+price = 1
+metadata/_custom_type_script = "uid://dqk4narvp2ipr"
+
+[sub_resource type="Resource" id="Resource_atfne"]
+script = ExtResource("2_u6ya2")
+item = ExtResource("5_6rw5o")
+price = 1
 metadata/_custom_type_script = "uid://dqk4narvp2ipr"
 
 [sub_resource type="Resource" id="Resource_paasj"]
 script = ExtResource("4_2ak83")
-items = Array[ExtResource("2_u6ya2")]([SubResource("Resource_wdd3k")])
+items = Array[ExtResource("2_u6ya2")]([SubResource("Resource_wdd3k"), SubResource("Resource_x413e"), SubResource("Resource_atfne")])
 metadata/_custom_type_script = "uid://cfatgejv7mnu8"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fskfm"]

@@ -5,10 +5,14 @@ extends Node2D
 
 func _ready():
     health_bar.value = 100
+    health_bar.max_value = 100
    
 
-
+func _amulet_health(add_max_new_health):
+    health_bar.max_value += add_max_new_health
+    health_bar.value += add_max_new_health
  
 
 func change_health(new_health):
-    health_bar.value = new_health
+    health_bar.value = clamp(new_health, 0, health_bar.max_value)
+    

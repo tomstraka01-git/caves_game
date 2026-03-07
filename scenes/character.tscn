@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://jrt8sed3enjm" path="res://assets/2D_SL_Knight_v1.0/attack_from_air.png" id="3_sougf"]
 [ext_resource type="Texture2D" uid="uid://b22g35xjr7wlx" path="res://assets/2D_SL_Knight_v1.0/crouch_attacks.png" id="4_p478o"]
 [ext_resource type="Texture2D" uid="uid://db4asdk3sp0rg" path="res://assets/2D_SL_Knight_v1.0/Climb.png" id="5_2y1m1"]
-[ext_resource type="Texture2D" uid="uid://cjsfwaax8l5sk" path="res://assets/2D_SL_Knight_v1.0/Hanging.png" id="5_41u22"]
 [ext_resource type="Texture2D" uid="uid://dnw034u668n0g" path="res://assets/2D_SL_Knight_v1.0/crouch_idle.png" id="6_p478o"]
 [ext_resource type="Script" uid="uid://ci6ctx8mb0kkj" path="res://scripts/player_health.gd" id="7_2hyy3"]
 [ext_resource type="Texture2D" uid="uid://jwb0gkl16ff0" path="res://assets/hearts/health_bar.png" id="8_irmqu"]
@@ -28,7 +27,9 @@
 [ext_resource type="AudioStream" uid="uid://behfoqt2da7s8" path="res://assets/sounds/Player/369004__flying_deer_fx__death-02-mouth-fx-man-voice.wav" id="16_ih8y6"]
 [ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="17_i0gp7"]
 [ext_resource type="AudioStream" uid="uid://bmwthjl6nl23v" path="res://assets/sounds/327445__freelibras__birds-chirping-on-a-tree-2.wav" id="18_vovfy"]
-[ext_resource type="Script" uid="uid://dir26hl3qejar" path="res://scripts/inventory_ui.gd" id="24_8rpqn"]
+[ext_resource type="Texture2D" uid="uid://i36hmeh4egm" path="res://assets/hearts/Bar_stamina_bg.png" id="22_i0gp7"]
+[ext_resource type="Texture2D" uid="uid://dgnk4h1fupgq0" path="res://assets/hearts/bar_air_attack_bar.png" id="23_i0gp7"]
+[ext_resource type="Script" uid="uid://dir26hl3qejar" path="res://scripts/items/inventory_ui.gd" id="24_8rpqn"]
 [ext_resource type="AudioStream" uid="uid://cdofbnk1dlq17" path="res://assets/sounds/Player/326808__johnbuhr__sword_clash-34.wav" id="27_41u22"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lw5n"]
@@ -164,36 +165,16 @@ atlas = ExtResource("4_p478o")
 region = Rect2(0, 192, 128, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lduab"]
-atlas = ExtResource("5_41u22")
-region = Rect2(0, 0, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4mo0a"]
-atlas = ExtResource("5_41u22")
+atlas = ExtResource("11_50cep")
 region = Rect2(128, 0, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vdf0v"]
-atlas = ExtResource("5_41u22")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mo0a"]
+atlas = ExtResource("11_50cep")
 region = Rect2(0, 64, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ujx6k"]
-atlas = ExtResource("5_41u22")
-region = Rect2(128, 64, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_shscb"]
-atlas = ExtResource("5_41u22")
-region = Rect2(0, 128, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7qw06"]
-atlas = ExtResource("5_41u22")
-region = Rect2(128, 128, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ndf7"]
-atlas = ExtResource("5_41u22")
-region = Rect2(0, 192, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i8t23"]
-atlas = ExtResource("5_41u22")
-region = Rect2(128, 192, 128, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdf0v"]
+atlas = ExtResource("11_50cep")
+region = Rect2(0, 64, 128, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_02vjr"]
 atlas = ExtResource("5_2y1m1")
@@ -608,27 +589,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4mo0a")
 }, {
-"duration": 1.0,
+"duration": 100.0,
 "texture": SubResource("AtlasTexture_vdf0v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ujx6k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_shscb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7qw06")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3ndf7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i8t23")
 }],
 "loop": false,
 "name": &"charging",
-"speed": 8.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -925,9 +891,9 @@ script = ExtResource("1_0dpix")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=737272096]
 sprite_frames = SubResource("SpriteFrames_63irx")
-animation = &"attack_2"
+animation = &"charging"
 autoplay = "idle"
-frame = 7
+frame = 2
 frame_progress = 1.0
 
 [node name="Attack_Area" type="Area2D" parent="Pivot/AnimatedSprite2D" unique_id=1161175929 groups=["character"]]
@@ -945,6 +911,8 @@ shape = SubResource("RectangleShape2D_p478o")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot" unique_id=1310996454]
 position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_2y1m1")
+
+[node name="Particles" type="Node2D" parent="Pivot" unique_id=103817950]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1659529865]
 position = Vector2(-2.9802322e-07, 9)
@@ -1011,6 +979,16 @@ texture_progress = ExtResource("8_irmqu")
 [node name="RegenDelayTimer" type="Timer" parent="UI" unique_id=1434157134]
 one_shot = true
 
+[node name="TextureProgressBarAirAttack" type="TextureProgressBar" parent="UI" unique_id=1848717078]
+layout_mode = 0
+offset_left = 11.0
+offset_top = -74.0
+offset_right = 75.0
+offset_bottom = -34.0
+scale = Vector2(0.5434425, 0.5434425)
+texture_under = ExtResource("22_i0gp7")
+texture_progress = ExtResource("23_i0gp7")
+
 [node name="Audio" type="Node2D" parent="." unique_id=1428837258]
 
 [node name="Walk" type="AudioStreamPlayer2D" parent="Audio" unique_id=1518139262]
@@ -1053,10 +1031,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="DeathScreen" type="ColorRect" parent="CanvasLayer" unique_id=266717509]
 z_index = 1
-offset_left = -896.0
-offset_top = -527.0
-offset_right = 1743.0
-offset_bottom = 1162.0
+offset_left = -904.0
+offset_top = -550.0
+offset_right = 1735.0
+offset_bottom = 1139.0
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 

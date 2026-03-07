@@ -20,7 +20,7 @@ func _ready() -> void:
 
 func open(data: ShopData) -> void:
     if data == null:
-        print("shop_data not assigned!")
+        print("shop_data not assigned")
         return
     shop_data = data
     _refresh()

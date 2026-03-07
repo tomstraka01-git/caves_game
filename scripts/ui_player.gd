@@ -2,7 +2,7 @@ extends Control
 @onready var stamina_bar = $TextureProgressBarStamina
 @onready var regen_delay = $RegenDelayTimer
 var regen_speed = 5.0
-var regen_speed_empty = 20.0  # faster regen when fully drained
+var regen_speed_empty = 20.0  
 var current_stamina = 100.0
 var max_stamina = 100.0
 var stamina_tween : Tween

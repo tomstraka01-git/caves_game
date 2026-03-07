@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var fade_time: float = 2
-@export var required_coins: int = 5
+
 
 @onready var portal = $Sprite2D
 
@@ -42,9 +42,14 @@ func _on_body_exited(body):
 func _try_enter_portal():
     if teleporting or player_ref == null:
         return
-    var player_coins = GameState.inventory.get_item_count("Coin")
-    if player_coins >= required_coins:
+    var key_count = GameState.inventory.get_item_count("Key") 
+    if key_count >= 1:
         teleporting = true
+  
+        for i in GameState.inventory.items.size():
+            if GameState.inventory.items[i].name == "Key":
+                GameState.inventory.remove_item(i, 1)
+                break
         await fade_and_change_scene()
     else:
         $NotEnoughCoinsSound.play()
@@ -52,7 +57,7 @@ func _try_enter_portal():
 
 func animate_error_label():
     var label = $Label
-    label.text = "Not enough coins! Need " + str(required_coins)
+    label.text = "You need a key to unlock" 
     label.modulate.a = 1.0
     label.visible = true
     
@@ -93,3 +98,4 @@ func fade_and_change_scene():
     elif scene_path == "res://scenes/level_2.tscn":
         GameState.complete_level(2)
         get_tree().change_scene_to_file("res://scenes/level_3.tscn")
+        

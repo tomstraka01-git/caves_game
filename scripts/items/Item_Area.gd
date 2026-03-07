@@ -2,10 +2,14 @@ extends Area2D
 
  
 @onready var parent = $".."  
-var key = preload("res://inventory/items/key_item.tres")
-            
+@export var item : Resource
+
+       
 var can_pickup = false
 var is_kicked = false
+    
+
+  
 
 
 
@@ -25,10 +29,6 @@ func _ready():
 func _on_body_entered(body):
     if not can_pickup:
         return
-    if body.is_in_group("character"): 
-        
-        
-        
-        GameState.inventory.add_item(key, 1)
-        await get_tree().create_timer(0.1).timeout
-        parent.queue_free() 
+    if body.is_in_group("character"):
+        GameState.inventory.add_item(item, 1)
+        parent.queue_free()

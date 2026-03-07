@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PotionHealth" format=3 uid="uid://d1mbuouhjcif6"]
+
+[ext_resource type="Script" uid="uid://6wmpxkhr5yii" path="res://inventory/potion_health_item.gd" id="1_65yso"]
+[ext_resource type="Texture2D" uid="uid://cjk63kfbrbdvv" path="res://assets/Screenshot_2026-02-28_110053-removebg-preview.png" id="2_h0uu6"]
+
+[resource]
+script = ExtResource("1_65yso")
+name = "PotionHealth"
+texture = ExtResource("2_h0uu6")
+description = "heals the player"
+stackable = true
+max_stack = 10
+metadata/_custom_type_script = "uid://6wmpxkhr5yii"

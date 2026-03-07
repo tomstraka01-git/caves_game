@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @onready var anim_sprite = $Pivot/AnimatedSprite2D
 @onready var air_attack_area: Area2D = $Pivot/AnimatedSprite2D/Air_Attack_Area
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -300.0
 var is_attacking = false
@@ -59,7 +60,9 @@ var transitioning := false
 @onready var ui = $UI
 
 func _ready() -> void:
-
+ 
+    $UI/TextureProgressBarAirAttack.value = 0
+    $UI/TextureProgressBarAirAttack.visible = false
     fade.modulate.a = 0.0
     death_screen.modulate.a = 0.0
     death_label.modulate.a = 0.0
@@ -72,7 +75,8 @@ func _ready() -> void:
     $Audio/bgAudio.play()
     bird_audio.stop()
     anim_sprite.play("idle")
-
+    GameState.save_level_snapshot()
+    
 func play_click_and_fade(scene_path):
     click_sound.pitch_scale = 0.8
     click_sound.play()
@@ -103,6 +107,8 @@ func _play_sound(sound: String):
 func take_damage(amount: int, knockback_dir: float = 0.0):
     if is_dead or is_sliding:
         return
+    anim_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
+    anim_sprite.scale = Vector2(1.0, 1.0)
     is_hit = true
     is_attacking = false
     is_air_attacking = false
@@ -123,6 +129,28 @@ func take_damage(amount: int, knockback_dir: float = 0.0):
         knockback_velocity.y = -100.0
     if player_health <= 0:
         die()
+func heal_player(amount: int):
+    if is_dead or is_sliding:
+        return
+    
+    is_attacking = false
+    is_air_attacking = false
+    air_slam_charging = false
+    air_slam_falling = false
+    air_slam_charge_time = 0.0
+    anim_sprite.speed_scale = 1.0
+    for enemy in get_tree().get_nodes_in_group("enemies"):
+        remove_collision_exception_with(enemy)
+        enemy.remove_collision_exception_with(self)
+    combo_count = 0
+    combo_timer = 0.0
+    player_health = clamp(player_health + amount, 0, max_health)
+    progress_bar.change_health(player_health)
+    $Pivot/AnimatedSprite2D.modulate = Color(0.315, 0.733, 0.277, 1.0)
+    await get_tree().create_timer(0.20).timeout
+    $Pivot/AnimatedSprite2D.modulate = Color(1, 1, 1)
+    anim_sprite.play("idle")
+    
 
 func _physics_process(delta: float) -> void:
     if is_dead:
@@ -147,6 +175,10 @@ func _physics_process(delta: float) -> void:
             air_slam_charge_time += delta
             velocity.y = 0.0
             velocity.x = knockback_velocity.x
+            var charge_ratio = clamp(air_slam_charge_time / AIR_SLAM_MAX_CHARGE, 0.0, 1.0)
+            $UI/TextureProgressBarAirAttack.value = charge_ratio * 100.0
+            anim_sprite.modulate = Color(1.0 - charge_ratio * 0.7, 1.0 - charge_ratio * 0.3, 1.0, 1.0)
+            anim_sprite.scale = Vector2(1.0 + charge_ratio * 0.1, 1.0 + charge_ratio * 0.1)
             if air_slam_charge_time >= AIR_SLAM_MAX_CHARGE:
                 _release_air_slam()
             elif Input.is_action_just_released("attack"):
@@ -179,7 +211,6 @@ func _physics_process(delta: float) -> void:
             else:
                 _not_enough_stamina()
         if Input.is_action_just_pressed("attack") and attack_timer <= 0 and not is_attacking:
-
             if not is_on_floor():
                 attack_timer = ATTACK_COOLDOWN
                 _start_air_slam()
@@ -221,10 +252,11 @@ func _update_animation(direction: int) -> void:
     elif direction != 0:
         _safe_play("run")
         _play_sound("walk")
+     
     else:
         walk_sound.stop()
         _safe_play("idle")
-
+ 
 func _safe_play(anim_name: String) -> void:
     if anim_sprite.animation != anim_name:
         anim_sprite.play(anim_name)
@@ -248,14 +280,20 @@ func _start_air_slam() -> void:
         add_collision_exception_with(enemy)
         enemy.add_collision_exception_with(self)
     anim_sprite.play("charging")
+ 
+    $UI/TextureProgressBarAirAttack.value = 0
+    $UI/TextureProgressBarAirAttack.visible = true
 
 func _release_air_slam() -> void:
+    anim_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
+    anim_sprite.scale = Vector2(1.0, 1.0)
     air_slam_charging = false
     air_slam_falling = true
+    $UI/TextureProgressBarAirAttack.visible = false
     var charge_ratio = clamp(air_slam_charge_time / AIR_SLAM_MAX_CHARGE, 0.0, 1.0)
     anim_sprite.speed_scale = lerp(0.8, 1.6, charge_ratio)
     anim_sprite.play("attack_air_falling")
-
+    
 func _on_air_slam_land() -> void:
     air_slam_falling = false
     anim_sprite.speed_scale = 1.0
@@ -344,6 +382,7 @@ func die() -> void:
     $Audio/bgAudio.stop()
     $Audio/Die.play()
     anim_sprite.play("death")
+    
     await anim_sprite.animation_finished
     var tween = create_tween()
     tween.set_parallel(true)
@@ -354,6 +393,7 @@ func die() -> void:
     print("tween done - death_label visible: ", death_label.visible)
     print("tween done - death_screen modulate: ", death_screen.modulate)
     await get_tree().create_timer(1.2).timeout
+    GameState.restore_level_snapshot()
     await play_click_and_fade(get_tree().current_scene.scene_file_path)
 
 func _not_enough_stamina():

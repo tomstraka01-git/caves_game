@@ -136,8 +136,6 @@ texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_rsyy1")
 autoplay = "default"
-frame = 4
-frame_progress = 0.20911877
 
 [node name="CollisionArea" type="Area2D" parent="." unique_id=325621510]
 script = ExtResource("2_i64fm")

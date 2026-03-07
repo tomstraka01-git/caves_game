@@ -8,6 +8,5 @@ script = ExtResource("1_djnoc")
 name = "Key"
 texture = ExtResource("2_whcub")
 description = "opens doors"
-stackable = false
 max_stack = 1
 metadata/_custom_type_script = "uid://bw06ayfaixdtu"
