@@ -9,9 +9,6 @@ var can_pickup = false
 var is_kicked = false
     
 
-  
-
-
 
 func _ready():
     body_entered.connect(_on_body_entered)
@@ -32,3 +29,6 @@ func _on_body_entered(body):
     if body.is_in_group("character"):
         GameState.inventory.add_item(item, 1)
         parent.queue_free()
+        var panel = body.get_node("CanvasLayer/Panel")
+        if panel:
+            panel._refresh()

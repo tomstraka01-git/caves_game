@@ -891,9 +891,9 @@ script = ExtResource("1_0dpix")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=737272096]
 sprite_frames = SubResource("SpriteFrames_63irx")
-animation = &"charging"
+animation = &"idle"
 autoplay = "idle"
-frame = 2
+frame = 7
 frame_progress = 1.0
 
 [node name="Attack_Area" type="Area2D" parent="Pivot/AnimatedSprite2D" unique_id=1161175929 groups=["character"]]
@@ -1043,7 +1043,6 @@ stream = ExtResource("14_8yvht")
 volume_db = 12.0
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=1822848280]
-visible = false
 offset_left = -887.0
 offset_top = -286.0
 offset_right = 1511.0

@@ -31,4 +31,7 @@ func _on_body_entered(body):
         $AudioStreamPlayer2D.play()
         GameState.inventory.add_item(coin, 1)
         await get_tree().create_timer(0.1).timeout
+        var panel = body.get_node("CanvasLayer/Panel")
+        if panel:
+            panel._refresh()
         parent.queue_free() 

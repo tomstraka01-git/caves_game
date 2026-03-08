@@ -7,6 +7,15 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_wy8tx"]
 radius = 12.0
 
+[sub_resource type="Gradient" id="Gradient_uwvii"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ws46q"]
+gradient = SubResource("Gradient_uwvii")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
+
 [node name="Key" type="Node2D" unique_id=559872965]
 
 [node name="CollisionArea" type="Area2D" parent="." unique_id=2007528127]
@@ -21,3 +30,9 @@ shape = SubResource("CircleShape2D_wy8tx")
 texture_filter = 1
 texture_repeat = 1
 texture = ExtResource("3_brs3p")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=736596539]
+position = Vector2(2.3841858e-07, 1)
+scale = Vector2(1.1796875, 1.1796875)
+color = Color(0.8397353, 0.7634415, 0.35977033, 0.77254903)
+texture = SubResource("GradientTexture2D_ws46q")

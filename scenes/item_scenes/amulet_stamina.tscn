@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://df8jujjts7cro"]
+
+[ext_resource type="Script" uid="uid://ckih2qqpfh8b6" path="res://scripts/items/Item_Area.gd" id="1_u15ft"]
+[ext_resource type="Texture2D" uid="uid://b7cydlrh3utuv" path="res://assets/amulet_sprint.png" id="2_1h80e"]
+[ext_resource type="Resource" uid="uid://06bdy0hba2nw" path="res://inventory/items/amulet_stamina_item.tres" id="2_xyuln"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyuln"]
+size = Vector2(32, 32)
+
+[node name="amulet_stamina" type="Node2D" unique_id=557342597]
+
+[node name="CollisionArea" type="Area2D" parent="." unique_id=736488514]
+script = ExtResource("1_u15ft")
+item = ExtResource("2_xyuln")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea" unique_id=971695985]
+shape = SubResource("RectangleShape2D_xyuln")
+
+[node name="AmuletSprint" type="Sprite2D" parent="." unique_id=781469170]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("2_1h80e")

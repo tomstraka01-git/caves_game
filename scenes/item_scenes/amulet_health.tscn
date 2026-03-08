@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dty7tnedf1hcp"]
+
+[ext_resource type="Script" uid="uid://ckih2qqpfh8b6" path="res://scripts/items/Item_Area.gd" id="1_5ibl3"]
+[ext_resource type="Resource" uid="uid://b8jjff0ybffdt" path="res://inventory/items/amulet_health_item.tres" id="2_bkv0a"]
+[ext_resource type="Texture2D" uid="uid://bhwqs0pev0cux" path="res://assets/amulet_health.png" id="2_uwvii"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkv0a"]
+size = Vector2(37.5, 32.5)
+
+[sub_resource type="Gradient" id="Gradient_uwvii"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bkv0a"]
+gradient = SubResource("Gradient_uwvii")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
+
+[node name="AmuletHealth" type="Node2D" unique_id=177665369]
+
+[node name="CollisionArea" type="Area2D" parent="." unique_id=84725665]
+script = ExtResource("1_5ibl3")
+item = ExtResource("2_bkv0a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea" unique_id=1620795526]
+shape = SubResource("RectangleShape2D_bkv0a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2063565407]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("2_uwvii")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=148266090]
+position = Vector2(2.3841858e-07, 1)
+scale = Vector2(1.1796875, 1.1796875)
+color = Color(1, 1, 1, 0.77254903)
+texture = SubResource("GradientTexture2D_bkv0a")

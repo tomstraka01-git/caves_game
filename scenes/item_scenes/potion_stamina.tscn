@@ -7,6 +7,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fonr6"]
 size = Vector2(20, 31)
 
+[sub_resource type="Gradient" id="Gradient_3cgl6"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_auk0l"]
+gradient = SubResource("Gradient_3cgl6")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
+
 [node name="potion_stamina" type="Node2D" unique_id=943761848]
 
 [node name="CollisionArea" type="Area2D" parent="." unique_id=42435714]
@@ -22,3 +31,9 @@ texture_filter = 1
 texture_repeat = 1
 position = Vector2(1, -2)
 texture = ExtResource("1_ivhhp")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1189553538]
+position = Vector2(2.3841858e-07, 1)
+scale = Vector2(1.1796875, 1.1796875)
+color = Color(1, 1, 1, 0.6745098)
+texture = SubResource("GradientTexture2D_auk0l")

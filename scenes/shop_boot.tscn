@@ -10,6 +10,8 @@
 [ext_resource type="Resource" uid="uid://cg6swxd3bsctr" path="res://inventory/items/potion_damage_item.tres" id="6_wdd3k"]
 [ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="7_2ak83"]
 [ext_resource type="Resource" uid="uid://bs8ga8lr8enbl" path="res://inventory/items/potion_stamina_item.tres" id="7_paasj"]
+[ext_resource type="Resource" uid="uid://06bdy0hba2nw" path="res://inventory/items/amulet_stamina_item.tres" id="8_uqxg5"]
+[ext_resource type="Resource" uid="uid://dho2kchc2x1sf" path="res://inventory/items/amulet_damage_item.tres" id="9_x413e"]
 
 [sub_resource type="Resource" id="Resource_wdd3k"]
 script = ExtResource("2_u6ya2")
@@ -41,9 +43,21 @@ item = ExtResource("7_paasj")
 price = 1
 metadata/_custom_type_script = "uid://dqk4narvp2ipr"
 
+[sub_resource type="Resource" id="Resource_8buv6"]
+script = ExtResource("2_u6ya2")
+item = ExtResource("8_uqxg5")
+price = 1
+metadata/_custom_type_script = "uid://dqk4narvp2ipr"
+
+[sub_resource type="Resource" id="Resource_5k2ua"]
+script = ExtResource("2_u6ya2")
+item = ExtResource("9_x413e")
+price = 1
+metadata/_custom_type_script = "uid://dqk4narvp2ipr"
+
 [sub_resource type="Resource" id="Resource_paasj"]
 script = ExtResource("4_2ak83")
-items = Array[ExtResource("2_u6ya2")]([SubResource("Resource_wdd3k"), SubResource("Resource_x413e"), SubResource("Resource_atfne"), SubResource("Resource_uqxg5"), SubResource("Resource_o58ke")])
+items = Array[ExtResource("2_u6ya2")]([SubResource("Resource_wdd3k"), SubResource("Resource_x413e"), SubResource("Resource_atfne"), SubResource("Resource_uqxg5"), SubResource("Resource_o58ke"), SubResource("Resource_8buv6"), SubResource("Resource_5k2ua")])
 metadata/_custom_type_script = "uid://cfatgejv7mnu8"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fskfm"]

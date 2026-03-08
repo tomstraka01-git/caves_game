@@ -9,12 +9,18 @@ var coin_scene = preload("res://scenes/item_scenes/coin.tscn")
 var key_scene = preload("res://scenes/item_scenes/key.tscn")
 var potion_health_scene = preload("res://scenes/item_scenes/potion_health.tscn")
 var potion_damage_scene = preload("res://scenes/item_scenes/potion_damage.tscn")
+var potion_stamina_scene = preload("res://scenes/item_scenes/potion_stamina.tscn")
+var amulet_health_scene = preload("res://scenes/item_scenes/amulet_health.tscn")
+var amulet_stamina_scene = preload("res://scenes/item_scenes/amulet_stamina.tscn")
+var amulet_damage_scene = preload("res://scenes/item_scenes/amulet_damage.tscn")
 
 var health_added = randi_range(10, 30)
-var damage_added = randi_range(10, 30)
+var damage_added = randi_range(5, 10)
 
 
 var health_amulet_equipped = false
+var damage_amulet_equipped = false
+
 
 @onready var player = get_parent().get_parent()
 
@@ -296,7 +302,7 @@ func _use_item(index: int) -> void:
     if item.name == "Coin":
         pass
     elif item.name == "PotionDamage":
-        get_parent().get_parent().use_damage_potion(20)
+        get_parent().get_parent().use_damage_potion(30, 5)
         GameState.inventory.remove_item(index, 1)
         _refresh()
     elif item.name == "PotionHealth":
@@ -318,22 +324,50 @@ func _delete_item(index: int) -> void:
         coin.get_node("CollisionArea").is_kicked = true
         coin.global_position = player.global_position
         get_tree().current_scene.add_child(coin)
+      
     elif item.name == "Key":
         var key = key_scene.instantiate()
         key.get_node("CollisionArea").is_kicked = true
         key.global_position = player.global_position
         get_tree().current_scene.add_child(key)
+    
     elif item.name == "PotionHealth":
         var potion_health = potion_health_scene.instantiate()
         potion_health.get_node("CollisionArea").is_kicked = true
         potion_health.global_position = player.global_position
         get_tree().current_scene.add_child(potion_health)
+      
     elif item.name == "PotionDamage":
         var potion_damage = potion_damage_scene.instantiate()
         potion_damage.get_node("CollisionArea").is_kicked = true
         potion_damage.global_position = player.global_position
         get_tree().current_scene.add_child(potion_damage)
-
+      
+    elif item.name == "PotionStamina":
+        var potion_stamina = potion_stamina_scene.instantiate()
+        potion_stamina.get_node("CollisionArea").is_kicked = true
+        potion_stamina.global_position = player.global_position
+        get_tree().current_scene.add_child(potion_stamina)
+       
+    elif item.name == "AmuletHealth":
+        var amulet_health = amulet_health_scene.instantiate()
+        amulet_health.get_node("CollisionArea").is_kicked = true
+        amulet_health.global_position = player.global_position
+        get_tree().current_scene.add_child(amulet_health)
+ 
+    elif item.name == "AmuletStamina":
+        var amulet_stamina = amulet_stamina_scene.instantiate()
+        amulet_stamina.get_node("CollisionArea").is_kicked = true
+        amulet_stamina.global_position = player.global_position
+        get_tree().current_scene.add_child(amulet_stamina)
+    
+    elif item.name == "AmuletDamage":
+        var amulet_damage = amulet_damage_scene.instantiate()
+        amulet_damage.get_node("CollisionArea").is_kicked = true
+        amulet_damage.global_position = player.global_position
+        get_tree().current_scene.add_child(amulet_damage)      
+             
+        
 func _on_equip_amulet_health(item: Item) -> void:
 
     player.max_health += health_added
@@ -349,10 +383,13 @@ func _on_unequip_amulet_health(item: Item) -> void:
     health_amulet_equipped = false
       
 func _on_equip_amulet_damage(item: Item) -> void:
-    pass
+    player.damage_bonus += damage_added
+    damage_amulet_equipped = true
+    item.description = "Adds " + str(damage_added) + " more damage"
 
 func _on_unequip_amulet_damage(item: Item) -> void:
-    pass
+    player.damage_bonus -= damage_added
+    damage_amulet_equipped = true
 
 func _on_equip_amulet_stamina(item: Item) -> void:
     pass

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b46rig3u441px"]
+
+[ext_resource type="Texture2D" uid="uid://bptby620p7g2r" path="res://assets/amulet_damage.png" id="1_gffkg"]
+[ext_resource type="Script" uid="uid://ckih2qqpfh8b6" path="res://scripts/items/Item_Area.gd" id="1_wyso4"]
+[ext_resource type="Resource" uid="uid://dho2kchc2x1sf" path="res://inventory/items/amulet_damage_item.tres" id="2_jlluq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wyso4"]
+radius = 12.0
+
+[node name="amulet_damage" type="Node2D" unique_id=21329491]
+
+[node name="CollisionArea" type="Area2D" parent="." unique_id=1180571461]
+script = ExtResource("1_wyso4")
+item = ExtResource("2_jlluq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea" unique_id=481243416]
+shape = SubResource("CircleShape2D_wyso4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=984422964]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("1_gffkg")

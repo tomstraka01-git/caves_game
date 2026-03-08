@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AmuletDamage" format=3 uid="uid://dho2kchc2x1sf"]
+
+[ext_resource type="Script" uid="uid://26m4l5m0o68l" path="res://inventory/Amulet_Damage_Item.gd" id="1_7hxgb"]
+[ext_resource type="Texture2D" uid="uid://bptby620p7g2r" path="res://assets/amulet_damage.png" id="2_nn55r"]
+
+[resource]
+script = ExtResource("1_7hxgb")
+name = "AmuletDamage"
+texture = ExtResource("2_nn55r")
+description = "Increases damage of player"
+max_stack = 1
+metadata/_custom_type_script = "uid://26m4l5m0o68l"

@@ -395,7 +395,7 @@ func _on_stamina_timer_timeout() -> void:
         stamina_timer_label.visible = false
 
 func use_damage_potion(duration: int, bonus_damage: int):
-    damage_bonus = bonus_damage
+    damage_bonus += bonus_damage
     damage_time_left = duration
 
     timer_label.visible = true
@@ -410,7 +410,7 @@ func _on_damage_timer_timeout():
     timer_label.text = str(damage_time_left)
 
     if damage_time_left <= 0:
-        damage_bonus = 0
+        damage_bonus -= 0
         damage_timer.stop()
         timer_label.visible = false
 
