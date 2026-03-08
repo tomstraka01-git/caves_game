@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d2hasf7xh7sb2" path="res://assets/Screenshot_2026-02-28_103944-removebg-preview.png" id="8_ll25s"]
 [ext_resource type="PackedScene" uid="uid://cvxejs2dkxp65" path="res://scenes/portal.tscn" id="8_qjcqe"]
 [ext_resource type="Texture2D" uid="uid://xlkqefn7v623" path="res://assets/Screenshot_2026-02-28_105226-removebg-preview.png" id="9_sk60w"]
-[ext_resource type="PackedScene" uid="uid://ijx141nncv1f" path="res://scenes/coin.tscn" id="10_ll25s"]
+[ext_resource type="PackedScene" uid="uid://ijx141nncv1f" path="res://scenes/item_scenes/coin.tscn" id="10_ll25s"]
 [ext_resource type="Texture2D" uid="uid://cjk63kfbrbdvv" path="res://assets/Screenshot_2026-02-28_110053-removebg-preview.png" id="10_om4r1"]
 [ext_resource type="Texture2D" uid="uid://bebllabchtvub" path="res://assets/Lava/Screenshot_2026-02-28_121525-removebg-preview.png" id="11_vc1y7"]
 [ext_resource type="Texture2D" uid="uid://brsc5yu6xvo8k" path="res://assets/Lava/Screenshot_2026-02-28_121700-removebg-preview.png" id="12_44yx7"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://6lrobwlrb6w3" path="res://assets/Lava/Screenshot_2026-02-28_121821-removebg-preview.png" id="15_36cfx"]
 [ext_resource type="Texture2D" uid="uid://byal6kuiibec7" path="res://assets/Lava/Screenshot_2026-02-28_121843-removebg-preview.png" id="16_eh5lm"]
 [ext_resource type="Script" uid="uid://vbq40u2nd2nf" path="res://scripts/map.gd" id="18_lbrgs"]
-[ext_resource type="PackedScene" uid="uid://ckany226s333k" path="res://scenes/key.tscn" id="19_kkuia"]
+[ext_resource type="PackedScene" uid="uid://ckany226s333k" path="res://scenes/item_scenes/key.tscn" id="19_kkuia"]
 [ext_resource type="PackedScene" uid="uid://daeyvl0yw7x3b" path="res://scenes/shop_boot.tscn" id="20_36cfx"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kkuia"]

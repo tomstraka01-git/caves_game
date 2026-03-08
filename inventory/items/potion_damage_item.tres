@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PotionDamage" format=3 uid="uid://cg6swxd3bsctr"]
+
+[ext_resource type="Script" uid="uid://q0epx0m84lay" path="res://inventory/potion_damage_item.gd" id="1_ppalg"]
+[ext_resource type="Texture2D" uid="uid://dlatpye0q6gua" path="res://assets/potion2.png" id="2_w3o7i"]
+
+[resource]
+script = ExtResource("1_ppalg")
+name = "PotionDamage"
+texture = ExtResource("2_w3o7i")
+description = "Increases damage for 30 seconds"
+stackable = true
+max_stack = 10
+metadata/_custom_type_script = "uid://q0epx0m84lay"

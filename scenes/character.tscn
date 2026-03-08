@@ -989,6 +989,28 @@ scale = Vector2(0.5434425, 0.5434425)
 texture_under = ExtResource("22_i0gp7")
 texture_progress = ExtResource("23_i0gp7")
 
+[node name="DamageTimer" type="Timer" parent="UI" unique_id=1194614511]
+
+[node name="DamageTimerLabel" type="Label" parent="UI" unique_id=1391117761]
+layout_mode = 0
+offset_left = -143.0
+offset_top = -114.0
+offset_right = -71.0
+offset_bottom = -91.0
+theme_override_fonts/font = ExtResource("17_i0gp7")
+theme_override_font_sizes/font_size = 12
+
+[node name="StaminaTimer" type="Timer" parent="UI" unique_id=1128960793]
+
+[node name="StaminaTimerLabel" type="Label" parent="UI" unique_id=262574133]
+layout_mode = 0
+offset_left = -145.0
+offset_top = -72.0
+offset_right = -85.0
+offset_bottom = -49.0
+theme_override_fonts/font = ExtResource("17_i0gp7")
+theme_override_font_sizes/font_size = 10
+
 [node name="Audio" type="Node2D" parent="." unique_id=1428837258]
 
 [node name="Walk" type="AudioStreamPlayer2D" parent="Audio" unique_id=1518139262]
@@ -1094,3 +1116,5 @@ columns = 5
 [connection signal="animation_finished" from="Pivot/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="mouse_entered" from="UI/Back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="UI/Back" to="." method="_on_back_pressed"]
+[connection signal="timeout" from="UI/DamageTimer" to="." method="_on_damage_timer_timeout"]
+[connection signal="timeout" from="UI/StaminaTimer" to="." method="_on_stamina_timer_timeout"]

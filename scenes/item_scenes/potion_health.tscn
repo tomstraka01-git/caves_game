@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://kj3mi8bp7mh6"]
+
+[ext_resource type="Script" uid="uid://ckih2qqpfh8b6" path="res://scripts/items/Item_Area.gd" id="1_i6no3"]
+[ext_resource type="Resource" uid="uid://d1mbuouhjcif6" path="res://inventory/items/potion_health_item.tres" id="2_akpqv"]
+[ext_resource type="Texture2D" uid="uid://7tbiiu2pegeb" path="res://assets/potion3.png" id="3_5llgl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ov5tl"]
+size = Vector2(29, 29)
+
+[node name="PotionHealth" type="Node2D" unique_id=1691434103]
+
+[node name="CollisionArea" type="Area2D" parent="." unique_id=590348636]
+script = ExtResource("1_i6no3")
+item = ExtResource("2_akpqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea" unique_id=1930889943]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_ov5tl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1304049340]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(0, -5)
+texture = ExtResource("3_5llgl")

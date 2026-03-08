@@ -2,6 +2,17 @@ extends CharacterBody2D
 @onready var anim_sprite = $Pivot/AnimatedSprite2D
 @onready var air_attack_area: Area2D = $Pivot/AnimatedSprite2D/Air_Attack_Area
 
+@onready var damage_timer = $UI/DamageTimer
+@onready var timer_label = $UI/DamageTimerLabel
+
+@onready var stamina_timer = $UI/StaminaTimer
+@onready var stamina_timer_label = $UI/StaminaTimerLabel
+
+var stamina_time_left := 0
+
+var damage_time_left := 0
+var damage_bonus := 0
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -300.0
 var is_attacking = false
@@ -16,8 +27,8 @@ var is_air_attacking := false
 var air_slam_charging := false
 var air_slam_falling := false
 const AIR_SLAM_FALL_SPEED = 700.0
-const AIR_SLAM_DAMAGE_BASE = 35
-const AIR_SLAM_DAMAGE_MAX = 60
+@export var AIR_SLAM_DAMAGE_BASE = 20 
+@export var AIR_SLAM_DAMAGE_MAX = 40 
 var air_slam_charge_time := 0.0
 const AIR_SLAM_MAX_CHARGE = 2.0
 var was_on_floor := false
@@ -41,7 +52,7 @@ const STAMINA_DASH    = 20
 const STAMINA_AIR_MIN = 10
 const STAMINA_AIR_MAX = 30
 
-@export var min_damage = 15
+@export var min_damage = 15 
 @export var crit_damage = 30
 @export var crit_chance = 10
 @export var max_health := 100
@@ -157,9 +168,10 @@ func _physics_process(delta: float) -> void:
         velocity.x = 0
         move_and_slide()
         return
-    attack_timer         -= delta
+
+    attack_timer -= delta
     slide_cooldown_timer -= delta
-    combo_timer          -= delta
+    combo_timer -= delta
     if combo_timer <= 0.0:
         combo_count = 0
     if is_sliding:
@@ -303,7 +315,7 @@ func _on_air_slam_land() -> void:
     var charge_ratio = clamp(air_slam_charge_time / AIR_SLAM_MAX_CHARGE, 0.0, 1.0)
     var slam_cost = int(lerp(float(STAMINA_AIR_MIN), float(STAMINA_AIR_MAX), charge_ratio))
     ui.take_stamina(slam_cost)
-    var final_damage = int(lerp(AIR_SLAM_DAMAGE_BASE, AIR_SLAM_DAMAGE_MAX, charge_ratio))
+    var final_damage = int(lerp(AIR_SLAM_DAMAGE_BASE + damage_bonus, AIR_SLAM_DAMAGE_MAX + damage_bonus, charge_ratio))
     var bodies = air_attack_area.get_overlapping_bodies()
     for body in bodies:
         if body.is_in_group("enemies"):
@@ -323,10 +335,10 @@ func player_attack() -> void:
     var is_crit = (randi() % crit_chance == 0)
     var base_damage: int
     if is_crit:
-        base_damage = crit_damage
+        base_damage = crit_damage + damage_bonus
     else:
         var spread = max(1, (crit_damage - min_damage) / 2)
-        base_damage = min_damage + randi() % spread
+        base_damage = (min_damage + damage_bonus) + randi() % spread
     var final_damage = int(base_damage * COMBO_DAMAGE_MULT[current_combo])
     var bodies = $Pivot/AnimatedSprite2D/Attack_Area.get_overlapping_bodies()
     for body in bodies:
@@ -363,6 +375,44 @@ func _on_animated_sprite_2d_animation_finished() -> void:
             anim_sprite.play("idle")
         "death":
             pass
+func use_stamina_potion(duration: int):
+    ui.stamina_potion_active = true
+ 
+    stamina_time_left = duration
+
+    stamina_timer_label.visible = true
+    stamina_timer_label.text = str(stamina_time_left)
+
+    stamina_timer.start() 
+
+func _on_stamina_timer_timeout() -> void:
+    stamina_time_left -= 1
+    stamina_timer_label.text = str(stamina_time_left)
+
+    if stamina_time_left <= 0:
+        ui.stamina_potion_active = false
+        stamina_timer.stop()
+        stamina_timer_label.visible = false
+
+func use_damage_potion(duration: int, bonus_damage: int):
+    damage_bonus = bonus_damage
+    damage_time_left = duration
+
+    timer_label.visible = true
+    timer_label.text = str(damage_time_left)
+
+    damage_timer.start() 
+
+
+
+func _on_damage_timer_timeout():
+    damage_time_left -= 1
+    timer_label.text = str(damage_time_left)
+
+    if damage_time_left <= 0:
+        damage_bonus = 0
+        damage_timer.stop()
+        timer_label.visible = false
 
 func die() -> void:
     if is_dead or transitioning:

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dqqx8fa8xu4dh" path="res://scenes/enemy.tscn" id="8_2btif"]
 [ext_resource type="PackedScene" uid="uid://cvxejs2dkxp65" path="res://scenes/portal.tscn" id="9_n0uqe"]
 [ext_resource type="PackedScene" uid="uid://bbo3v0y7bja6p" path="res://scenes/torch.tscn" id="10_7m1qc"]
-[ext_resource type="PackedScene" uid="uid://ijx141nncv1f" path="res://scenes/coin.tscn" id="11_mh4ky"]
+[ext_resource type="PackedScene" uid="uid://ijx141nncv1f" path="res://scenes/item_scenes/coin.tscn" id="11_mh4ky"]
 [ext_resource type="Texture2D" uid="uid://bebllabchtvub" path="res://assets/Lava/Screenshot_2026-02-28_121525-removebg-preview.png" id="12_x13uo"]
 [ext_resource type="Texture2D" uid="uid://brsc5yu6xvo8k" path="res://assets/Lava/Screenshot_2026-02-28_121700-removebg-preview.png" id="13_3vupj"]
 [ext_resource type="Texture2D" uid="uid://0vg6ruo7nlfu" path="res://assets/Lava/Screenshot_2026-02-28_121723-removebg-preview.png" id="14_2bbbl"]
@@ -18,8 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://byal6kuiibec7" path="res://assets/Lava/Screenshot_2026-02-28_121843-removebg-preview.png" id="17_aggb6"]
 [ext_resource type="Script" uid="uid://vbq40u2nd2nf" path="res://scripts/map.gd" id="18_f7hpq"]
 [ext_resource type="Texture2D" uid="uid://6wa8omf7ha1b" path="res://assets/tilemaps/tileset_enviroment.png" id="19_isyof"]
-[ext_resource type="Texture2D" uid="uid://be405b7oxsbs3" path="res://assets/tilemaps/tileset_platformer.png" id="19_jym3p"]
+[ext_resource type="Texture2D" uid="uid://be405b7oxsbs3" path="res://assets/tilemaps/Base/tileset_platformer.png" id="19_jym3p"]
 [ext_resource type="Texture2D" uid="uid://he1pggt78lp" path="res://assets/tilemaps/sprite_building.png" id="20_uo6h6"]
+[ext_resource type="Texture2D" uid="uid://q3ybgqg0dmyb" path="res://assets/cave_base.png" id="21_b085t"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0xwag"]
 light_mode = 1
@@ -473,3 +474,9 @@ tile_set = SubResource("TileSet_b085t")
 [node name="TileMapLayerBuilding" type="TileMapLayer" parent="." unique_id=1627255602]
 scale = Vector2(0.2, 0.2)
 tile_set = SubResource("TileSet_ktrk3")
+
+[node name="CaveBase" type="Sprite2D" parent="." unique_id=1378216645]
+texture_filter = 1
+position = Vector2(159, -22)
+scale = Vector2(0.5546875, 0.5546875)
+texture = ExtResource("21_b085t")

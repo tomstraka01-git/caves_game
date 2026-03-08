@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cfw0qaiqsjk3v" path="res://scripts/dialogue_box.gd" id="2_8uepa"]
 [ext_resource type="Texture2D" uid="uid://mbp20lkfgp3u" path="res://assets/tilemaps/Tileset_Cave.png" id="2_ah8om"]
 [ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="3_q7pjq"]
-[ext_resource type="PackedScene" uid="uid://ijx141nncv1f" path="res://scenes/coin.tscn" id="4_1pn4d"]
+[ext_resource type="PackedScene" uid="uid://ijx141nncv1f" path="res://scenes/item_scenes/coin.tscn" id="4_1pn4d"]
 [ext_resource type="Texture2D" uid="uid://xil0cj101li4" path="res://assets/tilemaps/wood.png" id="5_p6vls"]
 [ext_resource type="Material" uid="uid://qkekqs28plas" path="res://materials/unshadd.tres" id="5_una4e"]
 [ext_resource type="Texture2D" uid="uid://bjlqq2cmsormy" path="res://assets/tilemaps/pixil-frame-0 (1).png" id="6_p6vls"]

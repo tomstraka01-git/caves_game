@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://chkmkc8jfliuc"]
+
+[ext_resource type="Texture2D" uid="uid://dlatpye0q6gua" path="res://assets/potion2.png" id="1_j2vfb"]
+[ext_resource type="Script" uid="uid://ckih2qqpfh8b6" path="res://scripts/items/Item_Area.gd" id="1_u02xv"]
+[ext_resource type="Resource" uid="uid://cg6swxd3bsctr" path="res://inventory/items/potion_damage_item.tres" id="2_troei"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7doly"]
+size = Vector2(27, 32)
+
+[node name="PotionDamage" type="Node2D" unique_id=689734658]
+
+[node name="CollisionArea" type="Area2D" parent="." unique_id=1435898355]
+script = ExtResource("1_u02xv")
+item = ExtResource("2_troei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea" unique_id=555050853]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_7doly")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=795100477]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("1_j2vfb")

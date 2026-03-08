@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dyiomq67ctqo3" path="res://scenes/mushroom.tscn" id="8_que50"]
 [ext_resource type="Texture2D" uid="uid://xlkqefn7v623" path="res://assets/Screenshot_2026-02-28_105226-removebg-preview.png" id="9_bv48q"]
 [ext_resource type="PackedScene" uid="uid://cvxejs2dkxp65" path="res://scenes/portal.tscn" id="9_hey2k"]
-[ext_resource type="PackedScene" uid="uid://ijx141nncv1f" path="res://scenes/coin.tscn" id="10_172wr"]
+[ext_resource type="PackedScene" uid="uid://ijx141nncv1f" path="res://scenes/item_scenes/coin.tscn" id="10_172wr"]
 [ext_resource type="Texture2D" uid="uid://cjk63kfbrbdvv" path="res://assets/Screenshot_2026-02-28_110053-removebg-preview.png" id="10_k22d5"]
 [ext_resource type="Texture2D" uid="uid://bdrnjh56hc52a" path="res://assets/mushrooms-and-left-right-icon/Screenshot_2026-02-28_130231-removebg-preview.png" id="11_172wr"]
 [ext_resource type="PackedScene" uid="uid://dqqx8fa8xu4dh" path="res://scenes/enemy.tscn" id="11_k6a82"]

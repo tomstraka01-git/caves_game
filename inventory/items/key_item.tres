@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="KeyItem" format=3 uid="uid://d1lhgjvfulmxb"]
 
 [ext_resource type="Script" uid="uid://bw06ayfaixdtu" path="res://inventory/key_item.gd" id="1_djnoc"]
-[ext_resource type="Texture2D" uid="uid://bx0bxknqrmpb4" path="res://assets/Key/key_3.png" id="2_whcub"]
+[ext_resource type="Texture2D" uid="uid://bbqg4ynt66rn1" path="res://assets/Key/key-pixilart.png" id="2_djnoc"]
 
 [resource]
 script = ExtResource("1_djnoc")
 name = "Key"
-texture = ExtResource("2_whcub")
+texture = ExtResource("2_djnoc")
 description = "opens doors"
 max_stack = 1
 metadata/_custom_type_script = "uid://bw06ayfaixdtu"

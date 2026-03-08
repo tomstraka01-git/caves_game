@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PotionStamina" format=3 uid="uid://bs8ga8lr8enbl"]
+
+[ext_resource type="Script" uid="uid://b3lo1xtraplms" path="res://inventory/potion_stamina_item.gd" id="1_rrrap"]
+[ext_resource type="Texture2D" uid="uid://obolvic7lroe" path="res://assets/potion1.png" id="2_bk3r0"]
+
+[resource]
+script = ExtResource("1_rrrap")
+name = "PotionStamina"
+texture = ExtResource("2_bk3r0")
+description = "gives player infinite stamina for 15 seconds"
+stackable = true
+max_stack = 10
+metadata/_custom_type_script = "uid://b3lo1xtraplms"

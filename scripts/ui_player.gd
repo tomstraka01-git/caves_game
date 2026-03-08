@@ -8,11 +8,17 @@ var max_stamina = 100.0
 var stamina_tween : Tween
 var is_empty := false  
 
+var stamina_potion_active = false
+
 func _ready():
     stamina_bar.max_value = max_stamina
     stamina_bar.value = current_stamina
 
 func _physics_process(delta):
+    if stamina_potion_active == true:
+        current_stamina = max_stamina
+        stamina_bar.value = current_stamina
+    
     if regen_delay.is_stopped() and current_stamina < max_stamina:
     
         var speed = regen_speed_empty if is_empty else regen_speed
@@ -24,7 +30,8 @@ func _physics_process(delta):
             is_empty = false
 
 func take_stamina(amount_stamina) -> bool:
-
+    if stamina_potion_active:
+        return true
     if is_empty:
         return false
     current_stamina -= amount_stamina

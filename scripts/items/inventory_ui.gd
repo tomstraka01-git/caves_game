@@ -5,11 +5,14 @@ extends Panel
 const SLOT_SIZE = 96
 const COLUMNS = 5
 const ROWS = 4
-var coin_scene = preload("res://scenes/coin.tscn")
-var key_scene = preload("res://scenes/key.tscn")
-var potion_health_scene = preload("res://scenes/potion_health.tscn")
+var coin_scene = preload("res://scenes/item_scenes/coin.tscn")
+var key_scene = preload("res://scenes/item_scenes/key.tscn")
+var potion_health_scene = preload("res://scenes/item_scenes/potion_health.tscn")
+var potion_damage_scene = preload("res://scenes/item_scenes/potion_damage.tscn")
+
 var health_added = randi_range(10, 30)
 var damage_added = randi_range(10, 30)
+
 
 var health_amulet_equipped = false
 
@@ -292,10 +295,16 @@ func _use_item(index: int) -> void:
     var item = GameState.inventory.items[index]
     if item.name == "Coin":
         pass
-    elif item.name == "Food":
-        pass
+    elif item.name == "PotionDamage":
+        get_parent().get_parent().use_damage_potion(20)
+        GameState.inventory.remove_item(index, 1)
+        _refresh()
     elif item.name == "PotionHealth":
         get_parent().get_parent().heal_player(20)
+        GameState.inventory.remove_item(index, 1)
+        _refresh()
+    elif item.name == "PotionStamina":
+        get_parent().get_parent().use_stamina_potion(20)
         GameState.inventory.remove_item(index, 1)
         _refresh()
 
@@ -319,19 +328,26 @@ func _delete_item(index: int) -> void:
         potion_health.get_node("CollisionArea").is_kicked = true
         potion_health.global_position = player.global_position
         get_tree().current_scene.add_child(potion_health)
+    elif item.name == "PotionDamage":
+        var potion_damage = potion_damage_scene.instantiate()
+        potion_damage.get_node("CollisionArea").is_kicked = true
+        potion_damage.global_position = player.global_position
+        get_tree().current_scene.add_child(potion_damage)
 
 func _on_equip_amulet_health(item: Item) -> void:
-    player.player_health += health_added
-    player.progress_bar._amulet_health(health_added)
+
+    player.max_health += health_added
+    player.progress_bar._amulet_health(health_added, player.player_health)
     health_amulet_equipped = true
     var percent = int((float(health_added) / float(player.max_health)) * 100)
     item.description = "Adds " + str(percent) + "% more health"
-
+ 
 func _on_unequip_amulet_health(item: Item) -> void:
-    player.player_health -= health_added
-    player.progress_bar._amulet_health(-health_added)
+    player.max_health -= health_added
+    player.player_health = min(player.player_health, player.max_health)
+    player.progress_bar._amulet_health(-health_added, player.player_health)
     health_amulet_equipped = false
-    
+      
 func _on_equip_amulet_damage(item: Item) -> void:
     pass
 

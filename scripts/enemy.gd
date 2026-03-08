@@ -21,7 +21,7 @@ enum State { IDLE, PATROL, WALK, ATTACK, HEAVY_WINDUP, HIT, DEAD }
 var state = State.IDLE
 var attack_triggered = false
 var attack_id = 0
-var coin_scene = preload("res://scenes/coin.tscn")
+var coin_scene = preload("res://scenes/item_scenes/coin.tscn")
 var knockback_velocity := Vector2.ZERO
 const KNOCKBACK_DECAY = 10.0
 var patrol_direction := 1.0
