@@ -16,7 +16,7 @@ var amulet_damage_scene = preload("res://scenes/item_scenes/amulet_damage.tscn")
 
 var health_added = randi_range(10, 30)
 var damage_added = randi_range(5, 10)
-
+var stamina_added = randi_range(15, 30)
 
 var health_amulet_equipped = false
 var damage_amulet_equipped = false
@@ -392,7 +392,12 @@ func _on_unequip_amulet_damage(item: Item) -> void:
     damage_amulet_equipped = true
 
 func _on_equip_amulet_stamina(item: Item) -> void:
-    pass
+    player.ui.max_stamina += stamina_added
+    player.ui.stamina_bar.max_value = player.ui.max_stamina
+    player.ui.current_stamina += stamina_added
 
 func _on_unequip_amulet_stamina(item: Item) -> void:
-    pass
+    player.ui.max_stamina -= stamina_added
+    player.ui.stamina_bar.max_value = player.ui.max_stamina
+    player.ui.current_stamina = min(player.ui.current_stamina, player.ui.max_stamina)
+    

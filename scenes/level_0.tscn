@@ -334,13 +334,12 @@ texture = ExtResource("10_om4r1")
 position = Vector2(969, 7)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1991492943]
-visible = false
 color = Color(0.11764706, 0.11764706, 0.11764706, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=965899058]
-visible = false
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=1873517258]
+visible = false
 offset_left = -620.0
 offset_top = -577.0
 offset_right = 2136.0
@@ -474,4 +473,4 @@ shape = SubResource("RectangleShape2D_4pfwt")
 position = Vector2(144, -6)
 
 [node name="ShopBoothNode" parent="." unique_id=11212054 instance=ExtResource("20_36cfx")]
-position = Vector2(166, -92)
+position = Vector2(165, -86)

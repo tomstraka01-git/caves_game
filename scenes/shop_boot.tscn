@@ -12,6 +12,13 @@
 [ext_resource type="Resource" uid="uid://bs8ga8lr8enbl" path="res://inventory/items/potion_stamina_item.tres" id="7_paasj"]
 [ext_resource type="Resource" uid="uid://06bdy0hba2nw" path="res://inventory/items/amulet_stamina_item.tres" id="8_uqxg5"]
 [ext_resource type="Resource" uid="uid://dho2kchc2x1sf" path="res://inventory/items/amulet_damage_item.tres" id="9_x413e"]
+[ext_resource type="Texture2D" uid="uid://dx1jyaj7k3um8" path="res://assets/shop-guy/pixil-frame-0(20).png" id="11_5k2ua"]
+[ext_resource type="Texture2D" uid="uid://bkhl3trbrqsv6" path="res://assets/shop-guy/pixil-frame-0(21).png" id="12_5vi00"]
+[ext_resource type="Texture2D" uid="uid://bx1agqop7c163" path="res://assets/shop-guy/pixil-frame-0(22).png" id="13_3su8o"]
+[ext_resource type="Texture2D" uid="uid://cklw21dj7fqjt" path="res://assets/shop-guy/pixil-frame-0(23).png" id="14_kfl83"]
+[ext_resource type="Texture2D" uid="uid://sci36lesbtrd" path="res://assets/campfire/fire-pixilart(1).png" id="17_kfl83"]
+[ext_resource type="Texture2D" uid="uid://cpl7qqys7o7u" path="res://assets/campfire/fire-pixilart(2).png" id="18_101ln"]
+[ext_resource type="Texture2D" uid="uid://d0bnv827aiijt" path="res://assets/campfire/fire-pixilart.png" id="19_qpook"]
 
 [sub_resource type="Resource" id="Resource_wdd3k"]
 script = ExtResource("2_u6ya2")
@@ -61,9 +68,53 @@ items = Array[ExtResource("2_u6ya2")]([SubResource("Resource_wdd3k"), SubResourc
 metadata/_custom_type_script = "uid://cfatgejv7mnu8"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fskfm"]
-size = Vector2(190, 110)
+size = Vector2(86, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_chyoy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_5k2ua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5vi00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3su8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_kfl83")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dmrt2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_kfl83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_101ln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_qpook")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_r3k50"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kfl83"]
+gradient = SubResource("Gradient_r3k50")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
 
 [node name="ShopBoothNode" type="Node2D" unique_id=11212054]
 
@@ -72,18 +123,16 @@ script = ExtResource("1_fskfm")
 shop_data = SubResource("Resource_paasj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShopBooth" unique_id=2119885220]
-position = Vector2(85, 45)
+position = Vector2(33, 60)
 shape = SubResource("RectangleShape2D_fskfm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ShopBooth" unique_id=1142573824]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(13, 83)
 sprite_frames = SubResource("SpriteFrames_chyoy")
-
-[node name="ColorRect" type="ColorRect" parent="ShopBooth" unique_id=2005729976]
-z_index = -1
-offset_left = -13.0
-offset_top = -11.0
-offset_right = 181.0
-offset_bottom = 101.0
+autoplay = "default"
+frame_progress = 0.08893595
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ShopBooth" unique_id=1767659817]
 
@@ -105,3 +154,17 @@ text = "Shop"
 
 [node name="ShopGrid" type="GridContainer" parent="ShopBooth/CanvasLayer/ShopPanel/VBoxContainer" unique_id=579191372]
 layout_mode = 2
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ShopBooth" unique_id=570354553]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(41, 86)
+sprite_frames = SubResource("SpriteFrames_dmrt2")
+autoplay = "default"
+frame_progress = 0.39547616
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1064050153]
+position = Vector2(39, 93)
+scale = Vector2(3.6313648, -2.2095196)
+color = Color(0.78619725, 0.41383493, 0.18582362, 1)
+texture = SubResource("GradientTexture2D_kfl83")

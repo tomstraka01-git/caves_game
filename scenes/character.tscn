@@ -26,6 +26,8 @@
 [ext_resource type="Script" uid="uid://b4pufq56n7rlv" path="res://scripts/ui_player.gd" id="16_8vsun"]
 [ext_resource type="AudioStream" uid="uid://behfoqt2da7s8" path="res://assets/sounds/Player/369004__flying_deer_fx__death-02-mouth-fx-man-voice.wav" id="16_ih8y6"]
 [ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="17_i0gp7"]
+[ext_resource type="Texture2D" uid="uid://c74raf8484tku" path="res://assets/hearts/stamina/pixil-frame-0(13).png" id="17_ofy33"]
+[ext_resource type="Texture2D" uid="uid://bxa3lpqwnvvf8" path="res://assets/hearts/stamina/pixil-frame-0(14).png" id="18_3et6r"]
 [ext_resource type="AudioStream" uid="uid://bmwthjl6nl23v" path="res://assets/sounds/327445__freelibras__birds-chirping-on-a-tree-2.wav" id="18_vovfy"]
 [ext_resource type="Texture2D" uid="uid://i36hmeh4egm" path="res://assets/hearts/Bar_stamina_bg.png" id="22_i0gp7"]
 [ext_resource type="Texture2D" uid="uid://dgnk4h1fupgq0" path="res://assets/hearts/bar_air_attack_bar.png" id="23_i0gp7"]
@@ -969,12 +971,13 @@ texture_hover = ExtResource("13_x8k1v")
 z_index = 1
 material = SubResource("CanvasItemMaterial_8vsun")
 layout_mode = 0
-offset_left = -140.0
-offset_top = -98.0
-offset_right = -91.0
-offset_bottom = -58.0
+offset_left = -150.0
+offset_top = -119.0
+offset_right = -80.0
+offset_bottom = -79.0
 scale = Vector2(0.95012224, 0.966645)
-texture_progress = ExtResource("8_irmqu")
+texture_under = ExtResource("17_ofy33")
+texture_progress = ExtResource("18_3et6r")
 
 [node name="RegenDelayTimer" type="Timer" parent="UI" unique_id=1434157134]
 one_shot = true
@@ -1043,6 +1046,7 @@ stream = ExtResource("14_8yvht")
 volume_db = 12.0
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=1822848280]
+visible = false
 offset_left = -887.0
 offset_top = -286.0
 offset_right = 1511.0
