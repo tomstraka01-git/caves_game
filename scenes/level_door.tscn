@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cs78qequqa845"]
+
+[ext_resource type="Script" uid="uid://crwwxyql0gulv" path="res://scripts/level_door_main.gd" id="1_711qk"]
+[ext_resource type="Texture2D" uid="uid://7tbiiu2pegeb" path="res://assets/potion3.png" id="1_hm2c8"]
+[ext_resource type="Script" uid="uid://dvm7xco5g4s4l" path="res://scripts/level_door_area.gd" id="1_rfkvk"]
+[ext_resource type="Texture2D" uid="uid://obolvic7lroe" path="res://assets/potion1.png" id="2_rfkvk"]
+[ext_resource type="Texture2D" uid="uid://dlatpye0q6gua" path="res://assets/potion2.png" id="3_711qk"]
+[ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="6_tcfsm"]
+[ext_resource type="AudioStream" uid="uid://ca7son6v8ha6s" path="res://assets/sounds/699949__8bitmyketison__multimedia-sfx-error-02-aggressive-distorted.wav" id="6_wqhls"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dr8c4"]
+size = Vector2(62, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7dh4e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hm2c8")
+}],
+"loop": true,
+"name": &"click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rfkvk")
+}],
+"loop": true,
+"name": &"fade",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_711qk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_rfkvk"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_711qk"]
+gradient = SubResource("Gradient_rfkvk")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
+
+[node name="LevelDoor" type="Node2D" unique_id=1801336062]
+script = ExtResource("1_711qk")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1079337938]
+script = ExtResource("1_rfkvk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1434097093]
+position = Vector2(31, -43)
+shape = SubResource("RectangleShape2D_dr8c4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2145984535]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(29, -31)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_7dh4e")
+animation = &"click"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2014119148]
+position = Vector2(61, -70)
+scale = Vector2(3.2159688, 3.2159688)
+color = Color(0.44719064, 0.35427675, 0.12936231, 1)
+texture = SubResource("GradientTexture2D_711qk")
+
+[node name="ErrorSound" type="AudioStreamPlayer2D" parent="." unique_id=295981949]
+stream = ExtResource("6_wqhls")
+
+[node name="EnterSound" type="AudioStreamPlayer2D" parent="." unique_id=204326910]
+position = Vector2(8, 2)
+
+[node name="LevelLabel" type="Label" parent="." unique_id=1676359926]
+texture_filter = 1
+texture_repeat = 1
+offset_left = -13.0
+offset_top = -80.0
+offset_right = 243.0
+offset_bottom = -48.0
+scale = Vector2(0.3404598, 0.3404598)
+theme_override_fonts/font = ExtResource("6_tcfsm")
+theme_override_font_sizes/font_size = 32
+text = "Level: 0"

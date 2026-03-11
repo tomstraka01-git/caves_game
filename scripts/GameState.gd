@@ -3,6 +3,8 @@ extends Node
 var level_completed: Array[bool] = [false, false, false, false]
 var inventory: Inv = Inv.new()
 
+var shop_visited: bool = false
+
 var _snapshot_items: Array = []
 var _snapshot_counts: Array = []
 

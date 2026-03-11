@@ -68,7 +68,7 @@ items = Array[ExtResource("2_u6ya2")]([SubResource("Resource_wdd3k"), SubResourc
 metadata/_custom_type_script = "uid://cfatgejv7mnu8"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fskfm"]
-size = Vector2(86, 80)
+size = Vector2(65, 63)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_chyoy"]
 animations = [{
@@ -123,7 +123,7 @@ script = ExtResource("1_fskfm")
 shop_data = SubResource("Resource_paasj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShopBooth" unique_id=2119885220]
-position = Vector2(33, 60)
+position = Vector2(33.5, 68.5)
 shape = SubResource("RectangleShape2D_fskfm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ShopBooth" unique_id=1142573824]
@@ -132,13 +132,14 @@ texture_repeat = 1
 position = Vector2(13, 83)
 sprite_frames = SubResource("SpriteFrames_chyoy")
 autoplay = "default"
-frame_progress = 0.08893595
+frame_progress = 0.12782842
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ShopBooth" unique_id=1767659817]
 
 [node name="ShopPanel" type="Panel" parent="ShopBooth/CanvasLayer" unique_id=1411844043]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource("1_teiqq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ShopBooth/CanvasLayer/ShopPanel" unique_id=740057791]
@@ -146,14 +147,41 @@ layout_mode = 0
 offset_right = 255.0
 offset_bottom = 255.0
 
-[node name="Label" type="Label" parent="ShopBooth/CanvasLayer/ShopPanel/VBoxContainer" unique_id=816223534]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("7_2ak83")
-theme_override_font_sizes/font_size = 12
-text = "Shop"
-
 [node name="ShopGrid" type="GridContainer" parent="ShopBooth/CanvasLayer/ShopPanel/VBoxContainer" unique_id=579191372]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="ShopBooth/CanvasLayer/ShopPanel" unique_id=816223534]
+layout_mode = 0
+offset_left = 88.0
+offset_right = 343.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("7_2ak83")
+theme_override_font_sizes/font_size = 28
+text = "Shop"
+
+[node name="Control" type="Control" parent="ShopBooth/CanvasLayer" unique_id=656289907]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DialoguePanel" type="Panel" parent="ShopBooth/CanvasLayer/Control" unique_id=463651134]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PromptLabel" type="Label" parent="ShopBooth/CanvasLayer/Control/DialoguePanel" unique_id=324499238]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 576.0
+offset_right = 326.0
+offset_bottom = 608.0
+theme_override_fonts/font = ExtResource("7_2ak83")
+theme_override_font_sizes/font_size = 32
+text = "asdasdasd"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ShopBooth" unique_id=570354553]
 texture_filter = 1
@@ -162,6 +190,18 @@ position = Vector2(41, 86)
 sprite_frames = SubResource("SpriteFrames_dmrt2")
 autoplay = "default"
 frame_progress = 0.39547616
+
+[node name="DialogueLabel" type="Label" parent="ShopBooth" unique_id=62271247]
+z_index = 2
+texture_filter = 1
+offset_left = -49.0
+offset_top = 37.0
+offset_right = 647.0
+offset_bottom = 192.0
+scale = Vector2(0.18078539, 0.18078539)
+theme_override_fonts/font = ExtResource("7_2ak83")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1064050153]
 position = Vector2(39, 93)

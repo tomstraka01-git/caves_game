@@ -56,3 +56,14 @@ func play_click_and_fade(scene_path):
         get_tree().change_scene_to_file(scene_path)
     else:
         get_tree().quit()
+
+
+func _on_controls_pressed() -> void:
+    if transitioning:
+        return
+    transitioning = true
+    await play_click_and_fade("res://scenes/controls.tscn")
+
+
+func _on_controls_mouse_entered() -> void:
+    play_hover()

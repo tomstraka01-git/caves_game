@@ -12,12 +12,18 @@ func _ready() -> void:
     shop_grid.columns = COLUMNS
     shop_grid.add_theme_constant_override("h_separation", 8)
     shop_grid.add_theme_constant_override("v_separation", 8)
+    
+
+    var margin = MarginContainer.new()
+    margin.add_theme_constant_override("margin_top", 40)  
+    shop_grid.get_parent().add_child(margin)
+    shop_grid.reparent(margin)
+    
     $VBoxContainer.set_anchors_preset(Control.PRESET_FULL_RECT)
     size = Vector2(300, 300)
     var screen = get_viewport().get_visible_rect().size
     position = (screen / 2 - size / 2).round()
     hide()
-
 func open(data: ShopData) -> void:
     if data == null:
         print("shop_data not assigned")

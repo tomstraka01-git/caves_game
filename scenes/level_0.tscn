@@ -219,6 +219,7 @@ tile_map_data = PackedByteArray("AAABAAAAAAABAAAAAAAAAAAAAAABAAAAAAD//wAAAAABAAA
 tile_set = SubResource("TileSet_7j8ne")
 
 [node name="Label" type="Label" parent="TileMapLayer" unique_id=1299889888]
+visible = false
 texture_repeat = 1
 offset_left = 38.0
 offset_top = -73.0
@@ -339,7 +340,6 @@ color = Color(0.11764706, 0.11764706, 0.11764706, 1)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=965899058]
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=1873517258]
-visible = false
 offset_left = -620.0
 offset_top = -577.0
 offset_right = 2136.0
@@ -442,7 +442,7 @@ fifth_line_2 = "Where does it lead?"
 [node name="First" type="Area2D" parent="Map" unique_id=696940081]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/First" unique_id=84981859]
-position = Vector2(-41, -57)
+position = Vector2(1037, 381)
 shape = SubResource("RectangleShape2D_kkuia")
 
 [node name="Second" type="Area2D" parent="Map" unique_id=1613069729]

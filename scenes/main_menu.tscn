@@ -1245,6 +1245,13 @@ theme_override_fonts/font = ExtResource("1_wu84c")
 theme_override_font_sizes/font_size = 60
 text = "start"
 
+[node name="Controls" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1653370364]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_wu84c")
+theme_override_font_sizes/font_size = 60
+text = "Controls"
+
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1226431632]
 z_index = 1
 layout_mode = 2
@@ -1391,5 +1398,7 @@ color = Color(0, 0, 0, 1)
 
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/Controls" to="." method="_on_controls_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

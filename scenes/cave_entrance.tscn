@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://mkle66rfmh0b"]
+
+[ext_resource type="Script" uid="uid://fy0pv4m5t748" path="res://scripts/cave_enterance_area.gd" id="1_l6d7i"]
+[ext_resource type="Texture2D" uid="uid://dlatpye0q6gua" path="res://assets/potion2.png" id="2_ao22o"]
+[ext_resource type="Texture2D" uid="uid://7tbiiu2pegeb" path="res://assets/potion3.png" id="3_5516q"]
+[ext_resource type="Texture2D" uid="uid://obolvic7lroe" path="res://assets/potion1.png" id="4_ir2r0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksxpp"]
+size = Vector2(74, 68)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ibag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ao22o")
+}],
+"loop": true,
+"name": &"click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5516q")
+}],
+"loop": true,
+"name": &"fade",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ir2r0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="CaveEntrance" type="Node2D" unique_id=1649721197]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=956548317]
+script = ExtResource("1_l6d7i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=210121985]
+position = Vector2(27, -24)
+shape = SubResource("RectangleShape2D_ksxpp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=953371644]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(25, -23.000002)
+scale = Vector2(2.0625, 2.0625)
+sprite_frames = SubResource("SpriteFrames_4ibag")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.6646941

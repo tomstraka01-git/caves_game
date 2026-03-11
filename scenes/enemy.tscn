@@ -369,8 +369,9 @@ shape = SubResource("RectangleShape2D_md0e3")
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_8tegq")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
+frame = 4
 
 [node name="Attack_Area" type="Area2D" parent="Pivot" unique_id=1918825138]
 position = Vector2(67, 8)
