@@ -121,6 +121,8 @@ fill_to = Vector2(0.49447513, 0)
 [node name="ShopBooth" type="Area2D" parent="." unique_id=392202366]
 script = ExtResource("1_fskfm")
 shop_data = SubResource("Resource_paasj")
+intro_dialogue = Array[String](["Welcome, traveler!", "Take a look at my items", "Press E to browse, 
+or ESC to leave"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShopBooth" unique_id=2119885220]
 position = Vector2(33.5, 68.5)
