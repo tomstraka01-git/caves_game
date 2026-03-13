@@ -107,11 +107,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_r3k50"]
+[sub_resource type="Gradient" id="Gradient_kfl83"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_kfl83"]
-gradient = SubResource("Gradient_r3k50")
+gradient = SubResource("Gradient_kfl83")
 fill = 1
 fill_from = Vector2(0.49447513, 0.4723757)
 fill_to = Vector2(0.49447513, 0)
@@ -142,15 +142,18 @@ frame_progress = 0.12782842
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource("1_teiqq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ShopBooth/CanvasLayer/ShopPanel" unique_id=740057791]
 layout_mode = 0
 offset_right = 255.0
 offset_bottom = 255.0
+mouse_filter = 2
 
 [node name="ShopGrid" type="GridContainer" parent="ShopBooth/CanvasLayer/ShopPanel/VBoxContainer" unique_id=579191372]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="ShopBooth/CanvasLayer/ShopPanel" unique_id=816223534]
 layout_mode = 0
@@ -166,6 +169,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="DialoguePanel" type="Panel" parent="ShopBooth/CanvasLayer/Control" unique_id=463651134]
 layout_mode = 1
@@ -174,6 +178,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="PromptLabel" type="Label" parent="ShopBooth/CanvasLayer/Control/DialoguePanel" unique_id=324499238]
 layout_mode = 0

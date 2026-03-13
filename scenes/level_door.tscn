@@ -1,21 +1,25 @@
 [gd_scene format=3 uid="uid://cs78qequqa845"]
 
 [ext_resource type="Script" uid="uid://crwwxyql0gulv" path="res://scripts/level_door_main.gd" id="1_711qk"]
-[ext_resource type="Texture2D" uid="uid://7tbiiu2pegeb" path="res://assets/potion3.png" id="1_hm2c8"]
 [ext_resource type="Script" uid="uid://dvm7xco5g4s4l" path="res://scripts/level_door_area.gd" id="1_rfkvk"]
-[ext_resource type="Texture2D" uid="uid://obolvic7lroe" path="res://assets/potion1.png" id="2_rfkvk"]
-[ext_resource type="Texture2D" uid="uid://dlatpye0q6gua" path="res://assets/potion2.png" id="3_711qk"]
+[ext_resource type="Texture2D" uid="uid://ufwat2mql4b8" path="res://assets/door/door/pixil-frame-0(25).png" id="4_yq4eq"]
+[ext_resource type="Texture2D" uid="uid://b3unkbd15suka" path="res://assets/door/door/pixil-frame-0(24).png" id="5_qgsaj"]
 [ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="6_tcfsm"]
 [ext_resource type="AudioStream" uid="uid://ca7son6v8ha6s" path="res://assets/sounds/699949__8bitmyketison__multimedia-sfx-error-02-aggressive-distorted.wav" id="6_wqhls"]
+[ext_resource type="AudioStream" uid="uid://hnk8chkliqj7" path="res://assets/sounds/door_enter.wav" id="7_oumrv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr8c4"]
 size = Vector2(62, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44dbp"]
+atlas = ExtResource("5_qgsaj")
+region = Rect2(0, 0, 40, 60)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7dh4e"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_hm2c8")
+"texture": ExtResource("5_qgsaj")
 }],
 "loop": true,
 "name": &"click",
@@ -23,7 +27,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_rfkvk")
+"texture": ExtResource("4_yq4eq")
 }],
 "loop": true,
 "name": &"fade",
@@ -31,7 +35,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_711qk")
+"texture": SubResource("AtlasTexture_44dbp")
 }],
 "loop": true,
 "name": &"idle",
@@ -76,6 +80,8 @@ stream = ExtResource("6_wqhls")
 
 [node name="EnterSound" type="AudioStreamPlayer2D" parent="." unique_id=204326910]
 position = Vector2(8, 2)
+stream = ExtResource("7_oumrv")
+volume_db = 12.0
 
 [node name="LevelLabel" type="Label" parent="." unique_id=1676359926]
 texture_filter = 1

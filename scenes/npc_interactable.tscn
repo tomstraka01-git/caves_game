@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://dfna8hoq6ejww"]
+
+[ext_resource type="Script" uid="uid://g42m0hlg58x0" path="res://scripts/npc_interactable.gd" id="1_xc5gi"]
+[ext_resource type="Texture2D" uid="uid://dtu7cfhyjh0dh" path="res://assets/npc/npc_spreadsheet.png" id="2_svlq0"]
+[ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="6_oxijq"]
+
+[sub_resource type="Gradient" id="Gradient_r3k50"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x40w7"]
+gradient = SubResource("Gradient_r3k50")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1gap"]
+atlas = ExtResource("2_svlq0")
+region = Rect2(0, 0, 23, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vo3h"]
+atlas = ExtResource("2_svlq0")
+region = Rect2(0, 40, 23, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4euao"]
+atlas = ExtResource("2_svlq0")
+region = Rect2(23, 0, 23, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svlq0"]
+atlas = ExtResource("2_svlq0")
+region = Rect2(23, 40, 23, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cna4p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1gap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vo3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4euao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svlq0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nelwb"]
+
+[node name="npc_interactable" type="Node2D" unique_id=840887978]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1307882552]
+position = Vector2(39, 93)
+scale = Vector2(3.6313648, -2.2095196)
+color = Color(0.78619725, 0.41383493, 0.18582362, 1)
+texture = SubResource("GradientTexture2D_x40w7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=400910446]
+texture_filter = 1
+texture_repeat = 1
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_cna4p")
+autoplay = "default"
+frame = 3
+frame_progress = 0.5916745
+
+[node name="Area2D" type="Area2D" parent="." unique_id=486910094]
+position = Vector2(1, 0)
+script = ExtResource("1_xc5gi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1377793572]
+shape = SubResource("RectangleShape2D_nelwb")
+
+[node name="InteractLabel" type="Label" parent="." unique_id=1857497578]
+texture_filter = 1
+offset_left = -143.0
+offset_top = -42.0
+offset_right = 925.8235
+offset_bottom = 20.107697
+scale = Vector2(0.26571274, 0.26571274)
+theme_override_fonts/font = ExtResource("6_oxijq")
+theme_override_font_sizes/font_size = 32
+text = "[E] Interact"
+horizontal_alignment = 1
+
+[node name="DialogueLabel" type="Label" parent="." unique_id=1804738706]
+texture_filter = 1
+texture_repeat = 1
+offset_left = -296.0
+offset_top = -60.000008
+offset_right = 2389.0476
+offset_bottom = 93.94877
+scale = Vector2(0.2208527, 0.2208527)
+theme_override_fonts/font = ExtResource("6_oxijq")
+theme_override_font_sizes/font_size = 32
+text = "Welcome, traveler! I've got some things to tell you."
+horizontal_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=258307969]
+
+[node name="PromptLabel" type="Label" parent="CanvasLayer" unique_id=494737095]
+texture_filter = 1
+texture_repeat = 1
+offset_left = 76.0
+offset_top = 576.0
+offset_right = 652.0
+offset_bottom = 640.0
+scale = Vector2(0.37531406, 0.37531406)
+theme_override_fonts/font = ExtResource("6_oxijq")
+theme_override_font_sizes/font_size = 64
+text = "asdasdasd"

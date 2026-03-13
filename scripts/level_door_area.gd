@@ -23,7 +23,7 @@ func _ready():
     body_entered.connect(_on_body_entered)
     body_exited.connect(_on_body_exited)
     anim_sprite.play("idle")
-
+    anim_sprite.modulate = Color(1, 1, 1, 1)
     var canvas = CanvasLayer.new()
     add_child(canvas)
     fade = ColorRect.new()
@@ -53,11 +53,13 @@ func _on_body_entered(body):
     if body.is_in_group("character"):
         player_inside = true
         anim_sprite.play("click")
+        
 
 func _on_body_exited(body):
     if body.is_in_group("character"):
         player_inside = false
         anim_sprite.play("idle")
+        
 
 func _play_locked_feedback() -> void:
     error_sound.play()
@@ -82,6 +84,7 @@ func _shake_node(node: Node) -> void:
 func _enter_cave():
     if transitioning:
         return
+    anim_sprite.modulate = Color(1, 1, 1, 1)
     transitioning = true
     click_sound.pitch_scale = 0.8
     click_sound.play()

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://oqo4irj6bv41"]
+
+[ext_resource type="Script" uid="uid://b0kej85w6til2" path="res://scripts/items/Item_Area_Soul.gd" id="1_ho36x"]
+[ext_resource type="Texture2D" uid="uid://c6eyyvtmar666" path="res://assets/coin_item.png" id="1_y8qwf"]
+[ext_resource type="Resource" uid="uid://tm1b4twaw637" path="res://inventory/items/soul_item.tres" id="3_s4gj3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8qwf"]
+
+[node name="Soul_Item" type="Node2D" unique_id=1451292439]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=470480246]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("1_y8qwf")
+
+[node name="CollisionArea" type="Area2D" parent="." unique_id=1939037154]
+script = ExtResource("1_ho36x")
+item = ExtResource("3_s4gj3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea" unique_id=1791514310]
+shape = SubResource("RectangleShape2D_y8qwf")

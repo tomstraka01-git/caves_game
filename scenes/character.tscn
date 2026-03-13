@@ -994,25 +994,23 @@ texture_progress = ExtResource("23_i0gp7")
 
 [node name="DamageTimer" type="Timer" parent="UI" unique_id=1194614511]
 
-[node name="DamageTimerLabel" type="Label" parent="UI" unique_id=1391117761]
-layout_mode = 0
-offset_left = -143.0
-offset_top = -114.0
-offset_right = -71.0
-offset_bottom = -91.0
-theme_override_fonts/font = ExtResource("17_i0gp7")
-theme_override_font_sizes/font_size = 12
-
 [node name="StaminaTimer" type="Timer" parent="UI" unique_id=1128960793]
 
-[node name="StaminaTimerLabel" type="Label" parent="UI" unique_id=262574133]
+[node name="TextureProgressBarPotionDamage" type="TextureProgressBar" parent="UI" unique_id=1860221864]
 layout_mode = 0
-offset_left = -145.0
-offset_top = -72.0
-offset_right = -85.0
-offset_bottom = -49.0
-theme_override_fonts/font = ExtResource("17_i0gp7")
-theme_override_font_sizes/font_size = 10
+offset_left = -152.0
+offset_top = -64.0
+offset_right = -103.0
+offset_bottom = -24.0
+texture_progress = ExtResource("8_irmqu")
+
+[node name="TextureProgressBarPotionStamina" type="TextureProgressBar" parent="UI" unique_id=2017498166]
+layout_mode = 0
+offset_left = -151.0
+offset_top = -96.0
+offset_right = -102.0
+offset_bottom = -56.0
+texture_progress = ExtResource("8_irmqu")
 
 [node name="Audio" type="Node2D" parent="." unique_id=1428837258]
 

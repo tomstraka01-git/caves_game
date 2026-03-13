@@ -3,15 +3,18 @@ extends CharacterBody2D
 @onready var air_attack_area: Area2D = $Pivot/AnimatedSprite2D/Air_Attack_Area
 
 @onready var damage_timer = $UI/DamageTimer
-@onready var timer_label = $UI/DamageTimerLabel
 
 @onready var stamina_timer = $UI/StaminaTimer
-@onready var stamina_timer_label = $UI/StaminaTimerLabel
+@onready var stamina_potion_bar = $UI/TextureProgressBarPotionStamina
+@onready var damage_potion_bar =  $UI/TextureProgressBarPotionDamage
 
 var stamina_time_left := 0
+var stamina_potion_duration = 20
+var damage_potion_duration = 30
 
 var damage_time_left := 0
 var damage_bonus := 0
+var _active_damage_bonus := 0
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -300.0
@@ -27,8 +30,8 @@ var is_air_attacking := false
 var air_slam_charging := false
 var air_slam_falling := false
 const AIR_SLAM_FALL_SPEED = 700.0
-@export var AIR_SLAM_DAMAGE_BASE = 20 
-@export var AIR_SLAM_DAMAGE_MAX = 40 
+@export var AIR_SLAM_DAMAGE_BASE = 20
+@export var AIR_SLAM_DAMAGE_MAX = 40
 var air_slam_charge_time := 0.0
 const AIR_SLAM_MAX_CHARGE = 2.0
 var was_on_floor := false
@@ -52,7 +55,7 @@ const STAMINA_DASH    = 20
 const STAMINA_AIR_MIN = 10
 const STAMINA_AIR_MAX = 30
 
-@export var min_damage = 15 
+@export var min_damage = 15
 @export var crit_damage = 30
 @export var crit_chance = 10
 @export var max_health := 100
@@ -71,7 +74,8 @@ var transitioning := false
 @onready var ui = $UI
 
 func _ready() -> void:
- 
+    stamina_potion_bar.visible = false
+    damage_potion_bar.visible = false
     $UI/TextureProgressBarAirAttack.value = 0
     $UI/TextureProgressBarAirAttack.visible = false
     fade.modulate.a = 0.0
@@ -87,7 +91,7 @@ func _ready() -> void:
     bird_audio.stop()
     anim_sprite.play("idle")
     GameState.save_level_snapshot()
-    
+
 func play_click_and_fade(scene_path):
     click_sound.pitch_scale = 0.8
     click_sound.play()
@@ -140,10 +144,15 @@ func take_damage(amount: int, knockback_dir: float = 0.0):
         knockback_velocity.y = -100.0
     if player_health <= 0:
         die()
+        return
+    await get_tree().create_timer(0.5).timeout
+    if is_hit and not is_dead:
+        is_hit = false
+        anim_sprite.play("idle")
+
 func heal_player(amount: int):
     if is_dead or is_sliding:
         return
-    
     is_attacking = false
     is_air_attacking = false
     air_slam_charging = false
@@ -161,7 +170,6 @@ func heal_player(amount: int):
     await get_tree().create_timer(0.20).timeout
     $Pivot/AnimatedSprite2D.modulate = Color(1, 1, 1)
     anim_sprite.play("idle")
-    
 
 func _physics_process(delta: float) -> void:
     if is_dead:
@@ -264,13 +272,12 @@ func _update_animation(direction: int) -> void:
     elif direction != 0:
         _safe_play("run")
         _play_sound("walk")
-     
     else:
         walk_sound.stop()
         _safe_play("idle")
- 
+
 func _safe_play(anim_name: String) -> void:
-    if anim_sprite.animation != anim_name:
+    if anim_sprite.animation != anim_name or not anim_sprite.is_playing():
         anim_sprite.play(anim_name)
 
 func _start_slide(dir: float) -> void:
@@ -292,7 +299,6 @@ func _start_air_slam() -> void:
         add_collision_exception_with(enemy)
         enemy.add_collision_exception_with(self)
     anim_sprite.play("charging")
- 
     $UI/TextureProgressBarAirAttack.value = 0
     $UI/TextureProgressBarAirAttack.visible = true
 
@@ -305,7 +311,7 @@ func _release_air_slam() -> void:
     var charge_ratio = clamp(air_slam_charge_time / AIR_SLAM_MAX_CHARGE, 0.0, 1.0)
     anim_sprite.speed_scale = lerp(0.8, 1.6, charge_ratio)
     anim_sprite.play("attack_air_falling")
-    
+
 func _on_air_slam_land() -> void:
     air_slam_falling = false
     anim_sprite.speed_scale = 1.0
@@ -375,44 +381,42 @@ func _on_animated_sprite_2d_animation_finished() -> void:
             anim_sprite.play("idle")
         "death":
             pass
+
 func use_stamina_potion(duration: int):
+    stamina_potion_duration = duration
     ui.stamina_potion_active = true
- 
     stamina_time_left = duration
-
-    stamina_timer_label.visible = true
-    stamina_timer_label.text = str(stamina_time_left)
-
-    stamina_timer.start() 
+    stamina_potion_bar.visible = true
+    stamina_potion_bar.value = (float(stamina_time_left) / float(stamina_potion_duration)) * 100
+    stamina_timer.start()
 
 func _on_stamina_timer_timeout() -> void:
     stamina_time_left -= 1
-    stamina_timer_label.text = str(stamina_time_left)
-
+    stamina_time_left = max(stamina_time_left, 0)
+    stamina_potion_bar.value = clamp((float(stamina_time_left) / float(stamina_potion_duration)) * 100, 0, 100)
     if stamina_time_left <= 0:
-        ui.stamina_potion_active = false
         stamina_timer.stop()
-        stamina_timer_label.visible = false
+        stamina_potion_bar.visible = false
+        ui.stamina_potion_active = false
 
 func use_damage_potion(duration: int, bonus_damage: int):
+    damage_potion_duration = duration
     damage_bonus += bonus_damage
+    _active_damage_bonus = bonus_damage
     damage_time_left = duration
+    damage_potion_bar.visible = true
+    damage_potion_bar.value = (float(damage_time_left) / float(damage_potion_duration)) * 100
+    damage_timer.start()
 
-    timer_label.visible = true
-    timer_label.text = str(damage_time_left)
-
-    damage_timer.start() 
-
-
-
-func _on_damage_timer_timeout():
+func _on_damage_timer_timeout() -> void:
     damage_time_left -= 1
-    timer_label.text = str(damage_time_left)
-
+    damage_time_left = max(damage_time_left, 0)
+    damage_potion_bar.value = clamp((float(damage_time_left) / float(damage_potion_duration)) * 100, 0, 100)
     if damage_time_left <= 0:
-        damage_bonus -= 0
         damage_timer.stop()
-        timer_label.visible = false
+        damage_potion_bar.visible = false
+        damage_bonus -= _active_damage_bonus
+        _active_damage_bonus = 0
 
 func die() -> void:
     if is_dead or transitioning:
@@ -432,7 +436,6 @@ func die() -> void:
     $Audio/bgAudio.stop()
     $Audio/Die.play()
     anim_sprite.play("death")
-    
     await anim_sprite.animation_finished
     var tween = create_tween()
     tween.set_parallel(true)
@@ -448,9 +451,6 @@ func die() -> void:
 
 func _not_enough_stamina():
     stamina_empty = true
-
-
-
 
 func _on_back_pressed() -> void:
     if transitioning:

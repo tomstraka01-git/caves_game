@@ -16,7 +16,7 @@ func _on_start_pressed() -> void:
     if transitioning:
         return
     transitioning = true
-    await play_click_and_fade("res://scenes/levels.tscn")
+    await play_click_and_fade("res://scenes/base.tscn")
 
 
 func _on_quit_pressed() -> void:

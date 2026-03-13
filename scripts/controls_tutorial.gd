@@ -23,10 +23,26 @@ var pages = [
         "offset": Vector2(400, 230)
     },
     {
-        "image": preload("res://tutorial/air_attack_tutorial_full.png"),
-        "text": "Jump then hold [F]\nwhen you are done charging release the [F]",
+        "image": preload("res://tutorial/press_f_to_attack_tutorial.png"),
+        "text": "Press [F] to attack enemies\n",
         "offset": Vector2(300, 280)
-    }
+    },
+
+    {
+        "image": preload("res://tutorial/air_attack_full_finalk_final.png"),
+        "text": "Jump then hold [F] for air attack\nwhen you are done charging release the [F]",
+        "offset": Vector2(300, 280)
+    },
+    {
+        "image": preload("res://tutorial/press_e_to_interact_tutorial.png"),
+        "text": "Press [E] to interact with items or characters,\nenter portals, move dialogue and many more",
+        "offset": Vector2(150, 280)
+    },
+        {
+        "image": preload("res://tutorial/tab_inventory_tutorial.png"),
+        "text": "Press [TAB] to open inventory,\nselect items with left click, drop them with right and equip or use them with left",
+        "offset": Vector2(150, 280)
+    },
 ]
 
 func _ready():

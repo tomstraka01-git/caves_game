@@ -13,21 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://byal6kuiibec7" path="res://assets/Lava/Screenshot_2026-02-28_121843-removebg-preview.png" id="11_yqphw"]
 [ext_resource type="PackedScene" uid="uid://cs78qequqa845" path="res://scenes/level_door.tscn" id="12_ui0mg"]
 [ext_resource type="Texture2D" uid="uid://5c8px752cmu4" path="res://assets/mushrooms-and-left-right-icon/crystak.png" id="13_i7eyi"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_28x5j"]
-light_mode = 1
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ooayk"]
-light_mode = 1
-
-[sub_resource type="Gradient" id="Gradient_qjcqe"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_w52y2"]
-gradient = SubResource("Gradient_qjcqe")
-fill = 1
-fill_from = Vector2(0.49447513, 0.4723757)
-fill_to = Vector2(0.49447513, 0)
+[ext_resource type="PackedScene" uid="uid://mkle66rfmh0b" path="res://scenes/cave_entrance.tscn" id="14_1hq0t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k12ah"]
 texture = ExtResource("4_1hq0t")
@@ -78,6 +64,15 @@ custom_data_layer_0/name = "deadly"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_k12ah")
 
+[sub_resource type="Gradient" id="Gradient_qjcqe"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w52y2"]
+gradient = SubResource("Gradient_qjcqe")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_nk8h8"]
 animations = [{
 "frames": [{
@@ -104,54 +99,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1hq0t"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o8fv3"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_w1s28"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vos2u"]
+gradient = SubResource("Gradient_w1s28")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
+
 [node name="levels_cave" type="Node2D" unique_id=2007181166]
-
-[node name="Character" parent="." unique_id=1207945146 instance=ExtResource("1_cv3q0")]
-position = Vector2(28, -20)
-
-[node name="Camera2D" type="Camera2D" parent="Character" unique_id=1429543695]
-zoom = Vector2(3, 3)
-
-[node name="Dialogue" type="Control" parent="Character/Camera2D" unique_id=1771524343]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -28.0
-offset_top = 20.0
-offset_right = -28.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_ui0mg")
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="Character/Camera2D/Dialogue" unique_id=635666540]
-z_index = 2
-material = SubResource("CanvasItemMaterial_28x5j")
-layout_mode = 0
-offset_left = -146.0
-offset_top = 19.0
-offset_right = 201.0
-offset_bottom = 78.0
-theme_override_fonts/font = ExtResource("3_i7eyi")
-theme_override_font_sizes/font_size = 8
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" type="ColorRect" parent="Character/Camera2D/Dialogue" unique_id=2138179197]
-material = SubResource("CanvasItemMaterial_ooayk")
-layout_mode = 0
-offset_left = -155.0
-offset_top = 8.0
-offset_right = 193.0
-offset_bottom = 67.0
-color = Color(0, 0, 0, 0.3882353)
-metadata/_edit_use_anchors_ = true
-
-[node name="PointLight2D" type="PointLight2D" parent="Character" unique_id=576296414]
-position = Vector2(2.9550343, -9.955009)
-scale = Vector2(5, 5)
-texture = SubResource("GradientTexture2D_w52y2")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=641983587]
 z_index = -1
@@ -247,3 +210,53 @@ position = Vector2(4.9999943, -4)
 scale = Vector2(0.9921873, 0.8203123)
 color = Color(0.4011785, 0.65925294, 0.85327554, 1)
 texture = SubResource("GradientTexture2D_w52y2")
+
+[node name="CaveEntrance" parent="." unique_id=1649721197 instance=ExtResource("14_1hq0t")]
+position = Vector2(-50, 4)
+
+[node name="Character" parent="." unique_id=1207945146 instance=ExtResource("1_cv3q0")]
+position = Vector2(28, -20)
+
+[node name="Camera2D" type="Camera2D" parent="Character" unique_id=1242742539]
+zoom = Vector2(3, 3)
+
+[node name="Dialogue" type="Control" parent="Character/Camera2D" unique_id=258513914]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = 20.0
+offset_right = -28.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ui0mg")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Character/Camera2D/Dialogue" unique_id=467896965]
+z_index = 2
+material = SubResource("CanvasItemMaterial_1hq0t")
+layout_mode = 0
+offset_left = -146.0
+offset_top = 19.0
+offset_right = 201.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("3_i7eyi")
+theme_override_font_sizes/font_size = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Character/Camera2D/Dialogue" unique_id=1581635948]
+material = SubResource("CanvasItemMaterial_o8fv3")
+layout_mode = 0
+offset_left = -155.0
+offset_top = 8.0
+offset_right = 193.0
+offset_bottom = 67.0
+color = Color(0, 0, 0, 0.3882353)
+metadata/_edit_use_anchors_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Character" unique_id=991180328]
+position = Vector2(2.9550343, -9.955009)
+scale = Vector2(5, 5)
+texture = SubResource("GradientTexture2D_vos2u")

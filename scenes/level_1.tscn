@@ -18,7 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://0vg6ruo7nlfu" path="res://assets/Lava/Screenshot_2026-02-28_121723-removebg-preview.png" id="17_tr1x6"]
 [ext_resource type="Texture2D" uid="uid://rfibuf4sg0uh" path="res://assets/Lava/Screenshot_2026-02-28_121803-removebg-preview.png" id="18_d5akn"]
 [ext_resource type="Texture2D" uid="uid://6lrobwlrb6w3" path="res://assets/Lava/Screenshot_2026-02-28_121821-removebg-preview.png" id="19_wbtxt"]
+[ext_resource type="PackedScene" uid="uid://ckany226s333k" path="res://scenes/item_scenes/key.tscn" id="20_isj1j"]
 [ext_resource type="Texture2D" uid="uid://byal6kuiibec7" path="res://assets/Lava/Screenshot_2026-02-28_121843-removebg-preview.png" id="20_x2fux"]
+[ext_resource type="PackedScene" uid="uid://oqo4irj6bv41" path="res://scenes/soul_item.tscn" id="21_so66j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d2op2"]
 texture = ExtResource("2_72e8q")
@@ -213,6 +215,7 @@ position = Vector2(911, 598)
 position = Vector2(606, 529)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2002688824]
+visible = false
 color = Color(0.11764706, 0.11764706, 0.11764706, 1)
 
 [node name="Screenshot20260228105226RemovebgPreview" type="Sprite2D" parent="." unique_id=629712047]
@@ -308,11 +311,11 @@ texture = ExtResource("10_2aecg")
 
 [node name="Area2D" parent="." unique_id=903844828 instance=ExtResource("14_6dial")]
 position = Vector2(1399, 602)
-required_coins = 6
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=908788470]
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=1958151755]
+visible = false
 offset_left = -720.0
 offset_top = 74.0
 offset_right = 1691.0
@@ -378,6 +381,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("16_x2xxo")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Character/Camera2D/Dialogue" unique_id=1735132045]
 z_index = 2
@@ -389,6 +393,7 @@ offset_right = 201.0
 offset_bottom = 78.0
 theme_override_fonts/font = ExtResource("17_2cbcq")
 theme_override_font_sizes/font_size = 8
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Character/Camera2D/Dialogue" unique_id=675981384]
 material = SubResource("CanvasItemMaterial_s7g0b")
@@ -398,6 +403,7 @@ offset_top = 8.0
 offset_right = 193.0
 offset_bottom = 67.0
 color = Color(0, 0, 0, 0.3882353)
+metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Character" unique_id=1384664893]
 position = Vector2(2.9550343, -9.955009)
@@ -475,3 +481,9 @@ position = Vector2(-171, 688)
 scale = Vector2(2.3205554, 2.3205554)
 color = Color(0.1808463, 0.38639885, 0.53776956, 1)
 texture = SubResource("GradientTexture2D_2cbcq")
+
+[node name="Key" parent="." unique_id=559872965 instance=ExtResource("20_isj1j")]
+position = Vector2(-199, 580)
+
+[node name="Soul_Item" parent="." unique_id=1451292439 instance=ExtResource("21_so66j")]
+position = Vector2(-46, 589)

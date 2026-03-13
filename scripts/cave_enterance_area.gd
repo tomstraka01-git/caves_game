@@ -3,6 +3,7 @@ extends Area2D
 @export var target_scene: String = "res://scenes/level_0.tscn"
 @onready var anim_sprite = $"../AnimatedSprite2D"
 
+var inside_levels = false
 var transitioning := false
 var fade: ColorRect
 var player_inside := false
@@ -10,9 +11,10 @@ var player_inside := false
 func _ready():
     body_entered.connect(_on_body_entered)
     body_exited.connect(_on_body_exited)
-
+    var current_scene = get_tree().current_scene.scene_file_path
     anim_sprite.play("idle")
-
+    if current_scene == "res://scenes/levels_cave.tscn":
+       inside_levels = true
  
     var canvas = CanvasLayer.new()
     add_child(canvas)
@@ -61,6 +63,9 @@ func _enter_cave():
     await get_tree().create_timer(0.2).timeout
 
     if target_scene != "":
-        get_tree().change_scene_to_file(target_scene)
+        if inside_levels == false:
+            get_tree().change_scene_to_file(target_scene)
+        else:
+            get_tree().change_scene_to_file("res://scenes/base.tscn")
     else:
         push_error("No target_scene")

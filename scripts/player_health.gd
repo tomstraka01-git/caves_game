@@ -3,6 +3,7 @@ extends Node2D
 @export var max_health := 100
 @onready var health_bar := $TextureProgressBar
 
+
 func _ready():
     health_bar.value = 100
     health_bar.max_value = 100

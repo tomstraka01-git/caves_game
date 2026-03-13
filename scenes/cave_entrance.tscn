@@ -39,6 +39,7 @@ animations = [{
 
 [node name="Area2D" type="Area2D" parent="." unique_id=956548317]
 script = ExtResource("1_l6d7i")
+target_scene = "res://scenes/levels_cave.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=210121985]
 position = Vector2(27, -24)

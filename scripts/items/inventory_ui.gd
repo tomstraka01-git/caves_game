@@ -13,6 +13,7 @@ var potion_stamina_scene = preload("res://scenes/item_scenes/potion_stamina.tscn
 var amulet_health_scene = preload("res://scenes/item_scenes/amulet_health.tscn")
 var amulet_stamina_scene = preload("res://scenes/item_scenes/amulet_stamina.tscn")
 var amulet_damage_scene = preload("res://scenes/item_scenes/amulet_damage.tscn")
+var soul_scene = preload("res://scenes/soul_item.tscn")
 
 var health_added = randi_range(10, 30)
 var damage_added = randi_range(5, 10)
@@ -324,7 +325,12 @@ func _delete_item(index: int) -> void:
         coin.get_node("CollisionArea").is_kicked = true
         coin.global_position = player.global_position
         get_tree().current_scene.add_child(coin)
-      
+       
+    elif item.name == "SoulItem":
+        var soul = soul_scene.instantiate()
+        soul.get_node("CollisionArea").is_kicked = true
+        soul.global_position = player.global_position
+        get_tree().current_scene.add_child(soul)   
     elif item.name == "Key":
         var key = key_scene.instantiate()
         key.get_node("CollisionArea").is_kicked = true

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c1fb7jl5571bu" path="res://assets/mushrooms-and-left-right-icon/Screenshot_2026-02-28_130906-removebg-preview.png" id="1_b0s10"]
 [ext_resource type="Script" uid="uid://fqc62hi2opo6" path="res://scripts/mushroom.gd" id="2_0bdi0"]
+[ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="3_qxrkd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bdi0"]
 
@@ -40,3 +41,15 @@ position = Vector2(-4.7422256, 1.2577744)
 scale = Vector2(2.3205554, 2.3205554)
 color = Color(0.30588236, 0.30588236, 0.30588236, 0.7137255)
 texture = SubResource("GradientTexture2D_qxrkd")
+
+[node name="Label" type="Label" parent="." unique_id=379943047]
+texture_filter = 1
+texture_repeat = 1
+offset_left = -47.0
+offset_top = -23.0
+offset_right = 337.0
+offset_bottom = 9.0
+scale = Vector2(0.21002066, 0.21002066)
+theme_override_fonts/font = ExtResource("3_qxrkd")
+theme_override_font_sizes/font_size = 32
+text = "interact [E]"

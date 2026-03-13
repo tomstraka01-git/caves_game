@@ -3,6 +3,7 @@ extends Area2D
 @export var hp = 20
 
 @onready var parent = $".."
+@onready var label_interact = $"../Label"
 
 var player_inside: bool = false
 var player_ref: Node = null
@@ -12,9 +13,14 @@ func _ready():
     body_exited.connect(_on_body_exited)
 
 func _process(_delta):
+    if player_inside:
+        label_interact.visible = true
+    else:
+        label_interact.visible = false
+    
     if player_inside and Input.is_action_just_pressed("interact"):
-        if player_ref.has_method("take_damage"):
-            player_ref.take_damage(-hp)
+        if player_ref.has_method("heal_player"):
+            player_ref.heal_player(hp)
         await get_tree().create_timer(0.1).timeout
         parent.queue_free()
 

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cmtd84e8r3bx1"]
+
+[ext_resource type="Script" uid="uid://bocf5f5mnu37b" path="res://scripts/final_gate.gd" id="1_ilaw0"]
+[ext_resource type="Texture2D" uid="uid://dggx6j5jgxrdw" path="res://assets/door/door_gate_dungeon.png" id="2_1oaj3"]
+[ext_resource type="Texture2D" uid="uid://dgjq4twsyxgik" path="res://assets/door/door_gate.png" id="3_p8a12"]
+[ext_resource type="PackedScene" uid="uid://bbo3v0y7bja6p" path="res://scenes/torch.tscn" id="4_1oaj3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilaw0"]
+size = Vector2(140, 143.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1oaj3"]
+size = Vector2(241, 181)
+
+[node name="FinalGate" type="Node2D" unique_id=670237174]
+script = ExtResource("1_ilaw0")
+
+[node name="Gate" type="Sprite2D" parent="." unique_id=580333089]
+modulate = Color(0.21907826, 0.21907826, 0.21907826, 1)
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-5.5, 12)
+texture = ExtResource("2_1oaj3")
+
+[node name="TextureProgressBarGate" type="TextureProgressBar" parent="." unique_id=272509371]
+texture_filter = 1
+texture_repeat = 1
+offset_left = -236.5
+offset_top = -128.0
+offset_right = 226.5
+offset_bottom = 152.0
+mouse_filter = 2
+fill_mode = 2
+texture_progress = ExtResource("3_p8a12")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1804140031]
+
+[node name="CollisionShapeGateBars" type="CollisionShape2D" parent="StaticBody2D" unique_id=1928224503]
+position = Vector2(-2, -11.25)
+shape = SubResource("RectangleShape2D_ilaw0")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1444760222]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1243839132]
+position = Vector2(-7.5, -30.5)
+shape = SubResource("RectangleShape2D_1oaj3")
+
+[node name="Torch" parent="." unique_id=1487677405 instance=ExtResource("4_1oaj3")]
+position = Vector2(-53, -33)
+scale = Vector2(0.05, 0.05)
+
+[node name="Torch2" parent="." unique_id=2085528983 instance=ExtResource("4_1oaj3")]
+position = Vector2(48.999992, -33)
+scale = Vector2(0.05, 0.05)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

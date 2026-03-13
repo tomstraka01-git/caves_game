@@ -27,11 +27,11 @@ light_mode = 1
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lbrgs"]
 light_mode = 1
 
-[sub_resource type="Gradient" id="Gradient_qjcqe"]
+[sub_resource type="Gradient" id="Gradient_36cfx"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sk60w"]
-gradient = SubResource("Gradient_qjcqe")
+gradient = SubResource("Gradient_36cfx")
 fill = 1
 fill_from = Vector2(0.49447513, 0.4723757)
 fill_to = Vector2(0.49447513, 0)
@@ -184,6 +184,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_44yx7")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Character/Camera2D/Dialogue" unique_id=869394727]
 z_index = 2
@@ -195,6 +196,7 @@ offset_right = 201.0
 offset_bottom = 78.0
 theme_override_fonts/font = ExtResource("2_lbrgs")
 theme_override_font_sizes/font_size = 8
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Character/Camera2D/Dialogue" unique_id=1523990224]
 material = SubResource("CanvasItemMaterial_lbrgs")
@@ -204,6 +206,7 @@ offset_top = 8.0
 offset_right = 193.0
 offset_bottom = 67.0
 color = Color(0, 0, 0, 0.3882353)
+metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Character" unique_id=623920133]
 position = Vector2(2.9550343, -9.955009)
@@ -335,11 +338,13 @@ texture = ExtResource("10_om4r1")
 position = Vector2(969, 7)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1991492943]
+visible = false
 color = Color(0.11764706, 0.11764706, 0.11764706, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=965899058]
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=1873517258]
+visible = false
 offset_left = -620.0
 offset_top = -577.0
 offset_right = 2136.0
@@ -470,7 +475,7 @@ position = Vector2(1447, -45)
 shape = SubResource("RectangleShape2D_4pfwt")
 
 [node name="Key" parent="." unique_id=559872965 instance=ExtResource("19_kkuia")]
-position = Vector2(144, -6)
+position = Vector2(1266, -121)
 
 [node name="ShopBoothNode" parent="." unique_id=11212054 instance=ExtResource("20_36cfx")]
 position = Vector2(165, -86)
