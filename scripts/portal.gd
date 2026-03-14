@@ -2,6 +2,7 @@ extends Area2D
 
 @export var fade_time: float = 2
 
+@onready var interact_label = $Interact
 
 @onready var anim_sprite = $AnimatedSprite2D
 var teleporting := false
@@ -16,7 +17,7 @@ func _process(delta: float) -> void:
         _try_enter_portal()
 
 func _ready():
-    
+    interact_label.visible = false
     body_entered.connect(_on_body_entered)
     body_exited.connect(_on_body_exited)
 
@@ -30,12 +31,14 @@ func _on_body_entered(body):
         player_inside = true
         player_ref = body
         anim_sprite.play("click")
+        interact_label.visible = true
 
 func _on_body_exited(body):
     if body.is_in_group("character"):
         player_inside = false
         player_ref = null
         anim_sprite.play("idle")
+        interact_label.visible = false
        
 
 func _try_enter_portal():
@@ -54,30 +57,45 @@ func _try_enter_portal():
         $NotEnoughCoinsSound.play()
         animate_error_label()
 
+var _error_tween: Tween = null
+
 func animate_error_label():
     var label = $Label
-    label.text = "You need a key to unlock" 
+
+
+    if _error_tween and _error_tween.is_valid():
+        _error_tween.kill()
+
+   
+    label.position = label.position  
     label.modulate.a = 1.0
     label.visible = true
-    
-  
+    interact_label.visible = false
+    label.text = "You need a key to unlock"
+
     var original_pos = label.position
-    var tween = create_tween()
-    tween.tween_property(label, "position:x", original_pos.x + 8, 0.05)
-    tween.tween_property(label, "position:x", original_pos.x - 8, 0.05)
-    tween.tween_property(label, "position:x", original_pos.x + 6, 0.05)
-    tween.tween_property(label, "position:x", original_pos.x - 6, 0.05)
-    tween.tween_property(label, "position:x", original_pos.x, 0.05)
-    await tween.finished
-    
-   
-    await get_tree().create_timer(1.0).timeout
-    var fade_tween = create_tween()
-    fade_tween.tween_property(label, "modulate:a", 0.8, 0.5)
-    await fade_tween.finished
-    label.visible = false
+
+    _error_tween = create_tween()
+    _error_tween.tween_property(label, "position:x", original_pos.x + 8, 0.05)
+    _error_tween.tween_property(label, "position:x", original_pos.x - 8, 0.05)
+    _error_tween.tween_property(label, "position:x", original_pos.x + 6, 0.05)
+    _error_tween.tween_property(label, "position:x", original_pos.x - 6, 0.05)
+    _error_tween.tween_property(label, "position:x", original_pos.x,     0.05)
+
+
+    _error_tween.tween_interval(1.0)
+    _error_tween.tween_property(label, "modulate:a", 0.0, 0.5)
+
+    await _error_tween.finished
+
+
+    if _error_tween and not _error_tween.is_running():
+        label.visible = false
+        interact_label.visible = true
 
 func fade_and_change_scene():
+    
+    interact_label.visible = false
     var current_scene = get_tree().current_scene
     if current_scene == null:
         return

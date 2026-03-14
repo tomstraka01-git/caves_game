@@ -2,12 +2,15 @@ extends Control
 
 @onready var label = $Label
 var full_text := ""
-var visible_characters := 0
 var typing_speed := 0.05
 var is_typing := false
 var queue: Array = []
+var timer: Timer
 
 func _ready():
+    timer = Timer.new()
+    timer.one_shot = true
+    add_child(timer)
     hide()
 
 func show_text(text):
@@ -23,7 +26,6 @@ func _show_next():
     full_text = text
     label.visible_characters = 0
     label.text = full_text
-    visible_characters = 0
     show()
     is_typing = true
     type_text()
@@ -31,13 +33,15 @@ func _show_next():
 func type_text() -> void:
     while label.visible_characters < full_text.length():
         label.visible_characters += 1
-        await get_tree().create_timer(typing_speed).timeout
+        timer.start(typing_speed)
+        await timer.timeout
     is_typing = false
 
 func _input(event):
     if visible:
         if event.is_action_pressed("interact"):
             if is_typing:
+                timer.stop()
                 label.visible_characters = full_text.length()
                 is_typing = false
             else:

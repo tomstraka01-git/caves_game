@@ -279,7 +279,6 @@ scale = Vector2(0.056613427, 0.052668154)
 texture = ExtResource("11_172wr")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1662280171]
-visible = false
 color = Color(0.11764706, 0.11764706, 0.11764706, 1)
 
 [node name="Mushroom" parent="." unique_id=1025239873 instance=ExtResource("8_que50")]

@@ -16,6 +16,7 @@ var gate_max_value = 100
 @export var exit_scene: String = ""
 @export var fade_time: float = 2.0
 
+var boss_level_unlocked = false
 var is_inside = false
 var gate_fall_time = 3.0
 var gate_moving = false
@@ -26,7 +27,6 @@ var fade: ColorRect
 func _ready() -> void:
     gate_bars.visible = true
     gate.visible = true
- 
     gate_bars.max_value = gate_max_value
     gate_bars.value = gate_max_value
     label.visible = false
@@ -54,7 +54,7 @@ func _input(event):
             _try_exit()
 
 func _try_enter() -> void:
-    if not _has_item(required_key_item):
+    if not _has_item(required_key_item) and not GameState.boss_level_unlocked:
         animate_error_label("You need the " + required_key_item + " to enter!")
         return
     _confirm_entry()
@@ -74,7 +74,8 @@ func _confirm_entry() -> void:
     dialog.popup_centered()
 
     dialog.confirmed.connect(func():
-        _consume_item(required_key_item)
+        if not GameState.boss_level_unlocked:
+            _consume_item(required_key_item)
         dialog.queue_free()
         _do_enter()
     )
@@ -87,6 +88,7 @@ func _do_enter() -> void:
     await fade_and_change_scene(enter_scene)
 
 func fade_and_change_scene(target_scene: String) -> void:
+    GameState.boss_level_unlocked = true
     if target_scene == "":
         return
     var tween = create_tween()

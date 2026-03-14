@@ -3,6 +3,7 @@ extends Area2D
 @export var coin_value: int = 1  
 @onready var parent = $".."  
 var coin = preload("res://inventory/items/coin_item.tres")
+
             
 var can_pickup = false
 var is_kicked = false

@@ -3,6 +3,7 @@ extends Node
 var level_completed: Array[bool] = [false, false, false, false]
 var inventory: Inv = Inv.new()
 
+var boss_level_unlocked = false
 var final_level_unlocked = false
 var shop_visited: bool = false
 var npc_visited: bool = false

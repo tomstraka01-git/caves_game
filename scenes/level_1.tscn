@@ -227,7 +227,6 @@ position = Vector2(911, 598)
 position = Vector2(606, 529)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2002688824]
-visible = false
 color = Color(0.11764706, 0.11764706, 0.11764706, 1)
 
 [node name="Screenshot20260228105226RemovebgPreview" type="Sprite2D" parent="." unique_id=629712047]
@@ -322,7 +321,7 @@ scale = Vector2(1.2717894, 1.2219378)
 texture = ExtResource("10_2aecg")
 
 [node name="Area2D" parent="." unique_id=903844828 instance=ExtResource("14_6dial")]
-position = Vector2(1399, 602)
+position = Vector2(1395, 612)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=908788470]
 

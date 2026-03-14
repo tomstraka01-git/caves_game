@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b3unkbd15suka" path="res://assets/door/door/pixil-frame-0(24).png" id="5_qgsaj"]
 [ext_resource type="AudioStream" uid="uid://ca7son6v8ha6s" path="res://assets/sounds/699949__8bitmyketison__multimedia-sfx-error-02-aggressive-distorted.wav" id="6_wqhls"]
 [ext_resource type="AudioStream" uid="uid://hnk8chkliqj7" path="res://assets/sounds/door_enter.wav" id="7_oumrv"]
+[ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="9_yq4eq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr8c4"]
 size = Vector2(75, 87.5)
@@ -43,15 +44,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_rfkvk"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_711qk"]
-gradient = SubResource("Gradient_rfkvk")
-fill = 1
-fill_from = Vector2(0.49447513, 0.4723757)
-fill_to = Vector2(0.49447513, 0)
-
 [node name="LevelDoor" type="Node2D" unique_id=1801336062]
 script = ExtResource("1_711qk")
 
@@ -71,12 +63,6 @@ scale = Vector2(1.4, 1.4)
 sprite_frames = SubResource("SpriteFrames_7dh4e")
 animation = &"click"
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2014119148]
-position = Vector2(61, -70)
-scale = Vector2(3.2159688, 3.2159688)
-color = Color(0.44719064, 0.35427675, 0.12936231, 1)
-texture = SubResource("GradientTexture2D_711qk")
-
 [node name="ErrorSound" type="AudioStreamPlayer2D" parent="." unique_id=295981949]
 stream = ExtResource("6_wqhls")
 
@@ -84,3 +70,32 @@ stream = ExtResource("6_wqhls")
 position = Vector2(8, 2)
 stream = ExtResource("7_oumrv")
 volume_db = 12.0
+
+[node name="ErrorLabel" type="Label" parent="." unique_id=1808437920]
+texture_filter = 1
+material = ExtResource("3_oumrv")
+offset_left = -206.00002
+offset_top = -107.0
+offset_right = 1378.0
+offset_bottom = -40.0
+scale = Vector2(0.2611386, 0.2611386)
+theme_override_colors/font_color = Color(0.8086966, 0, 0.18301824, 1)
+theme_override_fonts/font = ExtResource("9_yq4eq")
+theme_override_font_sizes/font_size = 32
+text = "You do not have
+ this level unlocked yet"
+horizontal_alignment = 1
+
+[node name="Interact" type="Label" parent="." unique_id=2039769426]
+texture_filter = 1
+material = ExtResource("3_oumrv")
+offset_left = -206.00002
+offset_top = -100.0
+offset_right = 1378.0
+offset_bottom = -33.0
+scale = Vector2(0.2611386, 0.2611386)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("9_yq4eq")
+theme_override_font_sizes/font_size = 32
+text = "Press [E] to enter"
+horizontal_alignment = 1

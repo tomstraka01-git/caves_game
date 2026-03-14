@@ -328,21 +328,10 @@ position = Vector2(-12, 8)
 scale = Vector2(0.029946974, 0.027054109)
 texture = ExtResource("10_om4r1")
 
-[node name="Screenshot20260228110053RemovebgPreview3" type="Sprite2D" parent="." unique_id=1883281251]
-position = Vector2(712, -29)
-scale = Vector2(0.057249907, 0.049724426)
-texture = ExtResource("10_om4r1")
-
-[node name="Screenshot20260228110053RemovebgPreview4" type="Sprite2D" parent="." unique_id=1442275064]
-position = Vector2(699, -23)
-scale = Vector2(0.028500011, 0.021292586)
-texture = ExtResource("10_om4r1")
-
 [node name="Enemy" parent="." unique_id=1883704225 instance=ExtResource("2_uijja")]
 position = Vector2(969, 7)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1991492943]
-visible = false
 color = Color(0.11764706, 0.11764706, 0.11764706, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=965899058]

@@ -8,6 +8,10 @@ extends CharacterBody2D
 @onready var stamina_potion_bar = $UI/TextureProgressBarPotionStamina
 @onready var damage_potion_bar =  $UI/TextureProgressBarPotionDamage
 
+var _shake_strength := 0.0
+var _shake_timer := 0.0
+const SHAKE_DECAY = 8.0
+
 var stamina_time_left := 0
 var stamina_potion_duration = 20
 var damage_potion_duration = 30
@@ -50,9 +54,9 @@ var is_dead := false
 var return_stam = true
 var stamina_empty = false
 
-# --- Block ---
+
 var is_blocking := false
-const BLOCK_DAMAGE_STAMINA_FACTOR = 0.5
+const BLOCK_DAMAGE_STAMINA_FACTOR = 1.5
 
 const STAMINA_ATTACK  = 10
 const STAMINA_DASH    = 20
@@ -127,7 +131,7 @@ func take_damage(amount: int, knockback_dir: float = 0.0):
     if is_dead or is_sliding:
         return
 
-    # ── Block check ──────────────────────────────────────────────────────────
+ 
     if is_blocking and is_on_floor():
         var stamina_cost = int(amount * BLOCK_DAMAGE_STAMINA_FACTOR)
         var blocked = ui.take_stamina(stamina_cost)
@@ -135,7 +139,7 @@ func take_damage(amount: int, knockback_dir: float = 0.0):
             anim_sprite.play("block_first")
             return
         is_blocking = false
-    # ─────────────────────────────────────────────────────────────────────────
+  
 
     anim_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
     anim_sprite.scale = Vector2(1.0, 1.0)
@@ -155,6 +159,7 @@ func take_damage(amount: int, knockback_dir: float = 0.0):
     player_health = clamp(player_health - amount, 0, max_health)
     progress_bar.change_health(player_health)
     anim_sprite.play("hit")
+    _shake_camera(2.5, 0.30)
     if knockback_dir != 0.0:
         knockback_velocity.x = knockback_dir * 300.0
         knockback_velocity.y = -100.0
@@ -165,6 +170,7 @@ func take_damage(amount: int, knockback_dir: float = 0.0):
     if is_hit and not is_dead:
         is_hit = false
         anim_sprite.play("idle")
+        
 
 func heal_player(amount: int):
     if is_dead or is_sliding:
@@ -245,12 +251,12 @@ func _physics_process(delta: float) -> void:
             if not is_blocking:
                 $Pivot.scale.x = 1
 
-        # ── Block input ───────────────────────────────────────────────────────
+      
         if Input.is_action_pressed("block") and is_on_floor() and not is_attacking and not stamina_empty:
             is_blocking = true
         else:
             is_blocking = false
-        # ─────────────────────────────────────────────────────────────────────
+  
 
         if not is_blocking:
             if Input.is_action_just_pressed("dash") and slide_cooldown_timer <= 0.0 and is_on_floor():
@@ -295,7 +301,7 @@ func _physics_process(delta: float) -> void:
 func _update_animation(direction: int) -> void:
     if is_attacking or is_hit or is_air_attacking:
         return
-    # Block animation: play block_first as entry, then block loops
+  
     if is_blocking:
         walk_sound.stop()
         if anim_sprite.animation != "block_first" and anim_sprite.animation != "block":
@@ -371,6 +377,24 @@ func _on_air_slam_land() -> void:
     velocity.y = 0.0
     air_slam_charge_time = 0.0
     anim_sprite.play("attack_air")
+    _shake_camera(3.5, 0.50)
+
+func _shake_camera(strength: float, duration: float) -> void:
+    _shake_strength = strength
+    _shake_timer = duration
+
+func _process(delta: float) -> void:
+    if _shake_timer > 0.0:
+        _shake_timer -= delta
+        var offset = Vector2(
+            randf_range(-1.0, 1.0),
+            randf_range(-1.0, 1.0)
+        ) * _shake_strength
+        $Camera2D.offset = offset
+        _shake_strength = lerp(_shake_strength, 0.0, SHAKE_DECAY * delta)
+    else:
+        $Camera2D.offset = Vector2.ZERO
+        _shake_strength = 0.0
 
 func player_attack() -> void:
     is_attacking = true
@@ -393,13 +417,13 @@ func player_attack() -> void:
             body.take_damage_enemy(final_damage, knockback_dir)
             print("CRIT! " if is_crit else "Hit! ", "Dealt ", final_damage, " (combo ", current_combo + 1, ")")
     $Audio/Sword_Attack.play()
-
+    _shake_camera(2.0, 0.15)
 func _on_animated_sprite_2d_animation_finished() -> void:
     if is_dead:
         return
     match anim_sprite.animation:
         "block_first":
-            # Transition to looping block hold if still blocking
+          
             if is_blocking:
                 anim_sprite.play("block")
             else:

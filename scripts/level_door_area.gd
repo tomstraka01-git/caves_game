@@ -1,11 +1,12 @@
-extends Area2D
+extends Node2D
 
 @onready var main = $".."
 @onready var anim_sprite = $"../AnimatedSprite2D"
 @onready var error_sound = $"../ErrorSound"
 @onready var click_sound = $"../EnterSound"
-
-
+@onready var error_label = $"../ErrorLabel"
+@onready var area = self
+@onready var interact_label = $"../Interact"
 
 var level_index: int = 0
 var target_scene: String = ""
@@ -13,15 +14,18 @@ var transitioning := false
 var fade: ColorRect
 var player_inside := false
 var level_text = "Level: 0"
+var _error_label_tween: Tween = null
 
 func _ready():
-
+    interact_label.visible = false
+    error_label.text = "You do not have\nthis level unlocked yet"
+    error_label.modulate.a = 0.0
+    error_label.visible = true
     level_text = main.level_text
     level_index = main.level_index
     target_scene = main.scene
-
-    body_entered.connect(_on_body_entered)
-    body_exited.connect(_on_body_exited)
+    area.body_entered.connect(_on_body_entered)
+    area.body_exited.connect(_on_body_exited)
     anim_sprite.play("idle")
     anim_sprite.modulate = Color(1, 1, 1, 1)
     var canvas = CanvasLayer.new()
@@ -34,7 +38,6 @@ func _ready():
     fade.anchor_bottom = 1
     fade.color = Color.BLACK
     fade.modulate = Color(1, 1, 1, 0)
-
 
 func _is_unlocked() -> bool:
     if level_index == 0:
@@ -53,19 +56,36 @@ func _on_body_entered(body):
     if body.is_in_group("character"):
         player_inside = true
         anim_sprite.play("click")
-        
+        interact_label.visible = true
 
 func _on_body_exited(body):
     if body.is_in_group("character"):
         player_inside = false
         anim_sprite.play("idle")
-        
+        interact_label.visible = false
 
 func _play_locked_feedback() -> void:
     error_sound.play()
-    _shake_node(anim_sprite)
+    _show_error_label()
+    _shake_node(error_label)
+
+func _show_error_label() -> void:
+    
+    if _error_label_tween and _error_label_tween.is_valid():
+        _error_label_tween.kill()
+
+    _error_label_tween = create_tween()
+  
+    _error_label_tween.tween_property(error_label, "modulate:a", 1.0, 0.15)
+ 
+    _error_label_tween.tween_interval(1.0)
+
+    _error_label_tween.tween_property(error_label, "modulate:a", 0.0, 0.3)
+    await _error_label_tween.finished
+    interact_label.visible = true
 
 func _shake_node(node: Node) -> void:
+    interact_label.visible = false
     var original_x: float
     if node is Control:
         original_x = (node as Control).position.x
@@ -80,11 +100,12 @@ func _shake_node(node: Node) -> void:
     tween.tween_property(node, "position:x", original_x - 8,  0.05)
     tween.tween_property(node, "position:x", original_x + 4,  0.04)
     tween.tween_property(node, "position:x", original_x,      0.04)
-
+    
 func _enter_cave():
     if transitioning:
         return
     anim_sprite.modulate = Color(1, 1, 1, 1)
+    interact_label.visible = false
     transitioning = true
     click_sound.pitch_scale = 0.8
     click_sound.play()

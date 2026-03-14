@@ -324,7 +324,6 @@ scale = Vector2(5, 5)
 texture = SubResource("GradientTexture2D_sk60w")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1991492943]
-visible = false
 color = Color(0.11764706, 0.11764706, 0.11764706, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=965899058]

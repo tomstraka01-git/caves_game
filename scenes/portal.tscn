@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://qkekqs28plas" path="res://materials/unshadd.tres" id="5_4pvrx"]
 [ext_resource type="AudioStream" uid="uid://ca7son6v8ha6s" path="res://assets/sounds/699949__8bitmyketison__multimedia-sfx-error-02-aggressive-distorted.wav" id="5_dyed0"]
 [ext_resource type="Texture2D" uid="uid://ufwat2mql4b8" path="res://assets/door/door/pixil-frame-0(25).png" id="6_4pvrx"]
+[ext_resource type="Texture2D" uid="uid://cmny0hlp8oc54" path="res://assets/door/door/click.png" id="6_i0ytf"]
 [ext_resource type="Texture2D" uid="uid://b3unkbd15suka" path="res://assets/door/door/pixil-frame-0(24).png" id="7_i0ytf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckw30"]
@@ -15,7 +16,7 @@ size = Vector2(71, 76)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_i0ytf")
+"texture": ExtResource("6_i0ytf")
 }],
 "loop": true,
 "name": &"click",
@@ -54,13 +55,16 @@ max_distance = 700.0
 
 [node name="Label" type="Label" parent="." unique_id=1903725900]
 visible = false
-offset_left = -203.0
-offset_top = -76.0
-offset_right = 205.0
-offset_bottom = -39.0
+texture_filter = 1
+material = ExtResource("5_4pvrx")
+offset_left = -158.0
+offset_top = -65.0
+offset_right = 651.9536
+offset_bottom = -28.0
+scale = Vector2(0.3802687, 0.3802687)
 theme_override_colors/font_color = Color(0.84365374, 0, 0.2313919, 1)
 theme_override_fonts/font = ExtResource("4_dyed0")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 32
 text = "Not Enough Coins!"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -76,9 +80,20 @@ material = ExtResource("5_4pvrx")
 position = Vector2(1, -5)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_frqps")
-animation = &"click"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Interact" type="Label" parent="." unique_id=2118028418]
-offset_right = 40.0
-offset_bottom = 23.0
+z_index = 1
+texture_filter = 1
+texture_repeat = 1
+material = ExtResource("5_4pvrx")
+offset_left = -109.00001
+offset_top = -62.0
+offset_right = 792.0
+offset_bottom = -30.0
+scale = Vector2(0.2631848, 0.2631848)
+theme_override_fonts/font = ExtResource("4_dyed0")
+theme_override_font_sizes/font_size = 32
+text = "Press [E] to enter"
+horizontal_alignment = 1

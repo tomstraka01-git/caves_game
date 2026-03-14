@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cs78qequqa845" path="res://scenes/level_door.tscn" id="12_ui0mg"]
 [ext_resource type="Texture2D" uid="uid://5c8px752cmu4" path="res://assets/mushrooms-and-left-right-icon/crystak.png" id="13_i7eyi"]
 [ext_resource type="PackedScene" uid="uid://mkle66rfmh0b" path="res://scenes/cave_entrance.tscn" id="14_1hq0t"]
+[ext_resource type="PackedScene" uid="uid://cmtd84e8r3bx1" path="res://scenes/final_gate.tscn" id="15_o8fv3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k12ah"]
 texture = ExtResource("4_1hq0t")
@@ -199,6 +200,27 @@ texture_filter = 1
 position = Vector2(118, 14)
 level_text = "Level: 0"
 
+[node name="LevelDoor2" parent="." unique_id=938349801 instance=ExtResource("12_ui0mg")]
+texture_filter = 1
+position = Vector2(226, 14)
+scene = "res://scenes/level_1.tscn"
+level_index = 1
+level_text = "Level: 0"
+
+[node name="LevelDoor3" parent="." unique_id=363808170 instance=ExtResource("12_ui0mg")]
+texture_filter = 1
+position = Vector2(333, 14)
+scene = "res://scenes/level_2.tscn"
+level_index = 2
+level_text = "Level: 0"
+
+[node name="LevelDoor4" parent="." unique_id=1658994910 instance=ExtResource("12_ui0mg")]
+texture_filter = 1
+position = Vector2(453, 14)
+scene = "res://scenes/level_3.tscn"
+level_index = 3
+level_text = "Level: 0"
+
 [node name="Crystal" type="Sprite2D" parent="." unique_id=24075105]
 texture_filter = 1
 texture_repeat = 1
@@ -262,3 +284,9 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(2.9550343, -9.955009)
 scale = Vector2(5, 5)
 texture = SubResource("GradientTexture2D_w1s28")
+
+[node name="FinalGate" parent="." unique_id=670237174 instance=ExtResource("15_o8fv3")]
+position = Vector2(581, -22)
+scale = Vector2(0.6, 0.6)
+enter_scene = "res://scenes/final_boss_level.tscn"
+exit_scene = "res://scenes/levels_cave.tscn"

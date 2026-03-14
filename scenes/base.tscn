@@ -375,6 +375,7 @@ color = Color(0, 0, 0, 0.3882353)
 metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Character" unique_id=1514836153]
+visible = false
 position = Vector2(2.9550343, -9.955009)
 scale = Vector2(5, 5)
 texture = SubResource("GradientTexture2D_s5nuq")
