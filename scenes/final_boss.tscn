@@ -354,8 +354,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpvre"]
 size = Vector2(35.25, 99)
 
-[node name="Final_Boss" type="CharacterBody2D" unique_id=690167247]
+[sub_resource type="Gradient" id="Gradient_36cfx"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ud6ed"]
+gradient = SubResource("Gradient_36cfx")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
+
+[node name="Final_Boss" type="CharacterBody2D" unique_id=690167247 groups=["enemies"]]
 script = ExtResource("1_gu5vo")
+ATTACK_RANGE = 50.0
+DETECT_AREA = 100.0
+HEAVY_ATTACK_CHANCE = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=274218232]
 position = Vector2(11, -30)
@@ -369,7 +381,7 @@ texture_repeat = 1
 position = Vector2(20, -32)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4qsog")
-animation = &"attack"
+animation = &"hit"
 autoplay = "idle"
 
 [node name="Attack_Area" type="Area2D" parent="Pivot" unique_id=1818392159]
@@ -390,3 +402,14 @@ max_distance = 300.0
 stream = ExtResource("3_ud6ed")
 volume_db = 24.0
 max_distance = 300.0
+
+[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=980941265]
+visible = false
+position = Vector2(12.999999, -36)
+scale = Vector2(2.341711, 2.0605555)
+color = Color(0.1412861, 0.36242172, 0.22339502, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_ud6ed")
+height = 1.0
+
+[connection signal="animation_finished" from="Pivot/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

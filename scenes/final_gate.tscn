@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dggx6j5jgxrdw" path="res://assets/door/door_gate_dungeon.png" id="2_1oaj3"]
 [ext_resource type="Texture2D" uid="uid://dgjq4twsyxgik" path="res://assets/door/door_gate.png" id="3_p8a12"]
 [ext_resource type="PackedScene" uid="uid://bbo3v0y7bja6p" path="res://scenes/torch.tscn" id="4_1oaj3"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilaw0"]
-size = Vector2(140, 143.5)
+[ext_resource type="Texture2D" uid="uid://bpptt1qh2dbfw" path="res://assets/hearts/background.png" id="5_lg2wu"]
+[ext_resource type="Texture2D" uid="uid://ci38xqdy8e32o" path="res://assets/hearts/heart.png" id="6_j6jlb"]
+[ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="7_j1mce"]
+[ext_resource type="AudioStream" uid="uid://ca7son6v8ha6s" path="res://assets/sounds/699949__8bitmyketison__multimedia-sfx-error-02-aggressive-distorted.wav" id="8_j6jlb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1oaj3"]
 size = Vector2(241, 181)
@@ -32,12 +33,6 @@ mouse_filter = 2
 fill_mode = 2
 texture_progress = ExtResource("3_p8a12")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1804140031]
-
-[node name="CollisionShapeGateBars" type="CollisionShape2D" parent="StaticBody2D" unique_id=1928224503]
-position = Vector2(-2, -11.25)
-shape = SubResource("RectangleShape2D_ilaw0")
-
 [node name="Area2D" type="Area2D" parent="." unique_id=1444760222]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1243839132]
@@ -51,6 +46,34 @@ scale = Vector2(0.05, 0.05)
 [node name="Torch2" parent="." unique_id=2085528983 instance=ExtResource("4_1oaj3")]
 position = Vector2(48.999992, -33)
 scale = Vector2(0.05, 0.05)
+
+[node name="EnterSprite" type="Sprite2D" parent="." unique_id=1174348328]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-1, -61)
+texture = ExtResource("5_lg2wu")
+
+[node name="ExitSprite" type="Sprite2D" parent="." unique_id=1398861126]
+position = Vector2(-19, -63)
+texture = ExtResource("6_j6jlb")
+
+[node name="Label" type="Label" parent="." unique_id=1608309891]
+texture_filter = 1
+texture_repeat = 1
+offset_left = -181.0
+offset_top = -114.0
+offset_right = 710.7797
+offset_bottom = -82.0
+scale = Vector2(0.38202962, 0.38202962)
+theme_override_colors/font_color = Color(0.8848993, 0, 0.19634789, 1)
+theme_override_fonts/font = ExtResource("7_j1mce")
+theme_override_font_sizes/font_size = 32
+text = "asdasd"
+horizontal_alignment = 1
+
+[node name="ErrorSound" type="AudioStreamPlayer2D" parent="." unique_id=1417664417]
+stream = ExtResource("8_j6jlb")
+volume_db = 12.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -43,4 +43,5 @@ frame_progress = 0.16305894
 position = Vector2(-20.000061, -149.99997)
 scale = Vector2(63.976837, -38.926987)
 color = Color(0.78619725, 0.41383493, 0.18582362, 1)
+energy = 1.5
 texture = SubResource("GradientTexture2D_ndh0a")

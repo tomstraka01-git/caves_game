@@ -352,12 +352,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ra3w"]
-size = Vector2(28.5, 38.375)
+size = Vector2(46, 38.375)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1883704225 groups=["enemies"]]
 script = ExtResource("1_md0e3")
 DAMAGE = 20
-HEALTH = 25
+HEAVY_DAMAGE = 24
+HEALTH = 45
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=442623286]
 position = Vector2(-1.5, 0)
@@ -377,7 +378,7 @@ frame = 4
 position = Vector2(67, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Attack_Area" unique_id=95900300]
-position = Vector2(-53, -10.8125)
+position = Vector2(-52, -10.8125)
 shape = SubResource("RectangleShape2D_4ra3w")
 
 [node name="Audio" type="Node2D" parent="." unique_id=491877553]

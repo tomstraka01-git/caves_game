@@ -43,6 +43,16 @@ var pages = [
         "text": "Press [TAB] to open inventory,\nselect items with left click, drop them with right and equip or use them with left",
         "offset": Vector2(150, 280)
     },
+    {
+        "image": preload("res://tutorial/tab_inventory_tutorial.png"),
+        "text": "Collect coins to buy potions or amulets in the shop,\ncollect keys, then go to portals or gates to unlock other levels",
+        "offset": Vector2(150, 280)
+    },
+        {
+        "image": preload("res://tutorial/tab_inventory_tutorial.png"),
+        "text": "Get to the last level and defeat the final boss,\nso you can give garry his soul back",
+        "offset": Vector2(150, 280)
+    },
 ]
 
 func _ready():
