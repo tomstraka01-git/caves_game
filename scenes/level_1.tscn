@@ -21,6 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://ckany226s333k" path="res://scenes/item_scenes/key.tscn" id="20_isj1j"]
 [ext_resource type="Texture2D" uid="uid://byal6kuiibec7" path="res://assets/Lava/Screenshot_2026-02-28_121843-removebg-preview.png" id="20_x2fux"]
 [ext_resource type="PackedScene" uid="uid://oqo4irj6bv41" path="res://scenes/soul_item.tscn" id="21_so66j"]
+[ext_resource type="Texture2D" uid="uid://5c8px752cmu4" path="res://assets/mushrooms-and-left-right-icon/crystak.png" id="22_wbtxt"]
+[ext_resource type="Texture2D" uid="uid://c6kklqyqk1kxs" path="res://assets/crystaly/pixil-frame-0 (5).png" id="23_x2fux"]
+[ext_resource type="Texture2D" uid="uid://b06ru6mrtkx3k" path="res://assets/crystaly/pixil-frame-0 (6).png" id="24_s7g0b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d2op2"]
 texture = ExtResource("2_72e8q")
@@ -170,6 +173,15 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2cbcq"]
 gradient = SubResource("Gradient_qjcqe")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
+
+[sub_resource type="Gradient" id="Gradient_0a1bo"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mmfjm"]
+gradient = SubResource("Gradient_0a1bo")
 fill = 1
 fill_from = Vector2(0.49447513, 0.4723757)
 fill_to = Vector2(0.49447513, 0)
@@ -487,3 +499,174 @@ position = Vector2(-199, 580)
 
 [node name="Soul_Item" parent="." unique_id=1451292439 instance=ExtResource("21_so66j")]
 position = Vector2(-46, 589)
+
+[node name="CrystalBlue" type="Sprite2D" parent="." unique_id=1411565102]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-248, 692)
+texture = ExtResource("22_wbtxt")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CrystalBlue" unique_id=1123641717]
+position = Vector2(4.0000024, -7)
+rotation = -0.73428845
+scale = Vector2(1.018094, 0.65853274)
+color = Color(0.1808463, 0.38639885, 0.53776956, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_mmfjm")
+height = 1.0
+
+[node name="CrystalBlue2" type="Sprite2D" parent="." unique_id=2106568603]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(64.62695, 473.6268)
+rotation = 3.101354
+texture = ExtResource("22_wbtxt")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CrystalBlue2" unique_id=513808384]
+position = Vector2(4.0000024, -7)
+rotation = -0.73428845
+scale = Vector2(1.018094, 0.65853274)
+color = Color(0.1808463, 0.38639885, 0.53776956, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_mmfjm")
+height = 1.0
+
+[node name="CrystalBlue3" type="Sprite2D" parent="." unique_id=1208655965]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-202.99994, 441)
+rotation = 2.3960657
+texture = ExtResource("22_wbtxt")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CrystalBlue3" unique_id=1139270828]
+position = Vector2(4.0000024, -7)
+rotation = -0.73428845
+scale = Vector2(1.018094, 0.65853274)
+color = Color(0.1808463, 0.38639885, 0.53776956, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_mmfjm")
+height = 1.0
+
+[node name="CrystalBlue4" type="Sprite2D" parent="." unique_id=1670696231]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(235, 507)
+rotation = 3.6715643
+texture = ExtResource("22_wbtxt")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CrystalBlue4" unique_id=2019163239]
+position = Vector2(4.0000024, -7)
+rotation = -0.73428845
+scale = Vector2(1.018094, 0.65853274)
+color = Color(0.1808463, 0.38639885, 0.53776956, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_mmfjm")
+height = 1.0
+
+[node name="CrystalBlue5" type="Sprite2D" parent="." unique_id=877326499]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(712, 551)
+rotation = 6.6636243
+texture = ExtResource("22_wbtxt")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CrystalBlue5" unique_id=1479779080]
+position = Vector2(4.0000024, -7)
+rotation = -0.73428845
+scale = Vector2(1.018094, 0.65853274)
+color = Color(0.1808463, 0.38639885, 0.53776956, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_mmfjm")
+height = 1.0
+
+[node name="CrystalBlue6" type="Sprite2D" parent="." unique_id=451925458]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(1353, 554)
+rotation = 3.8982763
+texture = ExtResource("22_wbtxt")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CrystalBlue6" unique_id=486591163]
+position = Vector2(4.0000024, -7)
+rotation = -0.73428845
+scale = Vector2(1.018094, 0.65853274)
+color = Color(0.1808463, 0.38639885, 0.53776956, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_mmfjm")
+height = 1.0
+
+[node name="CrystalPurple" type="Sprite2D" parent="." unique_id=2135988998]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-222, 691)
+texture = ExtResource("23_x2fux")
+
+[node name="CrystalPurple3" type="Sprite2D" parent="." unique_id=1087301353]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(411, 554)
+rotation = -0.7634337
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("23_x2fux")
+
+[node name="CrystalPurple2" type="Sprite2D" parent="." unique_id=1856372491]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(53.62686, 474.62686)
+rotation = 2.6546857
+texture = ExtResource("23_x2fux")
+
+[node name="CrystalYellow" type="Sprite2D" parent="." unique_id=434017195]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-272, 693)
+texture = ExtResource("24_s7g0b")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CrystalYellow" unique_id=2058598990]
+position = Vector2(4.0000024, -7)
+rotation = -0.73428845
+scale = Vector2(1.018094, 0.65853274)
+color = Color(0.4570821, 0.35056436, 0.09382894, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_mmfjm")
+height = 1.0
+
+[node name="CrystalYellow3" type="Sprite2D" parent="." unique_id=1252849902]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(361, 408)
+rotation = -2.7535367
+texture = ExtResource("24_s7g0b")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CrystalYellow3" unique_id=1284936055]
+position = Vector2(4.0000024, -7)
+rotation = -0.73428845
+scale = Vector2(1.018094, 0.65853274)
+color = Color(0.4570821, 0.35056436, 0.09382894, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_mmfjm")
+height = 1.0
+
+[node name="CrystalYellow4" type="Sprite2D" parent="." unique_id=2093489774]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(1446, 581)
+rotation = -2.3941178
+texture = ExtResource("24_s7g0b")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CrystalYellow4" unique_id=1402156542]
+position = Vector2(4.0000024, -7)
+rotation = -0.73428845
+scale = Vector2(1.018094, 0.65853274)
+color = Color(0.4570821, 0.35056436, 0.09382894, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_mmfjm")
+height = 1.0
+
+[node name="CrystalYellow2" type="Sprite2D" parent="." unique_id=1185249341]
+z_index = -1
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(223, 501.99997)
+rotation = -2.3308904
+texture = ExtResource("24_s7g0b")

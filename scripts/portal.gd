@@ -3,22 +3,20 @@ extends Area2D
 @export var fade_time: float = 2
 
 
-@onready var portal = $Sprite2D
-
+@onready var anim_sprite = $AnimatedSprite2D
 var teleporting := false
 var fade: ColorRect
 var player_inside: bool = false
 var player_ref: Node = null
 
 func _process(delta: float) -> void:
-    portal.rotate(1 * delta)
+    
     
     if player_inside and Input.is_action_just_pressed("interact"):
         _try_enter_portal()
 
 func _ready():
-    $PortalSoundSpin.stream.loop = true
-    $PortalSoundSpin.play()
+    
     body_entered.connect(_on_body_entered)
     body_exited.connect(_on_body_exited)
 
@@ -26,17 +24,18 @@ func _ready():
     fade = current_scene.get_node("CanvasLayer/Fade")
     fade.modulate.a = 0.0
     fade.visible = true
-    $PortalSoundSpin.play()
+    
 func _on_body_entered(body):
     if body.is_in_group("character"):
         player_inside = true
         player_ref = body
-   
+        anim_sprite.play("click")
 
 func _on_body_exited(body):
     if body.is_in_group("character"):
         player_inside = false
         player_ref = null
+        anim_sprite.play("idle")
        
 
 func _try_enter_portal():
@@ -82,7 +81,8 @@ func fade_and_change_scene():
     var current_scene = get_tree().current_scene
     if current_scene == null:
         return
-    
+    anim_sprite.play("fade")
+    $DoorEnter.play()
     var tween = create_tween()
     tween.tween_property(fade, "modulate:a", 1.0, fade_time)
     await tween.finished

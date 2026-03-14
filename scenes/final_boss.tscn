@@ -352,7 +352,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpvre"]
-size = Vector2(35.25, 99)
+size = Vector2(103, 99)
 
 [sub_resource type="Gradient" id="Gradient_36cfx"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -388,8 +388,16 @@ autoplay = "idle"
 position = Vector2(67, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Attack_Area" unique_id=977797936]
-position = Vector2(-14.375, -42.5)
+position = Vector2(2.5, -42.5)
 shape = SubResource("RectangleShape2D_mpvre")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Pivot" unique_id=980941265]
+position = Vector2(0.46738124, -36)
+scale = Vector2(2.7333555, 2.0605555)
+color = Color(0.16092557, 0.32655954, 0.4519382, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_ud6ed")
+height = 1.0
 
 [node name="Audio" type="Node2D" parent="." unique_id=1351361748]
 
@@ -402,14 +410,5 @@ max_distance = 300.0
 stream = ExtResource("3_ud6ed")
 volume_db = 24.0
 max_distance = 300.0
-
-[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=980941265]
-visible = false
-position = Vector2(12.999999, -36)
-scale = Vector2(2.341711, 2.0605555)
-color = Color(0.1412861, 0.36242172, 0.22339502, 1)
-energy = 2.0
-texture = SubResource("GradientTexture2D_ud6ed")
-height = 1.0
 
 [connection signal="animation_finished" from="Pivot/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

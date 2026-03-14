@@ -105,11 +105,11 @@ light_mode = 1
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o8fv3"]
 light_mode = 1
 
-[sub_resource type="Gradient" id="Gradient_w1s28"]
+[sub_resource type="Gradient" id="Gradient_0a1bo"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vos2u"]
-gradient = SubResource("Gradient_w1s28")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w1s28"]
+gradient = SubResource("Gradient_0a1bo")
 fill = 1
 fill_from = Vector2(0.49447513, 0.4723757)
 fill_to = Vector2(0.49447513, 0)
@@ -217,10 +217,10 @@ position = Vector2(-50, 4)
 [node name="Character" parent="." unique_id=1207945146 instance=ExtResource("1_cv3q0")]
 position = Vector2(28, -20)
 
-[node name="Camera2D" type="Camera2D" parent="Character" unique_id=1242742539]
+[node name="Camera2D" type="Camera2D" parent="Character" unique_id=581349307]
 zoom = Vector2(3, 3)
 
-[node name="Dialogue" type="Control" parent="Character/Camera2D" unique_id=258513914]
+[node name="Dialogue" type="Control" parent="Character/Camera2D" unique_id=2048014392]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -231,10 +231,11 @@ offset_right = -28.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("2_ui0mg")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Character/Camera2D/Dialogue" unique_id=467896965]
+[node name="Label" type="Label" parent="Character/Camera2D/Dialogue" unique_id=705379117]
 z_index = 2
 material = SubResource("CanvasItemMaterial_1hq0t")
 layout_mode = 0
@@ -246,17 +247,18 @@ theme_override_fonts/font = ExtResource("3_i7eyi")
 theme_override_font_sizes/font_size = 8
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="Character/Camera2D/Dialogue" unique_id=1581635948]
+[node name="ColorRect" type="ColorRect" parent="Character/Camera2D/Dialogue" unique_id=808173426]
 material = SubResource("CanvasItemMaterial_o8fv3")
 layout_mode = 0
 offset_left = -155.0
 offset_top = 8.0
 offset_right = 193.0
 offset_bottom = 67.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0.3882353)
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" type="PointLight2D" parent="Character" unique_id=991180328]
+[node name="PointLight2D" type="PointLight2D" parent="Character" unique_id=1222802883]
 position = Vector2(2.9550343, -9.955009)
 scale = Vector2(5, 5)
-texture = SubResource("GradientTexture2D_vos2u")
+texture = SubResource("GradientTexture2D_w1s28")

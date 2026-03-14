@@ -1,8 +1,9 @@
 extends Area2D
 
-@onready var key_sprite = $"../Sprite2D"
+@onready var key_sprite = $"../AnimatedSprite2D"
 @onready var parent = $".."  
 @export var item : Resource
+
 
 var float_height = 5      
 var float_speed = 0.5
@@ -22,7 +23,10 @@ func _process(delta):
 
 func _ready():
     base_y = key_sprite.position.y
+    if parent.name == "Soul_Item":
 
+        float_height = 1      
+        float_speed = 0.5
     body_entered.connect(_on_body_entered)
 
     if is_kicked:

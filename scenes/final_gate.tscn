@@ -4,13 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://dggx6j5jgxrdw" path="res://assets/door/door_gate_dungeon.png" id="2_1oaj3"]
 [ext_resource type="Texture2D" uid="uid://dgjq4twsyxgik" path="res://assets/door/door_gate.png" id="3_p8a12"]
 [ext_resource type="PackedScene" uid="uid://bbo3v0y7bja6p" path="res://scenes/torch.tscn" id="4_1oaj3"]
-[ext_resource type="Texture2D" uid="uid://bpptt1qh2dbfw" path="res://assets/hearts/background.png" id="5_lg2wu"]
+[ext_resource type="Texture2D" uid="uid://bbxrb3mhggxin" path="res://assets/hearts/lebka.png" id="5_j6jlb"]
 [ext_resource type="Texture2D" uid="uid://ci38xqdy8e32o" path="res://assets/hearts/heart.png" id="6_j6jlb"]
 [ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="7_j1mce"]
 [ext_resource type="AudioStream" uid="uid://ca7son6v8ha6s" path="res://assets/sounds/699949__8bitmyketison__multimedia-sfx-error-02-aggressive-distorted.wav" id="8_j6jlb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1oaj3"]
 size = Vector2(241, 181)
+
+[sub_resource type="Gradient" id="Gradient_mnt4k"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j6jlb"]
+gradient = SubResource("Gradient_mnt4k")
+fill = 1
+fill_from = Vector2(0.49447513, 0.4723757)
+fill_to = Vector2(0.49447513, 0)
 
 [node name="FinalGate" type="Node2D" unique_id=670237174]
 script = ExtResource("1_ilaw0")
@@ -50,12 +59,35 @@ scale = Vector2(0.05, 0.05)
 [node name="EnterSprite" type="Sprite2D" parent="." unique_id=1174348328]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(-1, -61)
-texture = ExtResource("5_lg2wu")
+position = Vector2(-7, -65)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_j6jlb")
+
+[node name="PointLight2D" type="PointLight2D" parent="EnterSprite" unique_id=511411533]
+position = Vector2(-4, 2.666666)
+scale = Vector2(0.53385395, 0.53385395)
+color = Color(0.099882804, 0.5314834, 0.56681395, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_j6jlb")
+
+[node name="PointLight2D2" type="PointLight2D" parent="EnterSprite" unique_id=90445121]
+position = Vector2(7.3333335, 2.666666)
+scale = Vector2(0.53385395, 0.53385395)
+color = Color(0.099882804, 0.5314834, 0.56681395, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_j6jlb")
 
 [node name="ExitSprite" type="Sprite2D" parent="." unique_id=1398861126]
-position = Vector2(-19, -63)
+texture_filter = 1
+position = Vector2(-6, -61)
+scale = Vector2(2.313419, 2.3134186)
 texture = ExtResource("6_j6jlb")
+
+[node name="PointLight2D2" type="PointLight2D" parent="ExitSprite" unique_id=1466113099]
+position = Vector2(1.7290425, -2.5935626)
+scale = Vector2(0.8004987, 0.8004987)
+color = Color(0.84451884, 0.15780652, 0.2594664, 1)
+texture = SubResource("GradientTexture2D_j6jlb")
 
 [node name="Label" type="Label" parent="." unique_id=1608309891]
 texture_filter = 1

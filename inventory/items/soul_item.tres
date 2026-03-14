@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="SoulItem" format=3 uid="uid://tm1b4twaw637"]
 
 [ext_resource type="Script" uid="uid://j2awxawjbxby" path="res://inventory/soul_item.gd" id="1_swdiq"]
-[ext_resource type="Texture2D" uid="uid://cjk63kfbrbdvv" path="res://assets/Screenshot_2026-02-28_110053-removebg-preview.png" id="2_03ns1"]
+[ext_resource type="Texture2D" uid="uid://dg4pr8nv2tqew" path="res://assets/soul/soul_item5-pixilart.png" id="2_swdiq"]
 
 [resource]
 script = ExtResource("1_swdiq")
 name = "SoulItem"
-texture = ExtResource("2_03ns1")
-description = "the soul of the npc"
+texture = ExtResource("2_swdiq")
+description = "the soul of garry return it to him"
 max_stack = 1
 metadata/_custom_type_script = "uid://j2awxawjbxby"

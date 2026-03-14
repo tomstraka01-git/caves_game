@@ -31,11 +31,11 @@ light_mode = 1
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lbrgs"]
 light_mode = 1
 
-[sub_resource type="Gradient" id="Gradient_36cfx"]
+[sub_resource type="Gradient" id="Gradient_0a1bo"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sk60w"]
-gradient = SubResource("Gradient_36cfx")
+gradient = SubResource("Gradient_0a1bo")
 fill = 1
 fill_from = Vector2(0.49447513, 0.4723757)
 fill_to = Vector2(0.49447513, 0)
@@ -309,13 +309,13 @@ scale = Vector2(0.1579817, 0.17737755)
 texture = ExtResource("9_sk60w")
 
 [node name="Screenshot20260228103944RemovebgPreview3" type="Sprite2D" parent="." unique_id=1120936316]
-position = Vector2(1313.1876, -111.75)
-scale = Vector2(0.20034961, 0.13955824)
+position = Vector2(1313.1876, -112.5)
+scale = Vector2(0.20034961, 0.14257029)
 texture = ExtResource("8_ll25s")
 
 [node name="Screenshot20260228105226RemovebgPreview2" type="Sprite2D" parent="." unique_id=843042586]
-position = Vector2(1542, -112.3125)
-scale = Vector2(0.16886525, 0.18950096)
+position = Vector2(1542, -111.99999)
+scale = Vector2(0.16886525, 0.1883239)
 texture = ExtResource("9_sk60w")
 
 [node name="Screenshot20260228110053RemovebgPreview" type="Sprite2D" parent="." unique_id=282904783]
@@ -342,6 +342,7 @@ texture = ExtResource("10_om4r1")
 position = Vector2(969, 7)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1991492943]
+visible = false
 color = Color(0.11764706, 0.11764706, 0.11764706, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=965899058]
@@ -356,7 +357,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Area2D" parent="." unique_id=903844828 instance=ExtResource("8_qjcqe")]
-position = Vector2(1452, -25)
+position = Vector2(1452, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=934194175]
 position = Vector2(714, -20)
@@ -386,7 +387,7 @@ rotation = 0.042053625
 scale = Vector2(0.05, 0.05)
 
 [node name="Torch4" parent="." unique_id=522559138 instance=ExtResource("12_om4r1")]
-position = Vector2(1572, -77.999985)
+position = Vector2(1575, -77.999985)
 rotation = 0.0370775
 scale = Vector2(0.05, 0.05)
 
@@ -486,7 +487,8 @@ position = Vector2(165, -86)
 [node name="CrystalBlue" type="Sprite2D" parent="." unique_id=961447933]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(279, 2)
+position = Vector2(942, 17.99997)
+rotation = 0.7730836
 texture = ExtResource("21_0a1bo")
 
 [node name="PointLight2D3" type="PointLight2D" parent="CrystalBlue" unique_id=196674778]
@@ -530,6 +532,31 @@ energy = 2.0
 texture = SubResource("GradientTexture2D_sk60w")
 height = 1.0
 
+[node name="CrystalBlue5" type="Sprite2D" parent="." unique_id=677074992]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(1077.0001, -186.00003)
+rotation = 2.5347743
+scale = Vector2(0.6358447, 0.6358447)
+texture = ExtResource("21_0a1bo")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CrystalBlue5" unique_id=1915613144]
+position = Vector2(4.0000024, -7)
+rotation = -0.73428845
+scale = Vector2(1.018094, 0.65853274)
+color = Color(0.1808463, 0.38639885, 0.53776956, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_sk60w")
+height = 1.0
+
+[node name="CrystalBlue7" type="Sprite2D" parent="." unique_id=484359294]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(1117.0001, 23.000004)
+rotation = 0.79349107
+scale = Vector2(0.6358447, 0.6358447)
+texture = ExtResource("21_0a1bo")
+
 [node name="CrystalBlue4" type="Sprite2D" parent="." unique_id=55913201]
 texture_filter = 1
 texture_repeat = 1
@@ -547,11 +574,31 @@ energy = 3.0
 texture = SubResource("GradientTexture2D_sk60w")
 height = 1.0
 
-[node name="CrystalPurple" type="Sprite2D" parent="." unique_id=275323159]
+[node name="PointLight2D4" type="PointLight2D" parent="CrystalBlue4" unique_id=381294721]
+position = Vector2(-375.79257, -478.254)
+rotation = -3.7662423
+scale = Vector2(1.018094, 0.65853274)
+color = Color(0.1808463, 0.38639885, 0.53776956, 1)
+energy = 3.0
+texture = SubResource("GradientTexture2D_sk60w")
+height = 1.0
+
+[node name="CrystalBlue6" type="Sprite2D" parent="." unique_id=1520146782]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(307, -7)
-texture = ExtResource("22_trrqm")
+position = Vector2(1579, -140.99997)
+rotation = 3.600231
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("21_0a1bo")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CrystalBlue6" unique_id=334850362]
+position = Vector2(8.864284, -7.758931)
+rotation = -0.73428845
+scale = Vector2(1.018094, 0.65853274)
+color = Color(0.1808463, 0.38639885, 0.53776956, 1)
+energy = 3.0
+texture = SubResource("GradientTexture2D_sk60w")
+height = 1.0
 
 [node name="CrystalPurple2" type="Sprite2D" parent="." unique_id=1526723549]
 texture_filter = 1
@@ -561,13 +608,53 @@ rotation = 0.116937056
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("22_trrqm")
 
+[node name="CrystalPurple4" type="Sprite2D" parent="." unique_id=336186230]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(1088, -183)
+rotation = -3.0149996
+scale = Vector2(-0.9531672, 0.9280404)
+texture = ExtResource("22_trrqm")
+
+[node name="CrystalPurple3" type="Sprite2D" parent="." unique_id=503865908]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-38, -108)
+rotation = 2.7547143
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("22_trrqm")
+
 [node name="CrystalYellow" type="Sprite2D" parent="." unique_id=1820876584]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(255, 3)
+position = Vector2(957, 20)
 texture = ExtResource("23_vkd6l")
 
 [node name="PointLight2D3" type="PointLight2D" parent="CrystalYellow" unique_id=702449178]
+position = Vector2(4.0000024, -7)
+rotation = -0.73428845
+scale = Vector2(1.018094, 0.65853274)
+color = Color(0.4570821, 0.35056436, 0.09382894, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_sk60w")
+height = 1.0
+
+[node name="CrystalYellow5" type="Sprite2D" parent="." unique_id=1973780701]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(1583.9999, -140.00006)
+rotation = -2.4176338
+texture = ExtResource("23_vkd6l")
+
+[node name="CrystalYellow4" type="Sprite2D" parent="." unique_id=1435176030]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-9.000002, -123)
+rotation = -3.3888173
+scale = Vector2(0.7600006, 0.7600006)
+texture = ExtResource("23_vkd6l")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CrystalYellow4" unique_id=264227285]
 position = Vector2(4.0000024, -7)
 rotation = -0.73428845
 scale = Vector2(1.018094, 0.65853274)
@@ -588,6 +675,13 @@ texture_filter = 1
 texture_repeat = 1
 position = Vector2(704, -103.00001)
 rotation = 3.0227141
+texture = ExtResource("23_vkd6l")
+
+[node name="CrystalYellow6" type="Sprite2D" parent="." unique_id=1900827028]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(1114.1471, 19.41485)
+rotation = -0.009239674
 texture = ExtResource("23_vkd6l")
 
 [node name="PixilFrame0(7)" type="Sprite2D" parent="." unique_id=1659708849]

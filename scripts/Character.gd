@@ -50,6 +50,10 @@ var is_dead := false
 var return_stam = true
 var stamina_empty = false
 
+# --- Block ---
+var is_blocking := false
+const BLOCK_DAMAGE_STAMINA_FACTOR = 0.5
+
 const STAMINA_ATTACK  = 10
 const STAMINA_DASH    = 20
 const STAMINA_AIR_MIN = 10
@@ -122,10 +126,22 @@ func _play_sound(sound: String):
 func take_damage(amount: int, knockback_dir: float = 0.0):
     if is_dead or is_sliding:
         return
+
+    # ── Block check ──────────────────────────────────────────────────────────
+    if is_blocking and is_on_floor():
+        var stamina_cost = int(amount * BLOCK_DAMAGE_STAMINA_FACTOR)
+        var blocked = ui.take_stamina(stamina_cost)
+        if blocked:
+            anim_sprite.play("block_first")
+            return
+        is_blocking = false
+    # ─────────────────────────────────────────────────────────────────────────
+
     anim_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
     anim_sprite.scale = Vector2(1.0, 1.0)
     is_hit = true
     is_attacking = false
+    is_blocking = false
     is_air_attacking = false
     air_slam_charging = false
     air_slam_falling = false
@@ -154,6 +170,7 @@ func heal_player(amount: int):
     if is_dead or is_sliding:
         return
     is_attacking = false
+    is_blocking = false
     is_air_attacking = false
     air_slam_charging = false
     air_slam_falling = false
@@ -218,28 +235,43 @@ func _physics_process(delta: float) -> void:
         if Input.is_action_just_pressed("ui_accept") and is_on_floor():
             velocity.y = JUMP_VELOCITY
             is_attacking = false
+            is_blocking = false
         if Input.is_action_pressed("move_left"):
             direction = -1
-            $Pivot.scale.x = -1
+            if not is_blocking:
+                $Pivot.scale.x = -1
         elif Input.is_action_pressed("move_right"):
             direction = 1
-            $Pivot.scale.x = 1
-        if Input.is_action_just_pressed("dash") and slide_cooldown_timer <= 0.0 and is_on_floor():
-            return_stam = ui.take_stamina(STAMINA_DASH)
-            if return_stam == true:
-                _start_slide(direction if direction != 0 else $Pivot.scale.x)
-            else:
-                _not_enough_stamina()
-        if Input.is_action_just_pressed("attack") and attack_timer <= 0 and not is_attacking:
-            if not is_on_floor():
-                attack_timer = ATTACK_COOLDOWN
-                _start_air_slam()
-            else:
-                if ui.take_stamina(STAMINA_ATTACK):
-                    attack_timer = ATTACK_COOLDOWN
-                    player_attack()
+            if not is_blocking:
+                $Pivot.scale.x = 1
+
+        # ── Block input ───────────────────────────────────────────────────────
+        if Input.is_action_pressed("block") and is_on_floor() and not is_attacking and not stamina_empty:
+            is_blocking = true
+        else:
+            is_blocking = false
+        # ─────────────────────────────────────────────────────────────────────
+
+        if not is_blocking:
+            if Input.is_action_just_pressed("dash") and slide_cooldown_timer <= 0.0 and is_on_floor():
+                return_stam = ui.take_stamina(STAMINA_DASH)
+                if return_stam == true:
+                    _start_slide(direction if direction != 0 else $Pivot.scale.x)
                 else:
                     _not_enough_stamina()
+            if Input.is_action_just_pressed("attack") and attack_timer <= 0 and not is_attacking:
+                if not is_on_floor():
+                    attack_timer = ATTACK_COOLDOWN
+                    _start_air_slam()
+                else:
+                    if ui.take_stamina(STAMINA_ATTACK):
+                        attack_timer = ATTACK_COOLDOWN
+                        player_attack()
+                    else:
+                        _not_enough_stamina()
+    else:
+        is_blocking = false
+
     if not is_air_attacking:
         if is_sliding:
             velocity.x = slide_direction * SLIDE_SPEED
@@ -263,6 +295,12 @@ func _physics_process(delta: float) -> void:
 func _update_animation(direction: int) -> void:
     if is_attacking or is_hit or is_air_attacking:
         return
+    # Block animation: play block_first as entry, then block loops
+    if is_blocking:
+        walk_sound.stop()
+        if anim_sprite.animation != "block_first" and anim_sprite.animation != "block":
+            anim_sprite.play("block_first")
+        return
     if is_sliding:
         walk_sound.stop()
         _safe_play("slide")
@@ -282,6 +320,7 @@ func _safe_play(anim_name: String) -> void:
 
 func _start_slide(dir: float) -> void:
     is_sliding = true
+    is_blocking = false
     slide_direction = sign(dir) if dir != 0 else 1.0
     $Pivot.scale.x = slide_direction
     slide_timer = SLIDE_DURATION
@@ -291,6 +330,7 @@ func _start_slide(dir: float) -> void:
 
 func _start_air_slam() -> void:
     is_air_attacking = true
+    is_blocking = false
     air_slam_charging = true
     air_slam_falling = false
     air_slam_charge_time = 0.0
@@ -358,6 +398,12 @@ func _on_animated_sprite_2d_animation_finished() -> void:
     if is_dead:
         return
     match anim_sprite.animation:
+        "block_first":
+            # Transition to looping block hold if still blocking
+            if is_blocking:
+                anim_sprite.play("block")
+            else:
+                anim_sprite.play("idle")
         "attack_1", "attack_2":
             is_attacking = false
             anim_sprite.play("idle")
@@ -425,6 +471,7 @@ func die() -> void:
     is_dead = true
     is_attacking = false
     is_hit = false
+    is_blocking = false
     is_sliding = false
     is_air_attacking = false
     air_slam_charging = false
@@ -458,9 +505,13 @@ func _on_back_pressed() -> void:
     transitioning = true
     var scene_path = get_tree().current_scene.scene_file_path
     if "level_" in scene_path:
-        await play_click_and_fade("res://scenes/levels.tscn")
-    elif scene_path == "res://scenes/levels.tscn":
+        await play_click_and_fade("res://scenes/levels_cave.tscn")
+    elif scene_path == "res://scenes/levels_cave.tscn":
+        await play_click_and_fade("res://scenes/base.tscn")
+    elif scene_path == "res://scenes/base.tscn":
         await play_click_and_fade("res://scenes/main_menu.tscn")
+    elif scene_path == "res://scenes/final_boss_level.tscn":
+        await play_click_and_fade("res://scenes/levels_cave.tscn")
 
 func _on_back_mouse_entered() -> void:
     click_sound.pitch_scale = 0.8

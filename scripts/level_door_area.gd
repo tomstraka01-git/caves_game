@@ -4,7 +4,7 @@ extends Area2D
 @onready var anim_sprite = $"../AnimatedSprite2D"
 @onready var error_sound = $"../ErrorSound"
 @onready var click_sound = $"../EnterSound"
-@onready var level_label = $"../LevelLabel"
+
 
 
 var level_index: int = 0
@@ -34,7 +34,7 @@ func _ready():
     fade.anchor_bottom = 1
     fade.color = Color.BLACK
     fade.modulate = Color(1, 1, 1, 0)
-    level_label.text = level_text
+
 
 func _is_unlocked() -> bool:
     if level_index == 0:

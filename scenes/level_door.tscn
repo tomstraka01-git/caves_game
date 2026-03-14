@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" uid="uid://crwwxyql0gulv" path="res://scripts/level_door_main.gd" id="1_711qk"]
 [ext_resource type="Script" uid="uid://dvm7xco5g4s4l" path="res://scripts/level_door_area.gd" id="1_rfkvk"]
+[ext_resource type="Material" uid="uid://qkekqs28plas" path="res://materials/unshadd.tres" id="3_oumrv"]
+[ext_resource type="Texture2D" uid="uid://cmny0hlp8oc54" path="res://assets/door/door/click.png" id="4_oumrv"]
 [ext_resource type="Texture2D" uid="uid://ufwat2mql4b8" path="res://assets/door/door/pixil-frame-0(25).png" id="4_yq4eq"]
 [ext_resource type="Texture2D" uid="uid://b3unkbd15suka" path="res://assets/door/door/pixil-frame-0(24).png" id="5_qgsaj"]
-[ext_resource type="FontFile" uid="uid://chskrdwnk0fog" path="res://assets/fonts/Anton,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="6_tcfsm"]
 [ext_resource type="AudioStream" uid="uid://ca7son6v8ha6s" path="res://assets/sounds/699949__8bitmyketison__multimedia-sfx-error-02-aggressive-distorted.wav" id="6_wqhls"]
 [ext_resource type="AudioStream" uid="uid://hnk8chkliqj7" path="res://assets/sounds/door_enter.wav" id="7_oumrv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr8c4"]
-size = Vector2(62, 85)
+size = Vector2(75, 87.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_44dbp"]
 atlas = ExtResource("5_qgsaj")
@@ -19,7 +20,7 @@ region = Rect2(0, 0, 40, 60)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_qgsaj")
+"texture": ExtResource("4_oumrv")
 }],
 "loop": true,
 "name": &"click",
@@ -58,14 +59,15 @@ script = ExtResource("1_711qk")
 script = ExtResource("1_rfkvk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1434097093]
-position = Vector2(31, -43)
+position = Vector2(2.5, -44.25)
 shape = SubResource("RectangleShape2D_dr8c4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2145984535]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(29, -31)
-scale = Vector2(2, 2)
+material = ExtResource("3_oumrv")
+position = Vector2(5.9604645e-08, -39)
+scale = Vector2(1.4, 1.4)
 sprite_frames = SubResource("SpriteFrames_7dh4e")
 animation = &"click"
 
@@ -82,15 +84,3 @@ stream = ExtResource("6_wqhls")
 position = Vector2(8, 2)
 stream = ExtResource("7_oumrv")
 volume_db = 12.0
-
-[node name="LevelLabel" type="Label" parent="." unique_id=1676359926]
-texture_filter = 1
-texture_repeat = 1
-offset_left = -13.0
-offset_top = -80.0
-offset_right = 243.0
-offset_bottom = -48.0
-scale = Vector2(0.3404598, 0.3404598)
-theme_override_fonts/font = ExtResource("6_tcfsm")
-theme_override_font_sizes/font_size = 32
-text = "Level: 0"

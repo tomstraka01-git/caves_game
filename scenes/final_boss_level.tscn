@@ -9,8 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://cjk63kfbrbdvv" path="res://assets/Screenshot_2026-02-28_110053-removebg-preview.png" id="7_0p72i"]
 [ext_resource type="PackedScene" uid="uid://bbo3v0y7bja6p" path="res://scenes/torch.tscn" id="10_clwoe"]
 [ext_resource type="PackedScene" uid="uid://ijx141nncv1f" path="res://scenes/item_scenes/coin.tscn" id="11_if57i"]
+[ext_resource type="Texture2D" uid="uid://bdtuclkt3dc7i" path="res://assets/hearts/potionsbars/potion_bar_pozadi-pixilart.png" id="13_3xdgl"]
+[ext_resource type="Texture2D" uid="uid://gjmhp4vbm75m" path="res://assets/hearts/potionsbars/final_boss_bar_pozadi-pixilart.png" id="14_igooy"]
 [ext_resource type="Script" uid="uid://vbq40u2nd2nf" path="res://scripts/map.gd" id="18_oc2dj"]
-[ext_resource type="Texture2D" uid="uid://jwb0gkl16ff0" path="res://assets/hearts/health_bar.png" id="19_mnt4k"]
 [ext_resource type="PackedScene" uid="uid://ckany226s333k" path="res://scenes/item_scenes/key.tscn" id="19_uddnn"]
 [ext_resource type="PackedScene" uid="uid://cmtd84e8r3bx1" path="res://scenes/final_gate.tscn" id="20_kkpqg"]
 [ext_resource type="PackedScene" uid="uid://c3rxrtrv0dp14" path="res://scenes/final_boss.tscn" id="20_lvm14"]
@@ -119,11 +120,11 @@ texture = ExtResource("4_bggf1")
 [sub_resource type="TileSet" id="TileSet_7tvnq"]
 sources/0 = SubResource("TileSetAtlasSource_ayt8x")
 
-[sub_resource type="Gradient" id="Gradient_mnt4k"]
+[sub_resource type="Gradient" id="Gradient_vpu3v"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2kned"]
-gradient = SubResource("Gradient_mnt4k")
+gradient = SubResource("Gradient_vpu3v")
 fill = 1
 fill_from = Vector2(0.49447513, 0.4723757)
 fill_to = Vector2(0.49447513, 0)
@@ -156,6 +157,7 @@ fill_to = Vector2(0.49447513, 0)
 size = Vector2(20, 164)
 
 [node name="FinalBossLevel" type="Node2D" unique_id=1596676570]
+metadata/_edit_horizontal_guides_ = [-938.0]
 
 [node name="Character" parent="." unique_id=1207945146 instance=ExtResource("1_mnt4k")]
 position = Vector2(28, -20)
@@ -419,11 +421,15 @@ texture = SubResource("GradientTexture2D_mnt4k")
 height = 1.0
 
 [node name="TextureProgressBarHealth2" type="TextureProgressBar" parent="Final_Boss" unique_id=1540012040]
-offset_left = -9.0
-offset_top = -118.0
-offset_right = 40.0
-offset_bottom = -78.0
-texture_progress = ExtResource("19_mnt4k")
+texture_filter = 1
+texture_repeat = 1
+offset_left = -70.0
+offset_top = -108.0
+offset_bottom = -68.0
+scale = Vector2(1.5752316, 1.5752316)
+value = 100.0
+texture_under = ExtResource("13_3xdgl")
+texture_progress = ExtResource("14_igooy")
 
 [node name="AreaEnterBossFight" type="Area2D" parent="." unique_id=670080864]
 script = ExtResource("21_kkpqg")
@@ -433,7 +439,7 @@ position = Vector2(448, -65)
 shape = SubResource("RectangleShape2D_fqfpq")
 
 [node name="FinalGate" parent="." unique_id=670237174 instance=ExtResource("20_kkpqg")]
-position = Vector2(1237, -16)
+position = Vector2(297, -17)
 scale = Vector2(0.5, 0.5)
 is_enter = false
 enter_scene = "res://scenes/final_boss_level.tscn"
